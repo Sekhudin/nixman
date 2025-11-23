@@ -14,7 +14,6 @@
     packages = [
       inputs.self.packages.${pkgs.stdenv.system}.nvim
     ];
-    # sessionVariables.EDITOR = lib.getExe' inputs.self.packages.${pkgs.stdenv.system}.nvim "nvim";
   };
 
   within.gpg.enable = true;
