@@ -23,6 +23,9 @@
     ##################################
     # common
     ##################################
+    xsel
+    (writeScriptBin "copy" "xsel -ib")
+    (writeScriptBin "paste" "xsel -ob")
     coreutils
     gnused
     gawk
