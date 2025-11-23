@@ -21,15 +21,23 @@ in
       use-agent = true;
     };
 
-    home.file = mkIf pkgs.stdenv.isDarwin {
-      ".gnupg/gpg-agent.conf".source = pkgs.writeTextFile {
-        name = "home-gpg-agent.conf";
-        text =
-          ''
+    home.file = mkMerge [
+      (mkIf pkgs.stdenv.isDarwin {
+        ".gnupg/gpg-agent.conf".source = pkgs.writeTextFile {
+          name = "home-gpg-agent.conf";
+          text = ''
             pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
           '';
-      };
-    };
+        };
+      })
 
+      (mkIf pkgs.stdenv.isLinux {
+        ".gnupg/gpg-agent.conf".text = ''
+          pinentry-program ${pkgs.pinentry-curses}/bin/pinentry-curses
+          default-cache-ttl 3600
+          max-cache-ttl 999999
+        '';
+      })
+    ];
   };
 }
