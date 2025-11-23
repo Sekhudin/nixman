@@ -33,7 +33,7 @@ in
 
       (mkIf pkgs.stdenv.isLinux {
         ".gnupg/gpg-agent.conf".text = ''
-          pinentry-program ${pkgs.pinentry-curses}/bin/pinentry-curses
+          pinentry-program ${pkgs.pinentry-gnome3}/bin/pinentry
           default-cache-ttl 3600
           max-cache-ttl 999999
         '';
