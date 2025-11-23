@@ -86,30 +86,25 @@ in
           name = "Ghostty";
           type = "Application";
           icon = "com.mitchellh.ghostty";
-          comment = "A terminal emulator";
           exec = "nixGLMesa ghostty";
-          startupNotify = true;
+          comment = "A terminal emulator";
           terminal = false;
+          startupNotify = true;
+          actions.new-window.name = "New Window";
+          actions.new-window.exec = "nixGLMesa ghostty";
+          settings.Keywords = "terminal;tty;pty";
+          settings.StartupWMClass = "com.mitchellh.ghostty";
+          settings.X-GNOME-UsesNotifications = "true";
+          settings.X-TerminalArgExec = "-e";
+          settings.X-TerminalArgTitle = "--title=";
+          settings.X-TerminalArgAppId = "--class=";
+          settings.X-TerminalArgDir = "--working-directory=";
+          settings.X-TerminalArgHold = "--wait-after-command";
           categories = [
             "System"
             "TerminalEmulator"
           ];
         };
-        xdg.desktopEntries."com.mitchellh.ghostty".actions = {
-          new-window.name = "New Window";
-          new-window.exec = "nixGLMesa ghostty";
-        };
-        xdg.desktopEntries."com.mitchellh.ghostty".settings = {
-          Keywords = "terminal;tty;pty";
-          StartupWMClass = "com.mitchellh.ghostty";
-          X-GNOME-UsesNotifications = "true";
-          X-TerminalArgExec = "-e";
-          X-TerminalArgTitle = "--title=";
-          X-TerminalArgAppId = "--class=";
-          X-TerminalArgDir = "--working-directory=";
-          X-TerminalArgHold = "--wait-after-command";
-        };
-
       })
 
       ##################################
@@ -139,21 +134,17 @@ in
           genericName = "Terminal";
           type = "Application";
           icon = "Alacritty";
-          comment = "A fast, cross-platform, OpenGL terminal emulator";
           exec = "nixGLMesa alacritty";
+          comment = "A fast, cross-platform, OpenGL terminal emulator";
           startupNotify = true;
           terminal = false;
+          actions.new.name = "New Terminal";
+          actions.new.exec = "nixGLMesa alacritty";
+          settings.StartupWMClass = "Alacritty";
           categories = [
             "System"
             "TerminalEmulator"
           ];
-        };
-        xdg.desktopEntries.Alacritty.actions = {
-          new.name = "New Terminal";
-          new.exec = "nixGLMesa alacritty";
-        };
-        xdg.desktopEntries.Alacritty.settings = {
-          StartupWMClass = "Alacritty";
         };
       })
     ];
