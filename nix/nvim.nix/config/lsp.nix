@@ -1,0 +1,488 @@
+{
+  lib,
+  icons,
+  pkgs,
+  system,
+  inputs,
+  ...
+}:
+
+let
+  mkLuaFun = lua: ''
+    function()
+      ${lua}
+    end
+  '';
+in
+{
+  highlightOverride.LspInlayHint.link = "InclineNormalNc";
+
+  extraPlugins = with pkgs.vimPlugins; [
+    codi-vim # repl
+    neorepl-nvim
+  ];
+
+  # make custom command
+  userCommands = {
+    LspInlay.desc = "Toggle Inlay Hints";
+    LspInlay.command.__raw =
+      mkLuaFun
+        # lua
+        ''
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        '';
+  };
+
+  autoCmd = [
+    {
+      event = [ "LspAttach" ];
+      callback.__raw = ''
+        function()
+          local bufnr = vim.api.nvim_get_current_buf()
+          local clients = vim.lsp.get_clients()
+          local is_biome_active = function()
+            for _, client in ipairs(clients) do
+              if client.name == "biome" and client.attached_buffers[bufnr] then
+                return true
+              end
+            end
+            return false
+          end
+
+          for _, client in ipairs(clients) do
+            if is_biome_active() then
+              if client.name == "typescript-tools" or client.name == "jsonls" then
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+              end
+              if client.name == "eslint" then
+                client.stop()
+              end
+            end
+          end
+        end
+      '';
+    }
+  ];
+
+  # ft:rust didn't respect my tabstop=2 - I love you but not me
+  globals.rust_recommended_style = false;
+
+  plugins = rec {
+    lz-n.plugins = [
+      {
+        __unkeyed-1 = pkgs.vimPlugins.codi-vim.name;
+        cmd = [
+          "Codi"
+          "CodiNew"
+          "CodiSelect"
+          "CodiUpdate"
+        ];
+      }
+      {
+        __unkeyed-1 = pkgs.vimPlugins.neorepl-nvim.name;
+        cmd = [ "Repl" ];
+      }
+    ];
+    which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>r";
+        __unkeyed-2 = "<cmd>Repl<cr>";
+        desc = "Open Repl";
+      }
+      {
+        __unkeyed-1 = "//";
+        __unkeyed-2 = "<cmd>nohlsearch<cr>";
+        desc = "Clear search highlight";
+      }
+      {
+        __unkeyed-1 = "<leader><space>";
+        __unkeyed-2 = "<cmd>Lspsaga term_toggle<cr>";
+        desc = "Open Terminal";
+
+      }
+      {
+        __unkeyed-1 = "ge";
+        __unkeyed-2 = "<cmd>Trouble<cr>";
+        desc = "Show diagnostics";
+
+      }
+      {
+        __unkeyed-1 = "[e";
+        __unkeyed-2 = "<cmd>Lspsaga diagnostic_jump_next<cr>";
+        desc = "Next Diagnostic";
+
+      }
+      {
+        __unkeyed-1 = "]e";
+        __unkeyed-2 = "<cmd>Lspsaga diagnostic_jump_prev<cr>";
+        desc = "Previous Diagnostic";
+
+      }
+      {
+        __unkeyed-1 = "K";
+        __unkeyed-2 = "<cmd>Lspsaga hover_doc<cr>";
+        desc = "Code Hover";
+
+      }
+      {
+        __unkeyed-1 = "F";
+        __unkeyed-2 = "<cmd>Format<cr>";
+        desc = "Format the current buffer";
+
+      }
+      {
+        __unkeyed-1 = "gl";
+        __unkeyed-2 = "<cmd>LspInfo<cr>";
+        desc = "Show LSP Info";
+
+      }
+      {
+        __unkeyed-1 = "gt";
+        __unkeyed-2 = "<cmd>Lspsaga outline<cr>";
+        desc = "Code Outline";
+
+      }
+      {
+        __unkeyed-1 = "ga";
+        __unkeyed-2 = "<cmd>Lspsaga code_action<cr>";
+        desc = "Code Action";
+
+      }
+      {
+        __unkeyed-1 = "gi";
+        __unkeyed-2 = "<cmd>Lspsaga incoming_calls<cr>";
+        desc = "Incoming Calls";
+
+      }
+      {
+        __unkeyed-1 = "go";
+        __unkeyed-2 = "<cmd>Lspsaga outgoing_calls<cr>";
+        desc = "Outgoing Calls";
+
+      }
+      {
+        __unkeyed-1 = "gD";
+        __unkeyed-2 = "<cmd>Lspsaga goto_definition<cr>";
+        desc = "Go to Definition";
+
+      }
+      {
+        __unkeyed-1 = "gd";
+        __unkeyed-2 = "<cmd>Lspsaga peek_definition<cr>";
+        desc = "Peek Definition";
+
+      }
+      {
+        __unkeyed-1 = "gr";
+        __unkeyed-2 = "<cmd>Lspsaga rename<cr>";
+        desc = "Code Rename";
+        icon = icons.gearSM;
+
+      }
+      {
+        __unkeyed-1 = "gs";
+        __unkeyed-2 = ''<cmd>lua require("wtf").search() <cr>'';
+        desc = "Search diagnostic with Google";
+
+      }
+      {
+        __unkeyed-1 = "gF";
+        __unkeyed-2 = "<cmd>Lspsaga finder<cr>";
+        desc = "Code Finder";
+
+      }
+      {
+        __unkeyed-1 = "tI";
+        __unkeyed-2 = "<cmd>LspInlay<cr>";
+        desc = "Toggle Inlay Hints";
+
+      }
+      {
+        __unkeyed-1 = "flr";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_references()<cr>";
+        desc = "[Lsp] Find References";
+      }
+      {
+        __unkeyed-1 = "fic";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_incoming_calls()<cr>";
+
+      }
+      {
+        __unkeyed-1 = "foc";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_outgoing_calls()<cr>";
+        desc = "[Lsp] Find Outgoing Calls";
+      }
+      {
+        __unkeyed-1 = "fds";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_document_symbols()<cr>";
+        desc = "[Lsp] Find Document Symbols";
+      }
+      {
+        __unkeyed-1 = "fws";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols()<cr>";
+        desc = "[Lsp] Find Workspace Symbols";
+      }
+      {
+        __unkeyed-1 = "fdws";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_dynamic_workspace_symbols()<cr>";
+        desc = "[Lsp] Find Dynamic Workspace Symbols";
+      }
+      {
+        __unkeyed-1 = "fld";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.diagnostics()<cr>";
+        desc = "[Lsp] Find Diagnostics";
+      }
+      {
+        __unkeyed-1 = "fli";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_implementations()<cr>";
+        desc = "[Lsp] Find Implementations";
+      }
+      {
+        __unkeyed-1 = "flD";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>";
+        desc = "[Lsp] Find Definitions";
+      }
+      {
+        __unkeyed-1 = "flt";
+        __unkeyed-2 = "<cmd>lua require'telescope.builtin'.lsp_type_definitions()<cr>";
+        desc = "[Lsp] Find Type Definitions";
+      }
+    ];
+
+    typescript-tools.enable = true;
+    typescript-tools.settings.code_lens = "references_only";
+    typescript-tools.settings.complete_function_calls = true;
+    typescript-tools.settings.expose_as_code_action = "all";
+    typescript-tools.settings.handlers = {
+      "textDocument/publishDiagnostics" =
+        # lua
+        ''
+          require("typescript-tools.api").filter_diagnostics(
+            -- Ignore 'This may be converted to an async function' diagnostics.
+            { 80006 }
+          )
+        '';
+    };
+
+    crates.enable = true;
+    crates.lazyLoad = {
+      enable = true;
+      settings.ft = "rust";
+    };
+    rustaceanvim.enable = true;
+    rustaceanvim.lazyLoad = crates.lazyLoad;
+
+    lsp = {
+      enable = true;
+      servers = {
+        ccls.enable = true;
+        ccls.autostart = true;
+
+        bashls.enable = true;
+        bashls.autostart = true;
+
+        dockerls.enable = true;
+        dockerls.autostart = true;
+        dockerls.package = pkgs.docker-language-server;
+
+        biome.enable = true;
+        biome.autostart = true;
+
+        eslint.enable = true;
+        eslint.autostart = true;
+
+        ts_ls.enable = false;
+        ts_ls.autostart = false;
+        ts_ls.extraOptions.root_dir = ''
+          require('lspconfig.util').root_pattern('.git')
+        '';
+
+        gopls.enable = true;
+        gopls.autostart = true;
+        gopls.extraOptions.settings.gopls.hints = {
+          assignVariableTypes = true;
+          compositeLiteralFields = true;
+          compositeLiteralTypes = true;
+          constantValues = true;
+          functionTypeParameters = true;
+          parameterNames = true;
+          rangeVariableTypes = true;
+        };
+
+        htmx.enable = !pkgs.stdenv.isDarwin;
+        htmx.autostart = true;
+
+        jsonls.enable = true;
+        jsonls.autostart = true;
+        jsonls.extraOptions.settings.json = {
+          validate.enable = true;
+          schemas = [
+            {
+              description = "nixd schema";
+              fileMatch = [
+                ".nixd.json"
+                "nixd.json"
+              ];
+              url = "https://raw.githubusercontent.com/nix-community/nixd/main/nixd/docs/nixd-schema.json";
+            }
+            {
+              description = "Turbo.build configuration file";
+              fileMatch = [ "turbo.json" ];
+              url = "https://turbo.build/schema.json";
+            }
+            {
+              description = "TypeScript compiler configuration file";
+              fileMatch = [
+                "tsconfig.json"
+                "tsconfig.*.json"
+              ];
+              url = "https://json.schemastore.org/tsconfig.json";
+            }
+          ];
+        };
+
+        lua_ls.enable = true;
+        lua_ls.autostart = true;
+
+        rust_analyzer.autostart = true;
+        rust_analyzer.installCargo = false;
+        rust_analyzer.installRustc = false;
+
+        nixd.enable = true;
+        nixd.autostart = true;
+        nixd.settings = {
+          nixpkgs.expr = ''import "${inputs.nixpkgs.outPath}" { }'';
+          formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
+          diagnostic.suppress = [ "sema-escaping-with" ];
+          # options =
+          #   let
+          #     flake = ''(builtins.getFlake "github:sekhudin/unixverse")'';
+          #   in
+          #   {
+          #     home-manager.expr = ''${flake}.homeConfigurations."syaikhu@syaikhu".options'';
+          #     nixvim.expr = ''${flake}.packages.${system}.nvim.options'';
+          #   };
+        };
+
+        yamlls.enable = true;
+        yamlls.autostart = true;
+      };
+    };
+
+    lsp-format.enable = true;
+
+    lspkind.enable = true;
+    lspkind.settings = {
+      symbolMap.Codeium = icons.code;
+      symbolMap.Copilot = icons.robotFace;
+      symbolMap.Suggestion = icons.wand;
+      symbolMap.TabNine = icons.face;
+      symbolMap.Supermaven = icons.star;
+      symbolMap.Error = icons.cross4;
+      symbolMap.Hint = icons.hint;
+      symbolMap.Info = icons.info2;
+      symbolMap.Warn = icons.warning2;
+      symbolMap.DiagnosticSignError = icons.cross4;
+      symbolMap.DiagnosticSignHint = icons.hint;
+      symbolMap.DiagnosticSignInfo = icons.info2;
+      symbolMap.DiagnosticSignWarn = icons.warning2;
+      cmp.enable = true;
+      cmp.maxWidth = 24;
+      cmp.after = # lua
+        ''
+          function(entry, vim_item, kind)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. (strings[1] or "") .. " "
+            kind.menu = "   ⌈" .. (strings[2] or "") .. "⌋"
+            return kind
+          end
+        '';
+
+    };
+    lspsaga.enable = true;
+    lspsaga.settings = {
+      lightbulb.sign = false;
+      lightbulb.virtualText = true;
+      lightbulb.debounce = 40;
+      ui.codeAction = icons.gearSM;
+    };
+
+    luasnip.enable = true;
+    luasnip.lazyLoad.settings.event = "InsertEnter";
+
+    trouble.enable = true;
+    trouble.lazyLoad.settings.cmd = "Trouble";
+
+    wtf.enable = true;
+    nvim-autopairs.enable = true;
+    nvim-autopairs.lazyLoad.settings.event = "InsertEnter";
+
+    cmp = {
+      enable = true;
+      autoEnableSources = true;
+      settings.sources = [
+        { name = "nvim_lsp"; }
+        { name = "nvim_lsp_signature_help"; }
+        { name = "nvim_lsp_document_symbol"; }
+        { name = "luasnip"; }
+        { name = "calc"; }
+        { name = "yanky"; }
+        {
+          name = "npm";
+          keyword_length = 4;
+        }
+        {
+          name = "emoji";
+          trigger_characters = [ ":" ];
+        }
+        { name = "async_path"; }
+      ];
+      settings.experimental.ghost_text = true;
+      settings.performance.debounce = 60;
+      settings.performance.fetching_timeout = 200;
+      settings.performance.max_view_entries = 30;
+      settings.window.completion.winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None";
+      settings.window.completion.border = "rounded";
+      settings.window.documentation.border = "rounded";
+      settings.window.completion.col_offset = -3;
+      settings.window.completion.side_padding = 0;
+      settings.formatting.expandable_indicator = true;
+      settings.formatting.fields = [
+        "kind"
+        "abbr"
+        "menu"
+      ];
+      settings.snippet.expand = # lua
+        ''
+          function(args) require('luasnip').lsp_expand(args.body) end
+        '';
+      settings.mapping."<C-e>" = "cmp.mapping.complete()";
+      settings.mapping."<C-x>" = "cmp.mapping.close()";
+      settings.mapping."<C-f>" = "cmp.mapping.scroll_docs(4)";
+      settings.mapping."<S-f>" = "cmp.mapping.scroll_docs(-4)";
+      settings.mapping."<CR>" = "cmp.mapping.confirm({ select = true })";
+      settings.mapping."<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+      settings.mapping."<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+
+      cmdline."/".mapping.__raw = "cmp.mapping.preset.cmdline()";
+      cmdline."/".sources = [ { name = "buffer"; } ];
+      cmdline."?".mapping.__raw = "cmp.mapping.preset.cmdline()";
+      cmdline."?".sources = [ { name = "buffer"; } ];
+      cmdline.":".mapping.__raw = "cmp.mapping.preset.cmdline()";
+      cmdline.":".sources = [
+        { name = "buffer"; }
+        { name = "async_path"; }
+        {
+          name = "cmdline";
+          option = {
+            ignore_cmds = [
+              "Man"
+              "!"
+            ];
+          };
+        }
+      ];
+    };
+  };
+}
