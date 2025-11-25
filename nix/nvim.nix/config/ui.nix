@@ -1,5 +1,4 @@
 {
-  helpers,
   icons,
   pkgs,
   ...

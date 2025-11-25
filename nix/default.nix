@@ -1,5 +1,4 @@
 {
-  self,
   lib,
   inputs,
   ...
@@ -9,19 +8,29 @@ let
   icons = import ./icons.nix;
   colors = import ./colors.nix { inherit lib; };
   color = colors.mkColor colors.lists.edge;
+
+  config = {
+    allowUnfree = true;
+    allowBroken = false;
+  };
+
+  overlays = (lib.attrValues (import ./overlays { inherit inputs config; })) ++ [
+    inputs.nixgl.overlay
+  ];
 in
 {
   imports = [
     inputs.ez-configs.flakeModule
-
-    ./dev-shells.nix
-    ./overlays.nix
+    ./dev-shells
     ./nvim.nix
   ];
 
+  flake.overlays = {
+    default = overlays;
+  };
+
   ezConfigs.root = ./.;
   ezConfigs.globalArgs = {
-    inherit self;
     inherit inputs;
     inherit icons colors color;
   };
@@ -32,23 +41,10 @@ in
     users.syaikhu = {
       standalone.enable = true;
       standalone.pkgs = import inputs.nixpkgs {
-        system = "x86_64-linux";
-        inherit (self.nixpkgs) config overlays;
+        system = "x86_64-linux"; # <<--- 'system' ini bisa tanpa harcode ga, bang?
+        inherit config overlays;
       };
     };
-  };
-
-  flake = {
-    nixpkgs.config = {
-      allowUnfree = true;
-      allowBroken = false;
-    };
-
-    nixpkgs.overlays = lib.attrValues self.overlays ++ [
-      inputs.nixgl.overlay
-    ];
-
-    inherit icons colors color;
   };
 
   perSystem =
@@ -57,16 +53,19 @@ in
       formatter = inputs'.nixpkgs.legacyPackages.nixfmt-rfc-style;
 
       _module.args = {
+        inherit inputs;
         inherit icons colors color;
-
-        extraModuleArgs = {
-          inherit icons colors color;
-        };
-
-        pkgs = import inputs.nixpkgs {
-          inherit system;
-          inherit (self.nixpkgs) config overlays;
-        };
       };
+
+      _module.args.extraModuleArgs = {
+        inherit inputs;
+        inherit icons colors color;
+      };
+
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system;
+        inherit config overlays;
+      };
+
     };
 }

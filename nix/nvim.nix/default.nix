@@ -13,28 +13,19 @@
         inherit pkgs;
         module = import ./config;
         extraSpecialArgs = {
-          inherit
-            self
-            inputs
-            system
-            icons
-            ;
+          inherit self inputs;
+          inherit system icons;
         };
       };
     in
     {
-      checks = {
-        # nvim = inputs.nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule nixvimModule;
-        nvim = inputs.nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule (
-          nixvimModule
-          // {
-            module.plugins.image.enable = false;
-          }
-        );
-      };
+      packages.nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
 
-      packages = {
-        nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimModule;
-      };
+      checks.nvim = inputs.nixvim.lib.${system}.check.mkTestDerivationFromNixvimModule (
+        nixvimModule
+        // {
+          module.plugins.image.enable = false;
+        }
+      );
     };
 }

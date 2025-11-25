@@ -39,6 +39,7 @@
       # multi-media
       ##################################
       asciinema
+      asciinema-agg
       ffmpeg
       imagemagick
 
@@ -84,15 +85,14 @@
     name = "Telegram";
     type = "Application";
     icon = "org.telegram.desktop";
-    exec = "nixGLMesa telegram-desktop";
+    exec = "nixGLMesa telegram-desktop %u";
     comment = "New era of messaging";
     terminal = false;
     actions.quit.name = "Quit Telegram";
-    actions.quit.exec = "telegram-desktop -quit";
+    actions.quit.exec = "nixGLMesa telegram-desktop -quit";
     actions.quit.icon = "application-exit";
     settings.SingleMainWindow = "true";
     settings.StartupWMClass = "TelegramDesktop";
-    settings.DBusActivatable = "true";
     settings.X-GNOME-UsesNotifications = "true";
     settings.X-GNOME-SingleWindow = "true";
     settings.Keywords = "tg;chat;im;messaging;messenger;sms;tdesktop;";
@@ -126,7 +126,7 @@
     name = "Slack";
     type = "Application";
     icon = "slack";
-    exec = "nixGLMesa slack --no-sandbox";
+    exec = "nixGLMesa ${pkgs.slack}/bin/slack --no-sandbox -s %u";
     comment = "Slack Desktop";
     mimeType = [ "x-scheme-handler/slack" ];
     settings.StartupWMClass = "Slack";

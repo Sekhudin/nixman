@@ -2,7 +2,6 @@
   lib,
   icons,
   pkgs,
-  system,
   inputs,
   ...
 }:
@@ -355,14 +354,6 @@ in
           nixpkgs.expr = ''import "${inputs.nixpkgs.outPath}" { }'';
           formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
           diagnostic.suppress = [ "sema-escaping-with" ];
-          # options =
-          #   let
-          #     flake = ''(builtins.getFlake "github:sekhudin/unixverse")'';
-          #   in
-          #   {
-          #     home-manager.expr = ''${flake}.homeConfigurations."syaikhu@syaikhu".options'';
-          #     nixvim.expr = ''${flake}.packages.${system}.nvim.options'';
-          #   };
         };
 
         yamlls.enable = true;
