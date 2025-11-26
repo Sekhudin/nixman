@@ -21,8 +21,10 @@ in
 {
   imports = [
     inputs.ez-configs.flakeModule
-    ./dev-shells
+
     ./nvim.nix
+    ./dev-shells
+    ./composes
   ];
 
   flake.overlays = {
