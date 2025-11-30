@@ -12,7 +12,7 @@ let
       {
         window_name = "Me";
         layout = "tiled";
-        shell_command_before = [ "cd ~/evl" ];
+        shell_command_before = [ "cd ~/projects" ];
         panes = [
           "nvim"
           "echo happy working"
@@ -52,48 +52,47 @@ in
   programs.tmux.resizeAmount = 10;
   programs.tmux.terminal = "screen-256color";
   programs.tmux.keyMode = "vi";
-  programs.tmux.extraConfig = # tmux
-    ''
-      set -g status off
+  programs.tmux.extraConfig = ''
+    set -g status off
 
-      # COLORS
-      bg_color='${color.scheme.base00}'
+    # COLORS
+    bg_color='${color.scheme.base00}'
 
-      # BORDERS COLOR
-      set -g pane-border-style "fg=$bg_color bg=$bg_color"
-      set -g pane-active-border-style "fg=$bg_color bg=$bg_color"
-      set -sg escape-time 10 
+    # BORDERS COLOR
+    set -g pane-border-style "fg=$bg_color bg=$bg_color"
+    set -g pane-active-border-style "fg=$bg_color bg=$bg_color"
+    set -sg escape-time 10 
 
-      set -g @continuum-boot on
+    set -g @continuum-boot on
 
-      bind " " choose-tree -Zw
-      bind a new-session
-      bind A kill-session
-      bind w new-window
-      bind W kill-window
-      bind x kill-pane
+    bind " " choose-tree -Zw
+    bind a new-session
+    bind A kill-session
+    bind w new-window
+    bind W kill-window
+    bind x kill-pane
 
-      bind n previous-window
-      bind N next-window
+    bind n previous-window
+    bind N next-window
 
-      bind \, command-prompt "rename-window %%"
-      bind \< command-prompt "rename-session %%"
+    bind \, command-prompt "rename-window %%"
+    bind \< command-prompt "rename-session %%"
 
-      bind \? list-keys 
+    bind \? list-keys 
 
-      bind v split-pane -h
-      bind V split-pane -v
+    bind v split-pane -h
+    bind V split-pane -v
 
-      # TEMPORARY WORKAROUND FOR TMUX SENSIBLE ISSUE
-      set -gu default-command
-      set -g default-shell "$SHELL"
-      # end
+    # TEMPORARY WORKAROUND FOR TMUX SENSIBLE ISSUE
+    set -gu default-command
+    set -g default-shell "$SHELL"
+    # end
 
-      # Workaround for image
-      set -gq allow-passthrough on
-      set -g visual-activity off
-      #
-    '';
+    # Workaround for image
+    set -gq allow-passthrough on
+    set -g visual-activity off
+    #
+  '';
   programs.tmux.tmuxp.enable = config.programs.tmux.enable;
 
   programs.tmux.plugins = with pkgs.tmuxPlugins; [
@@ -124,13 +123,12 @@ in
     { plugin = resurrect; }
     {
       plugin = continuum;
-      extraConfig = # tmux
-        ''
-          set -g @resurrect-strategy-nvim 'session' 
-          set -g @resurrect-capture-pane-contents 'on'
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '60' # minutes
-        '';
+      extraConfig = ''
+        set -g @resurrect-strategy-nvim 'session' 
+        set -g @resurrect-capture-pane-contents 'on'
+        set -g @continuum-restore 'on'
+        set -g @continuum-save-interval '60' # minutes
+      '';
     }
   ];
 }
