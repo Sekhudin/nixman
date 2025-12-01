@@ -12,8 +12,7 @@
         services.postgres.me = {
           enable = true;
           initialScript.before = ''
-            CREATE USER postgres WITH password 'postgres';
-            CREATE DATABASE example_db;
+            CREATE USER me WITH password 'postgres';
           '';
         };
       };
