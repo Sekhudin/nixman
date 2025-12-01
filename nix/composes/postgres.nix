@@ -16,12 +16,6 @@
             CREATE DATABASE example_db;
           '';
         };
-
-        services.pgadmin.adme = {
-          enable = true;
-          initialEmail = "email@gmail.com";
-          initialPassword = "password";
-        };
       };
     };
 }
