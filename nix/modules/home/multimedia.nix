@@ -4,6 +4,8 @@
   home.packages = with pkgs; [
     easyeffects
     obs-studio
+    qpwgraph
+    mpv
   ];
 
   ####################################################################
