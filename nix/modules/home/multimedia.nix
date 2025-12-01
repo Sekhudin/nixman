@@ -13,11 +13,10 @@
     name = "Easy Effects";
     type = "Application";
     icon = "com.github.wwmm.easyeffects";
-    exec = "nixGLMesa easyeffects";
+    exec = "nixGLMesa ${pkgs.easyeffects}/bin/easyeffects";
     comment = "Audio Effects for PipeWire Applications";
     terminal = false;
     settings.StartupNotify = "true";
-    settings.DBusActivatable = "true";
     settings.X-GNOME-UsesNotifications = "true";
     settings.Keywords = "limiter;compressor;reverberation;equalizer;autovolume;";
     categories = [
