@@ -5,6 +5,7 @@
     dbeaver-bin
     slack
     telegram-desktop
+    wpsoffice
     (pkgs.branches.stable.discord.override {
       withVencord = true;
       withOpenASAR = true;

@@ -6,7 +6,7 @@
 }:
 
 let
-  nixConfigDirectory = "~/.config/nixpkgs";
+  nixConfigDirectory = "~/.config/nixman";
   commandFoldl' = lib.strings.concatMapStrings (x: "${x} && ");
   shellAliases =
     with pkgs;
@@ -77,12 +77,6 @@ let
       gprt = "gpg --import-ownertrust";
 
       # Nix
-      ## lenv show list generations aka list build version
-      ## senv switch generation <number>
-      ## denv delete generation <number>
-      ## renv rollback to previous version number
-      ## param: <GENEREATION_NUMBER>
-      ## run lenv before if you want to see <GENEREATION_NUMBER>
       lenv = "nix-env --list-generations";
       senv = "nix-env --switch-generation";
       denv = "nix-env --delete-generations";
@@ -116,6 +110,11 @@ let
       lt = "ls --tree";
       cat = "${pkgs.bat}/bin/bat";
       du = "${pkgs.du-dust}/bin/dust";
+
+      # Home-manager
+      hm = "home-manager";
+      hmp = "home-manager packages";
+      hmg = "home-manager generations";
 
       # Git
       g = "git";
@@ -163,7 +162,7 @@ in
   programs.atuin.enableFishIntegration = config.programs.fish.enable;
   programs.atuin.enableBashIntegration = config.programs.bash.enable;
   programs.atuin.flags = [ ];
-  programs.atuin.settings = {};
+  programs.atuin.settings = { };
 
   programs.nix-index.enable = true;
   programs.nix-index.enableFishIntegration = config.programs.fish.enable;
