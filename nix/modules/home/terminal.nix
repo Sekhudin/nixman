@@ -8,6 +8,8 @@
 
 let
   cfg = config.programs.terminal;
+  useOpengl = config.programs.opengl.use != "default";
+  opengl = config.programs.opengl.use;
 in
 {
   options = {
@@ -28,20 +30,18 @@ in
     let
       isGhostty = cfg.use == "ghostty";
       isAlacritty = cfg.use == "alacritty";
-      optionalGhostty = lib.optionals isGhostty [ pkgs.ghostty ];
-      optionalAlacritty = lib.optionals isAlacritty [ pkgs.alacritty ];
-      homePackages = optionalGhostty ++ optionalAlacritty;
     in
     lib.mkMerge [
       ##################################
       # auto-install
       ##################################
       {
-        home.packages = homePackages ++ [
-          pkgs.nixgl.nixGLMesa
+        home.packages = [
           pkgs.nerd-fonts.fira-code
           pkgs.nerd-fonts.jetbrains-mono
-        ];
+        ]
+        ++ lib.optionals isGhostty [ pkgs.ghostty ]
+        ++ lib.optionals isAlacritty [ pkgs.alacritty ];
       }
 
       ##################################
@@ -82,28 +82,30 @@ in
             font-thicken = true;
           };
 
-        xdg.desktopEntries."com.mitchellh.ghostty" = {
-          name = "Ghostty";
-          type = "Application";
-          icon = "com.mitchellh.ghostty";
-          exec = "nixGLMesa ghostty";
-          comment = "A terminal emulator";
-          terminal = false;
-          startupNotify = true;
-          actions.new-window.name = "New Window";
-          actions.new-window.exec = "nixGLMesa ghostty";
-          settings.Keywords = "terminal;tty;pty";
-          settings.StartupWMClass = "com.mitchellh.ghostty";
-          settings.X-GNOME-UsesNotifications = "true";
-          settings.X-TerminalArgExec = "-e";
-          settings.X-TerminalArgTitle = "--title=";
-          settings.X-TerminalArgAppId = "--class=";
-          settings.X-TerminalArgDir = "--working-directory=";
-          settings.X-TerminalArgHold = "--wait-after-command";
-          categories = [
-            "System"
-            "TerminalEmulator"
-          ];
+        xdg.desktopEntries = lib.mkIf useOpengl {
+          "com.mitchellh.ghostty" = {
+            name = "Ghostty";
+            type = "Application";
+            icon = "com.mitchellh.ghostty";
+            exec = "${opengl} ghostty";
+            comment = "A terminal emulator";
+            terminal = false;
+            startupNotify = true;
+            actions.new-window.name = "New Window";
+            actions.new-window.exec = "${opengl} ghostty";
+            settings.Keywords = "terminal;tty;pty";
+            settings.StartupWMClass = "com.mitchellh.ghostty";
+            settings.X-GNOME-UsesNotifications = "true";
+            settings.X-TerminalArgExec = "-e";
+            settings.X-TerminalArgTitle = "--title=";
+            settings.X-TerminalArgAppId = "--class=";
+            settings.X-TerminalArgDir = "--working-directory=";
+            settings.X-TerminalArgHold = "--wait-after-command";
+            categories = [
+              "System"
+              "TerminalEmulator"
+            ];
+          };
         };
       })
 
@@ -129,22 +131,24 @@ in
           };
         };
 
-        xdg.desktopEntries.Alacritty = {
-          name = "Alacritty";
-          genericName = "Terminal";
-          type = "Application";
-          icon = "Alacritty";
-          exec = "nixGLMesa alacritty";
-          comment = "A fast, cross-platform, OpenGL terminal emulator";
-          startupNotify = true;
-          terminal = false;
-          actions.new.name = "New Terminal";
-          actions.new.exec = "nixGLMesa alacritty";
-          settings.StartupWMClass = "Alacritty";
-          categories = [
-            "System"
-            "TerminalEmulator"
-          ];
+        xdg.desktopEntries = lib.mkIf useOpengl {
+          Alacritty = {
+            name = "Alacritty";
+            genericName = "Terminal";
+            type = "Application";
+            icon = "Alacritty";
+            exec = "${opengl} alacritty";
+            comment = "A fast, cross-platform, OpenGL terminal emulator";
+            startupNotify = true;
+            terminal = false;
+            actions.new.name = "New Terminal";
+            actions.new.exec = "${opengl} alacritty";
+            settings.StartupWMClass = "Alacritty";
+            categories = [
+              "System"
+              "TerminalEmulator"
+            ];
+          };
         };
       })
     ];
