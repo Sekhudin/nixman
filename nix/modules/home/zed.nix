@@ -49,6 +49,16 @@ in
   programs.zed-editor.userSettings = {
     theme = "Carbonfox - blurred";
     vim_mode = true;
+    confirm_quit = true;
+    auto_update = false;
+    base_keymap = "VSCode";
+    cursor_shape = "bar";
+    load_direnv = "shell_hook";
+    autosave = {
+      after_delay = {
+        milliseconds = 300;
+      };
+    };
     languages.Nix.language_servers = [
       "nixd"
       "!nil"
