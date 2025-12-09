@@ -54,22 +54,19 @@ in
     base_keymap = "VSCode";
     cursor_shape = "bar";
     load_direnv = "shell_hook";
-    autosave = {
-      after_delay = {
-        milliseconds = 300;
-      };
-    };
-    languages.Nix.language_servers = [
+    autosave.after_delay.milliseconds = 300;
+  };
+
+  programs.zed-editor.userSettings.languages = {
+    Nix.formatter.external.command = "nixfmt";
+    Nix.formatter.external.arguments = [
+      "--quiet"
+      "--"
+    ];
+    Nix.language_servers = [
       "nixd"
       "!nil"
     ];
-    languages.Nix.formatter.external = {
-      command = "nixfmt";
-      arguments = [
-        "--quiet"
-        "--"
-      ];
-    };
   };
 
   home.shellAliases = lib.mkMerge [
