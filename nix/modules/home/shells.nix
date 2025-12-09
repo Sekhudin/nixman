@@ -21,7 +21,7 @@ let
       cmd =
         a: b: x: # bash
         ''
-          set -e 
+          set -e
           ${verify}/bin/verify $1 || exit 0
           ${git}/bin/git for-each-ref --sort=${a} --format '%(refname:short) %(${a}:format:%s)' "${b}" | while read tag tagdate; do
             threshold_date=$(date -d "$1 days ago" --utc '+%s')

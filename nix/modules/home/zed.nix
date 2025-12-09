@@ -11,18 +11,56 @@ let
 in
 {
   programs.zed-editor.enable = true;
-  programs.zed-editor.package = pkgs.zed-editor;
+  programs.zed-editor.package = pkgs.branches.unstable.zed-editor;
   programs.zed-editor.installRemoteServer = false;
 
-  programs.zed-editor.extensions = [ ];
+  programs.zed-editor.extensions = [
+    ################################
+    # LSP
+    ################################
+    "nix"
+    "html"
+    "basher"
+    "biome"
+    "nginx"
+    "prisma"
+    "graphql"
+    "dockerfile"
+    # "postgres-language-server"
 
-  programs.zed-editor.extraPackages = [ ];
+    ################################
+    # Snippets
+    ################################
+    "html-snippets"
+    "react-typescript-snippets"
 
-  programs.zed-editor.themes = { };
+    ################################
+    # themes
+    ################################
+    "nvim-nightfox"
+  ];
+
+  programs.zed-editor.extraPackages = with pkgs; [
+    nixd
+  ];
 
   programs.zed-editor.userKeymaps = [ ];
 
-  programs.zed-editor.userSettings = { };
+  programs.zed-editor.userSettings = {
+    theme = "Carbonfox - blurred";
+    vim_mode = true;
+    languages.Nix.language_servers = [
+      "nixd"
+      "!nil"
+    ];
+    languages.Nix.formatter.external = {
+      command = "nixfmt";
+      arguments = [
+        "--quiet"
+        "--"
+      ];
+    };
+  };
 
   home.shellAliases = lib.mkMerge [
     (lib.mkIf useOpengl {
