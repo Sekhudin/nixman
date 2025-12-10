@@ -4,7 +4,7 @@
   imports = [ inputs.process-compose-flake.flakeModule ];
 
   perSystem =
-    { pkgs, ... }:
+    { ... }:
     {
       process-compose.postgres = {
         imports = [ inputs.services-flake.processComposeModules.default ];
