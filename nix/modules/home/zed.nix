@@ -72,6 +72,7 @@ in
   home.shellAliases = lib.mkMerge [
     (lib.mkIf useOpengl {
       zed = "${opengl} zeditor";
+      code = "${opengl} zeditor";
     })
   ];
 
