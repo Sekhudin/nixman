@@ -35,7 +35,7 @@ in
     "react-typescript-snippets"
 
     ################################
-    # themes
+    # Themes
     ################################
     "nvim-nightfox"
   ];
