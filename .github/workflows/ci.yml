@@ -1,8 +1,8 @@
-name: "CI for NIX dotfiles"
+name: "CI"
 on:
   pull_request:
-    push:
-      branches: [main]
+  push:
+    branches: [main]
       
 jobs:
   check:
@@ -10,10 +10,10 @@ jobs:
     
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       
       - name: Install NIX
-        uses: DeterminateSystem/nix-installer-action@v12
+        uses: DeterminateSystems/nix-installer-action@v21
         
       - name: Enable Nix cache
         uses: DeterminateSystems/magic-nix-cache-action@v7
