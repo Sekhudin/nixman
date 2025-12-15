@@ -1,7 +1,5 @@
 {
   lib,
-  pkgs,
-  inputs,
   ezModules,
   ...
 }:
@@ -11,9 +9,6 @@
     username = "syaikhu";
     stateVersion = "25.05";
     homeDirectory = "/home/${username}";
-    packages = [
-      inputs.self.packages.${pkgs.stdenv.system}.nvim
-    ];
   };
 
   within.gpg.enable = true;

@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [ ];
-
   config.globals = { };
 
   config.opts = { };
