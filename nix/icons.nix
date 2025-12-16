@@ -1,6 +1,7 @@
 let
   icons = {
     # suggest me with devicons from nerdfonts
+    language.nix = "󱄅";
     language.vim = "";
     language.neovim = "";
     language.org = "";
@@ -13,7 +14,7 @@ let
     left = "←";
     right = "→";
     paste = "";
-    clipboard = "";
+    clipboard = "󰅇";
     save = "";
     toggle = "";
     eol = "↩";
@@ -30,9 +31,9 @@ let
     warning1 = "";
     warning2 = "";
     warning3 = "";
-    cross = "";
-    cross1 = "";
-    cross2 = "";
+    cross = "󰅖";
+    cross1 = "󰅗";
+    cross2 = "󰅘";
     cross3 = "";
     cross4 = "";
     plus = "";
@@ -42,20 +43,19 @@ let
     plus4 = "⊕";
     minus = "";
     minus1 = "";
-    minus2 = "";
+    minus2 = "";
     minus3 = "";
     refresh = "";
-    file = "";
+    file = "";
     reload = "";
     bookmark = "";
-    word = "";
-    recent = "";
-    notes = "";
+    word = "󰈭";
+    recent = "";
+    notes = "󱇗";
     lightning = "";
     org = "";
     still = "";
     camera = "";
-    nix = "";
     function = "";
     code = "󰘦 ";
     wand = " ";
@@ -88,7 +88,7 @@ let
     rocket = "";
     bug = "";
     face = "󰏚 ";
-    lightbulb = "";
+    lightbulb = "";
     star = "";
     indent = "▎";
     pipe = "┃";

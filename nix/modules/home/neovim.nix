@@ -22,7 +22,7 @@ lib.mkIf (selfPkgs ? nvim) {
     comment = "The best text editor";
     terminal = false;
     startupNotify = false;
-    settings.Keywords = "Text;editor";
+    settings.Keywords = "Text;editor;nvim;neovim;code";
     categories = [
       "Utility"
       "TextEditor"
