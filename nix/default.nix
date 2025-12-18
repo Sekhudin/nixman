@@ -7,6 +7,7 @@
 
 let
   icons = import ./icons.nix;
+  vars = import ./vars.nix;
   colors = import ./colors.nix { inherit lib; };
   color = colors.mkColor colors.lists.edge;
 in
@@ -23,7 +24,7 @@ in
   ezConfigs.root = ./.;
   ezConfigs.globalArgs = {
     inherit inputs;
-    inherit icons colors color;
+    inherit icons vars colors color;
   };
 
   ezConfigs.home = {
@@ -45,12 +46,12 @@ in
 
       _module.args = {
         inherit inputs;
-        inherit icons colors color;
+        inherit icons vars colors color;
       };
 
       _module.args.extraModuleArgs = {
         inherit inputs;
-        inherit icons colors color;
+        inherit icons vars colors color;
       };
 
       _module.args.pkgs = import inputs.nixpkgs {

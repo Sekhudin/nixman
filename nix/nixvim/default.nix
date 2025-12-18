@@ -4,6 +4,7 @@
   perSystem =
     {
       icons,
+      vars,
       pkgs,
       system,
       ...
@@ -14,7 +15,7 @@
         module = import ./config;
         extraSpecialArgs = {
           inherit self inputs;
-          inherit system icons;
+          inherit system icons vars;
         };
       };
     in
