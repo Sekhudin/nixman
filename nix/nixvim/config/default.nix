@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, vars, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
     ./color-schemes.nix
   ];
 
-  config.globals = { };
+  config.globals.mapleader = vars.nixvim.leader;
 
   config.opts = { };
 

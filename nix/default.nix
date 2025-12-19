@@ -1,5 +1,4 @@
 {
-  self,
   lib,
   inputs,
   ...
@@ -10,6 +9,9 @@ let
   vars = import ./vars.nix;
   colors = import ./colors.nix { inherit lib; };
   color = colors.mkColor colors.lists.edge;
+  overlays = (lib.attrValues inputs.self.overlays) ++ [
+    inputs.nixgl.overlay
+  ];
 in
 {
   imports = [
@@ -24,7 +26,12 @@ in
   ezConfigs.root = ./.;
   ezConfigs.globalArgs = {
     inherit inputs;
-    inherit icons vars colors color;
+    inherit
+      icons
+      vars
+      colors
+      color
+      ;
   };
 
   ezConfigs.home = {
@@ -34,7 +41,8 @@ in
       standalone.enable = true;
       standalone.pkgs = import inputs.nixpkgs {
         system = "x86_64-linux"; # <<--- must hardcode
-        inherit (self.nixpkgs) config overlays;
+        inherit (vars.nixpkgs) config;
+        inherit overlays;
       };
     };
   };
@@ -46,17 +54,28 @@ in
 
       _module.args = {
         inherit inputs;
-        inherit icons vars colors color;
+        inherit
+          icons
+          vars
+          colors
+          color
+          ;
       };
 
       _module.args.extraModuleArgs = {
         inherit inputs;
-        inherit icons vars colors color;
+        inherit
+          icons
+          vars
+          colors
+          color
+          ;
       };
 
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
-        inherit (self.nixpkgs) config overlays;
+        inherit (vars.nixpkgs) config;
+        inherit overlays;
       };
 
     };

@@ -76,7 +76,7 @@ lib.mkMerge [
         icon = "${icons.language.nix} ";
         desc = "Nix Config ";
         group = "DiagnosticHint";
-        action = "Neotree dir=${vars.nixConfigDir}";
+        action = "Neotree dir=${vars.dir.nixConfig}";
       }
     ];
   })
@@ -100,7 +100,7 @@ lib.mkMerge [
         key = "cn";
         icon = "${icons.language.nix} ";
         desc = "Nix Config ";
-        action = "Neotree dir=${vars.nixConfigDir}";
+        action = "Neotree dir=${vars.dir.nixConfig}";
       }
     ];
   })

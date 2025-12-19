@@ -62,7 +62,7 @@ in
     buffer_font_family = "JetBrainsMono Nerd Font Mono";
     buffer_font_fallbacks = [ "Symbols Nerd Font" ];
     terminal.font_family = "JetBrainsMono Nerd Font Mono";
-    terminal.font_fallbacks = ["Symbols Nerd Font"];
+    terminal.font_fallbacks = [ "Symbols Nerd Font" ];
   };
 
   programs.zed-editor.userSettings.languages = {
