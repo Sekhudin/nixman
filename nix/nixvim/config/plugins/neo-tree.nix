@@ -1,4 +1,4 @@
-{ ... }:
+{ icons, ... }:
 
 {
   plugins.neo-tree.enable = true;
@@ -22,4 +22,13 @@
       auto_expand_width = false;
     };
   };
+
+  plugins.which-key.settings.spec = [
+    {
+      __unkeyed-1 = "<leader>e";
+      __unkeyed-2 = "<cmd>Neotree toggle<cr>";
+      desc = "Neotree toggle";
+      icon = icons.toggle;
+    }
+  ];
 }
