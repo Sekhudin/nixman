@@ -15,19 +15,23 @@
       __unkeyed-1 = "<leader>";
       mode = "n";
     }
+    {
+      __unkeyed-1 = "<c-w>";
+      mode = "n";
+    }
   ];
 
   plugins.which-key.settings.spec = [
     {
       __unkeyed-1 = "<leader>nn";
       __unkeyed-2 = "<cmd>new<cr>";
-      description = "New Buffer Horizotal";
+      desc = "New Buffer Horizotal";
       icon = icons.plus;
     }
     {
       __unkeyed-1 = "<leader>ns";
       __unkeyed-2 = "<cmd>vnew<cr>";
-      description = "New Buffer Vertical";
+      desc = "New Buffer Vertical";
       icon = icons.plus;
     }
   ];

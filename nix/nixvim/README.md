@@ -11,9 +11,11 @@ A fully-configured Neovim setup managed entirely with Nix. Optimized for speed, 
 ## Plugins
 
 - [Dashboard](https://nix-community.github.io/nixvim/plugins/dashboard/index.html)
+- [Lualine](https://nix-community.github.io/nixvim/plugins/lualine/index.html)
 - [Mini-icons](https://nix-community.github.io/nixvim/plugins/mini-icons/index.html)
 - [Neo-tree](https://nix-community.github.io/nixvim/plugins/neo-tree/index.html)
 - [Telescope](https://nix-community.github.io/nixvim/plugins/telescope/index.html)
+- [Treesitter](https://nix-community.github.io/nixvim/plugins/treesitter/index.html)
 - [Web-devicons](https://nix-community.github.io/nixvim/plugins/web-devicons/index.html)
 - [Wich-key](https://nix-community.github.io/nixvim/plugins/which-key/index.html)
 

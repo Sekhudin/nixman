@@ -3,16 +3,14 @@
 {
   perSystem =
     {
+      system,
       icons,
       vars,
-      pkgs,
-      system,
       ...
     }:
     let
       helpers = import ./helpers.nix { inherit inputs; };
       nixvimModule = {
-        inherit pkgs;
         module = import ./config;
         extraSpecialArgs = {
           inherit self inputs system;

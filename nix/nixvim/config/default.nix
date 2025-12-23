@@ -1,16 +1,45 @@
 { pkgs, vars, ... }:
 
+let
+  indent = 2;
+in
 {
   imports = [
     ./plugins
     ./color-schemes.nix
   ];
 
-  config.globals.mapleader = vars.nixvim.leader;
+  globals = {
+    mapleader = vars.nixvim.leader;
+    laststatus = 3;
+  };
 
-  config.opts = { };
+  opts = {
+    cmdheight = 0;
+    laststatus = 3;
+    number = true;
+    relativenumber = true;
+    mouse = "";
+    encoding = "utf8";
+    termguicolors = true;
+    backspace = [
+      "indent"
+      "eol"
+      "start"
+    ];
+    cursorline = false;
+    wrap = false;
+    background = "dark";
+    tabstop = indent;
+    shiftwidth = indent;
+    smarttab = true;
+    expandtab = true;
+    compatible = false;
+    conceallevel = 3;
+    concealcursor = "n";
+  };
 
-  config.extraPackages = with pkgs; [
+  extraPackages = with pkgs; [
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
   ];
