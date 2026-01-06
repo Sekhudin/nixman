@@ -59,7 +59,7 @@ lib.mkMerge [
     plugins.dashboard.settings.config.shortcut = [
       {
         key = "fn";
-        icon = "${icons.plus1} ";
+        icon = "${icons.plus_1} ";
         desc = "New File ";
         group = "Label";
         action = "new";
@@ -86,7 +86,7 @@ lib.mkMerge [
     plugins.dashboard.settings.config.center = [
       {
         key = "fn";
-        icon = "${icons.plus1} ";
+        icon = "${icons.plus_1} ";
         desc = "New File ";
         action = "new";
       }

@@ -10,7 +10,6 @@ A fully-configured Neovim setup managed entirely with Nix. Optimized for speed, 
 
 ## Plugins
 
-- [Auto-save](https://nix-community.github.io/nixvim/plugins/auto-save/index.html)
 - [Bufferline](https://nix-community.github.io/nixvim/plugins/bufferline/index.html)
 - [Mini-bufremove](https://nix-community.github.io/nixvim/plugins/mini-bufremove/index.html)
 - [Dashboard](https://nix-community.github.io/nixvim/plugins/dashboard/index.html)

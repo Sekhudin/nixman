@@ -9,10 +9,6 @@ let
         allowBroken = false;
       };
     };
-    nixvim = {
-      leader = " ";
-      leaderName = "SPACE";
-    };
   };
 in
 vars // { }

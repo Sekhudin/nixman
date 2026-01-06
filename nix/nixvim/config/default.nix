@@ -1,4 +1,4 @@
-{ pkgs, vars, ... }:
+{ pkgs, ... }:
 
 let
   indent = 2;
@@ -6,11 +6,12 @@ in
 {
   imports = [
     ./plugins
+    ./auto-save.nix
     ./color-schemes.nix
   ];
 
   globals = {
-    mapleader = vars.nixvim.leader;
+    mapleader = " ";
     laststatus = 3;
   };
 
