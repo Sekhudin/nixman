@@ -81,6 +81,7 @@ let
     tab = "⦙";
     telescope = "";
     terminal = "";
+    terminal_dev = "";
     toggle = "";
     top = "↑";
     vertical = "│";

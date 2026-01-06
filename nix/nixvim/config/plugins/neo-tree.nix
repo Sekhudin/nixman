@@ -35,17 +35,10 @@
         noremap = true;
         nowait = true;
       };
-      mappings = {
-        "<space>" = {
-          command = "toggle_node";
-          nowait = true;
-        };
-      };
     };
   };
 
   plugins.neo-tree.settings.filesystem = {
-    use_libuv_file_watcher = false;
     follow_current_file = {
       enabled = false;
       leave_dirs_open = false;

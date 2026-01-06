@@ -8,6 +8,7 @@ in
     ./plugins
     ./auto-save.nix
     ./color-schemes.nix
+    ./keymaps.nix
   ];
 
   globals = {
