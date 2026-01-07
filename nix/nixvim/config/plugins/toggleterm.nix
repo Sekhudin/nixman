@@ -19,13 +19,6 @@
     };
   };
 
-  plugins.which-key.settings.triggers = [
-    {
-      __unkeyed-1 = "<leader>t";
-      mode = "n";
-    }
-  ];
-
   plugins.which-key.settings.spec = [
     {
       __unkeyed-1 = "<leader>tt";
@@ -44,6 +37,12 @@
       __unkeyed-2 = "<cmd>TermNew direction=float<cr>";
       desc = "Floating Terminal";
       icon = icons.terminal_dev;
+    }
+    {
+      __unkeyed-1 = "<leader>tg";
+      __unkeyed-2 = "<cmd>TermExec direction=float cmd=lazygit<cr>";
+      desc = "LazyGit Terminal";
+      icon = icons.git;
     }
   ];
 }

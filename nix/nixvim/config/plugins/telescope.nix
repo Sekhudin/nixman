@@ -8,44 +8,37 @@
   plugins.telescope.keymaps = {
     ff = {
       action = "find_files";
-      options.desc = "Find by files";
+      options.desc = "Find files";
     };
-    fF = {
+    fw = {
       action = "live_grep";
-      options.desc = "Find by word";
+      options.desc = "Find word";
     };
-    "ff'" = {
+    fW = {
       action = "grep_string";
-      options.desc = "Find by string";
+      options.desc = "Find word under cursor";
     };
     fb = {
       action = "buffers";
-      options.desc = "Find by current buffers";
+      options.desc = "Find buffers";
     };
     fB = {
       action = "current_buffer_fuzzy_find";
-      options.desc = "Find Fuzzy by current buffers";
+      options.desc = "Fuzzy find in buffer";
     };
     fh = {
       action = "help_tags";
-      options.desc = "Find by help tags";
+      options.desc = "Find help";
     };
-    fc = {
-      action = "colorscheme";
-      options.desc = "Find by Colorscheme";
-    };
-    fC = {
+    fH = {
       action = "highlights";
       options.desc = "Find by highlights";
     };
+    fc = {
+      action = "colorscheme";
+      options.desc = "Find colorscheme";
+    };
   };
-
-  plugins.which-key.settings.triggers = [
-    {
-      __unkeyed-1 = "f";
-      mode = "n";
-    }
-  ];
 
   plugins.which-key.settings.spec = [
     {

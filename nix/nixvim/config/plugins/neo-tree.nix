@@ -35,6 +35,12 @@
         noremap = true;
         nowait = true;
       };
+      mappings = {
+        "<space>" = {
+          command = "toggle_node";
+          nowait = false;
+        };
+      };
     };
   };
 

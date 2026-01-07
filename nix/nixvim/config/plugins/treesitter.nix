@@ -79,11 +79,4 @@
         "git_rebase"
         "diff"
       ];
-
-  plugins.which-key.settings.triggers = [
-    {
-      __unkeyed-1 = "z";
-      mode = "n";
-    }
-  ];
 }
