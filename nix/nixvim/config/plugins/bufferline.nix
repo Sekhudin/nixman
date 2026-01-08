@@ -1,17 +1,28 @@
-{ ... }:
+{ icons, ... }:
 
 {
   plugins.bufferline.enable = true;
   plugins.bufferline.settings.options = {
+    mode = "buffers";
     always_show_bufferline = true;
     show_buffer_close_icons = false;
     show_close_icon = false;
+    color_icons = true;
+    separator_style = "slope";
     offsets = [
       {
         filetype = "neo-tree";
-        highlight = "Directory";
-        text = "File Explorer";
+        text.__raw = ''
+          function()
+            local icon = "${icons.withSpace.right "folder_root_open"}"
+            local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+            return icon .. cwd
+          end
+        '';
         text_align = "center";
+        highlight = "NeoTreeRootName";
+        padding = 2;
+        separator = false;
       }
     ];
   };

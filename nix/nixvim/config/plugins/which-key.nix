@@ -1,4 +1,4 @@
-{ ... }:
+{ icons, ... }:
 
 {
   plugins.which-key.enable = true;
@@ -51,6 +51,11 @@
       group = "lazygit";
     }
     {
+      __unkeyed-1 = "<leader>q";
+      group = "Quit";
+      icon = icons.cross;
+    }
+    {
       __unkeyed-1 = "<leader>t";
       group = "terminal";
     }
@@ -58,6 +63,18 @@
       __unkeyed-1 = "<leader>w";
       group = "window";
       proxy = "<c-w>";
+    }
+    {
+      __unkeyed-1 = "<leader>qq";
+      __unkeyed-2 = "<cmd>qa<cr>";
+      desc = "Quit all";
+      icon = icons.cross;
+    }
+    {
+      __unkeyed-1 = "<leader>qw";
+      __unkeyed-2 = "<cmd>wqa<cr>";
+      desc = "Save & Quit all";
+      icon = icons.cross;
     }
     {
       __unkeyed-1 = "[";

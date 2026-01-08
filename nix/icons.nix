@@ -34,6 +34,8 @@ let
     folder = "";
     folder_open = "";
     folder_empty = "";
+    folder_root = "";
+    folder_root_open = "";
     free_bsd = "";
     function = "";
     gear = "";

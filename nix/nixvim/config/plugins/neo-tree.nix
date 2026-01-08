@@ -3,6 +3,7 @@
 {
   plugins.neo-tree.enable = true;
   plugins.neo-tree.settings = {
+    hide_root_node = true;
     close_if_last_window = true;
     default_component_configs = {
       indent = {
