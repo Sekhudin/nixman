@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 let
   indent = 2;
@@ -11,6 +11,7 @@ in
     ./keymaps.nix
   ];
 
+  clipboard.register = "unnamedplus";
   globals = {
     mapleader = " ";
     laststatus = 3;
@@ -40,9 +41,4 @@ in
     conceallevel = 3;
     concealcursor = "n";
   };
-
-  extraPackages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-  ];
 }

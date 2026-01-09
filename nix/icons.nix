@@ -18,7 +18,7 @@ let
     circle_right_1 = "";
     clipboard = "󰅇";
     cloud = "";
-    code = "󰘦 ";
+    code = "󰘦";
     cross = "󰅖";
     cross_1 = "󰅗";
     cross_2 = "󰅘";
@@ -27,7 +27,7 @@ let
     database = "";
     dot = "•";
     eol = "↩";
-    face = "󰏚 ";
+    face = "󰏚";
     file = "";
     file_text = "";
     files = "";
@@ -40,7 +40,8 @@ let
     function = "";
     gear = "";
     gear_sm = "⛭";
-    git = " ";
+    git = "";
+    github = "";
     hint = "";
     horizontal = "─";
     house = "";
@@ -87,7 +88,7 @@ let
     toggle = "";
     top = "↑";
     vertical = "│";
-    wand = " ";
+    wand = "";
     warning = "";
     warning_1 = "";
     warning_2 = "";

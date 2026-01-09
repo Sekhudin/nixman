@@ -19,6 +19,14 @@
     };
   };
 
+  plugins.toggleterm.lazyLoad.settings = {
+    cmd = [
+      "ToggleTerm"
+      "TermNew"
+      "TermExec"
+    ];
+  };
+
   plugins.which-key.settings.spec = [
     {
       __unkeyed-1 = "<leader>tt";

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -13,5 +13,11 @@
     ./toggleterm.nix
     ./treesitter.nix
     ./which-key.nix
+  ];
+
+  plugins.lz-n.enable = true;
+  extraPackages = with pkgs; [ gh ];
+  extraPlugins = [
+    pkgs.vimPlugins.telescope-github-nvim
   ];
 }

@@ -47,12 +47,31 @@
       group = "buffer";
     }
     {
+      __unkeyed-1 = "<leader>f";
+      group = "telescope";
+      proxy = "f";
+    }
+    {
+      __unkeyed-1 = "<leader>fg";
+      group = "git";
+      proxy = "fg";
+    }
+    {
+      __unkeyed-1 = "<leader>fG";
+      group = "github";
+      proxy = "fG";
+    }
+    {
       __unkeyed-1 = "<leader>g";
       group = "lazygit";
     }
     {
+      __unkeyed-1 = "<leader>n";
+      group = "noice";
+    }
+    {
       __unkeyed-1 = "<leader>q";
-      group = "Quit";
+      group = "quit";
       icon = icons.cross;
     }
     {
@@ -66,14 +85,14 @@
     }
     {
       __unkeyed-1 = "<leader>qq";
-      __unkeyed-2 = "<cmd>qa<cr>";
+      __unkeyed-2 = "<cmd>qa!<cr>";
       desc = "Quit all";
       icon = icons.cross;
     }
     {
       __unkeyed-1 = "<leader>qw";
       __unkeyed-2 = "<cmd>wqa<cr>";
-      desc = "Save & Quit all";
+      desc = "Save & quit all";
       icon = icons.cross;
     }
     {
@@ -86,15 +105,23 @@
     }
     {
       __unkeyed-1 = "g";
-      group = "goto";
+      group = "go to";
     }
     {
       __unkeyed-1 = "f";
       group = "telescope";
     }
     {
-      __unkeyed-1 = "z";
-      group = "treesitter";
+      __unkeyed-1 = "fg";
+      group = "git";
     }
+    {
+      __unkeyed-1 = "fG";
+      group = "github";
+    }
+    # {
+    #   __unkeyed-1 = "z";
+    #   group = "treesitter";
+    # }
   ];
 }
