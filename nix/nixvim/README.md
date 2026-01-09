@@ -10,11 +10,18 @@ A fully-configured Neovim setup managed entirely with Nix. Optimized for speed, 
 
 ## Plugins
 
+### Git & Version Control
+
+- [Gitsigns](https://nix-community.github.io/nixvim/plugins/gitsigns/index.html)
+- [Git-conflict](https://nix-community.github.io/nixvim/plugins/git-conflict/index.html)
+- [Lazygit](https://nix-community.github.io/nixvim/plugins/lazygit/index.html)
+
+### Other Plugins
+
 - [Bufferline](https://nix-community.github.io/nixvim/plugins/bufferline/index.html)
 - [Dashboard](https://nix-community.github.io/nixvim/plugins/dashboard/index.html)
-- [LazyGit](https://nix-community.github.io/nixvim/plugins/lazygit/index.html)
 - [Lualine](https://nix-community.github.io/nixvim/plugins/lualine/index.html)
-- [lz-n](https://nix-community.github.io/nixvim/plugins/lz-n/index.html)
+- [Lz-n](https://nix-community.github.io/nixvim/plugins/lz-n/index.html)
 - [Mini-bufremove](https://nix-community.github.io/nixvim/plugins/mini-bufremove/index.html)
 - [Mini-icons](https://nix-community.github.io/nixvim/plugins/mini-icons/index.html)
 - [Neo-tree](https://nix-community.github.io/nixvim/plugins/neo-tree/index.html)

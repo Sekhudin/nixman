@@ -28,9 +28,7 @@
   };
 
   plugins.mini-bufremove.enable = true;
-  plugins.mini-bufremove.settings = {
-    silent = false;
-  };
+  plugins.mini-bufremove.settings.silent = false;
 
   plugins.which-key.settings.spec = [
     {

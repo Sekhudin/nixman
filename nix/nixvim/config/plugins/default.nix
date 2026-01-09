@@ -4,7 +4,7 @@
   imports = [
     ./bufferline.nix
     ./dashboard.nix
-    ./lazygit.nix
+    ./git.nix
     ./lualine.nix
     ./mini-icons.nix
     ./neo-tree.nix

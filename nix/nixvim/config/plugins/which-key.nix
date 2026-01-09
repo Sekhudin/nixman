@@ -63,7 +63,11 @@
     }
     {
       __unkeyed-1 = "<leader>g";
-      group = "lazygit";
+      group = "git";
+    }
+    {
+      __unkeyed-1 = "<leader>gt";
+      group = "toggle";
     }
     {
       __unkeyed-1 = "<leader>n";
@@ -97,15 +101,15 @@
     }
     {
       __unkeyed-1 = "[";
-      group = "jump to";
+      group = "backward";
     }
     {
       __unkeyed-1 = "]";
-      group = "jump to";
+      group = "forward";
     }
     {
       __unkeyed-1 = "g";
-      group = "go to";
+      group = "goto";
     }
     {
       __unkeyed-1 = "f";
@@ -119,9 +123,9 @@
       __unkeyed-1 = "fG";
       group = "github";
     }
-    # {
-    #   __unkeyed-1 = "z";
-    #   group = "treesitter";
-    # }
+    {
+      __unkeyed-1 = "z";
+      group = "treesitter";
+    }
   ];
 }
