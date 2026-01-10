@@ -62,7 +62,7 @@ let
     org = "";
     package = "";
     paste = "";
-    philosopher = "🧘";
+    philosopher = "󱅻";
     pipe = "┃";
     plus = "";
     plus_1 = "";

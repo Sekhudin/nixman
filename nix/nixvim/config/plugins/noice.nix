@@ -2,6 +2,8 @@
 
 {
   plugins.noice.enable = true;
+  plugins.noice.lazyLoad.settings.event = [ "VimEnter" ];
+  plugins.noice.lazyLoad.settings.cmd = [ "Noice" ];
   plugins.noice.settings = { };
 
   plugins.which-key.settings.spec = [
@@ -46,9 +48,4 @@
       desc = "";
     }
   ];
-
-  plugins.noice.lazyLoad.settings = {
-    event = [ "VimEnter" ];
-    cmd = [ "Noice" ];
-  };
 }

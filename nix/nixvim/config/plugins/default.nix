@@ -5,13 +5,15 @@
     ./bufferline.nix
     ./dashboard.nix
     ./git.nix
-    ./lualine.nix
-    ./mini-icons.nix
+    ./lsp.nix
+    ./navigation.nix
     ./neo-tree.nix
     ./noice.nix
     ./telescope.nix
     ./toggleterm.nix
+    ./tools.nix
     ./treesitter.nix
+    ./ui.nix
     ./which-key.nix
   ];
 

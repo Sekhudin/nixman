@@ -20,23 +20,7 @@
       mode = "n";
     }
     {
-      __unkeyed-1 = "[";
-      mode = "n";
-    }
-    {
-      __unkeyed-1 = "]";
-      mode = "n";
-    }
-    {
       __unkeyed-1 = "g";
-      mode = "n";
-    }
-    {
-      __unkeyed-1 = "f";
-      mode = "n";
-    }
-    {
-      __unkeyed-1 = "z";
       mode = "n";
     }
   ];
@@ -48,18 +32,15 @@
     }
     {
       __unkeyed-1 = "<leader>f";
-      group = "telescope";
-      proxy = "f";
+      group = "find";
     }
     {
       __unkeyed-1 = "<leader>fg";
       group = "git";
-      proxy = "fg";
     }
     {
       __unkeyed-1 = "<leader>fG";
       group = "github";
-      proxy = "fG";
     }
     {
       __unkeyed-1 = "<leader>g";
@@ -67,25 +48,16 @@
     }
     {
       __unkeyed-1 = "<leader>gt";
-      group = "toggle";
+      group = "gitsign";
     }
     {
       __unkeyed-1 = "<leader>n";
-      group = "noice";
+      group = "ui";
     }
     {
       __unkeyed-1 = "<leader>q";
       group = "quit";
       icon = icons.cross;
-    }
-    {
-      __unkeyed-1 = "<leader>t";
-      group = "terminal";
-    }
-    {
-      __unkeyed-1 = "<leader>w";
-      group = "window";
-      proxy = "<c-w>";
     }
     {
       __unkeyed-1 = "<leader>qq";
@@ -100,6 +72,19 @@
       icon = icons.cross;
     }
     {
+      __unkeyed-1 = "<leader>t";
+      group = "terminal";
+    }
+    {
+      __unkeyed-1 = "<leader>w";
+      group = "window";
+      proxy = "<c-w>";
+    }
+    {
+      __unkeyed-1 = "<leader>x";
+      group = "diagnotics";
+    }
+    {
       __unkeyed-1 = "[";
       group = "backward";
     }
@@ -112,20 +97,12 @@
       group = "goto";
     }
     {
-      __unkeyed-1 = "f";
-      group = "telescope";
-    }
-    {
-      __unkeyed-1 = "fg";
-      group = "git";
-    }
-    {
-      __unkeyed-1 = "fG";
-      group = "github";
+      __unkeyed-1 = "s";
+      group = "seek";
     }
     {
       __unkeyed-1 = "z";
-      group = "treesitter";
+      group = "fold";
     }
   ];
 }

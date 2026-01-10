@@ -57,11 +57,7 @@
         ".env*"
       ];
     };
-    window.mappings = {
-      f = {
-        command = "fuzzy_finder";
-      };
-    };
+    window.mappings.f.command = "fuzzy_finder";
   };
 
   plugins.which-key.settings.spec = [

@@ -2,6 +2,11 @@
 
 {
   plugins.toggleterm.enable = true;
+  plugins.toggleterm.lazyLoad.settings.cmd = [
+    "ToggleTerm"
+    "TermNew"
+    "TermExec"
+  ];
   plugins.toggleterm.settings = {
     open_mapping = "[[<c-\\>]]";
     direction = "horizontal";
@@ -17,14 +22,6 @@
     float_opts = {
       border = "curved";
     };
-  };
-
-  plugins.toggleterm.lazyLoad.settings = {
-    cmd = [
-      "ToggleTerm"
-      "TermNew"
-      "TermExec"
-    ];
   };
 
   plugins.which-key.settings.spec = [
@@ -45,12 +42,6 @@
       __unkeyed-2 = "<cmd>TermNew direction=float<cr>";
       desc = "Floating Terminal";
       icon = icons.terminal_dev;
-    }
-    {
-      __unkeyed-1 = "<leader>tg";
-      __unkeyed-2 = "<cmd>TermExec direction=float cmd=lazygit<cr>";
-      desc = "LazyGit Terminal";
-      icon = icons.git;
     }
   ];
 }

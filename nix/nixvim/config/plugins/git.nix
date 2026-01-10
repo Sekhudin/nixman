@@ -2,11 +2,13 @@
 
 {
   plugins.git-conflict.enable = true;
+  plugins.git-conflict.settings = {};
 
   plugins.lazygit.enable = true;
   plugins.lazygit.settings = { };
 
   plugins.gitsigns.enable = true;
+  plugins.gitsigns.lazyLoad.settings.event = [ "BufReadPost" ];
   plugins.gitsigns.settings = {
     numhl = true;
     linehl = false;
@@ -17,10 +19,6 @@
       delay = 500;
       ignore_whitespace = false;
     };
-  };
-
-  plugins.gitsigns.lazyLoad.settings = {
-    event = ["BufRead"];
   };
 
   plugins.which-key.settings.spec = [

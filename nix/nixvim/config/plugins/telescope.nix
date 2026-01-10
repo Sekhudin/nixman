@@ -7,99 +7,96 @@
 
 {
   plugins.telescope.enable = true;
+  plugins.telescope.lazyLoad.settings.cmd = [ "Telescope" ];
+  plugins.telescope.lazyLoad.settings.keys = lib.attrNames config.plugins.telescope.keymaps;
   plugins.telescope.enabledExtensions = [ "gh" ];
   plugins.telescope.keymaps = {
-    ff = {
+    "<leader>ff"= {
       action = "find_files";
       options.desc = "Find files";
     };
-    fw = {
+    "<leader>fw"= {
       action = "live_grep";
       options.desc = "Find word";
     };
-    fW = {
+    "<leader>fW"= {
       action = "grep_string";
       options.desc = "Find word under cursor";
     };
-    fb = {
+    "<leader>fb"= {
       action = "buffers";
       options.desc = "Find buffers";
     };
-    fB = {
+    "<leader>fB"= {
       action = "current_buffer_fuzzy_find";
       options.desc = "Fuzzy find in buffer";
     };
-    fh = {
+    "<leader>fh"= {
       action = "help_tags";
       options.desc = "Find help";
     };
-    fH = {
+    "<leader>fH"= {
       action = "highlights";
       options.desc = "Find highlights";
     };
-    fc = {
+    "<leader>fc"= {
       action = "colorscheme";
       options.desc = "Find colorscheme";
     };
-    fgc = {
+    "<leader>fgc" = {
       action = "git_commits";
       options.desc = "Git commits";
     };
 
-    fgC = {
+    "<leader>fgC" = {
       action = "git_bcommits";
       options.desc = "Buffer git commits";
     };
 
-    fgr = {
+    "<leader>fgr" = {
       action = "git_bcommits_range";
       options.desc = "Buffer git commits (range)";
     };
 
-    fgb = {
+    "<leader>fgb" = {
       action = "git_branches";
       options.desc = "Git branches";
     };
 
-    fgs = {
+    "<leader>fgs" = {
       action = "git_status";
       options.desc = "Git status";
     };
 
-    fgS = {
+    "<leader>fgS" = {
       action = "git_stash";
       options.desc = "Git stash";
     };
 
-    fGi = {
+    "<leader>fGi" = {
       action = "gh issues";
       options.desc = "Github issues";
     };
 
-    fGp = {
+    "<leader>fGp" = {
       action = "gh pull_requests";
       options.desc = "Github PRs";
     };
 
-    fGr = {
+    "<leader>fGr" = {
       action = "gh run";
       options.desc = "Github Actions (run)";
     };
 
-    fGg = {
+    "<leader>fGg" = {
       action = "gh gist";
       options.desc = "Github Gist";
     };
   };
 
-  plugins.telescope.lazyLoad.settings = {
-    cmd = [ "Telescope" ];
-    keys = lib.attrNames config.plugins.telescope.keymaps;
-  };
-
   plugins.which-key.settings.spec = [
     {
-      __unkeyed-1 = "ft";
+      __unkeyed-1 = "<leader>ft";
       __unkeyed-2 = "<cmd>Telescope<cr>";
       desc = "Open Telescope";
       icon = icons.telescope;
