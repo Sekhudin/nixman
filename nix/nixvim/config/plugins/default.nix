@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./bufferline.nix
     ./dashboard.nix
     ./git.nix
     ./lsp.nix

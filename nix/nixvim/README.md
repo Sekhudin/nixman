@@ -20,6 +20,10 @@ A fully-configured Neovim setup managed entirely with Nix. Optimized for speed, 
 - [Rainbow-delimiters](https://nix-community.github.io/nixvim/plugins/rainbow-delimiters)
 - [Smear-cursor](https://nix-community.github.io/nixvim/plugins/smear-cursor)
 
+### Navigation
+
+- [Hop](https://nix-community.github.io/nixvim/plugins/hop)
+
 ### Git & Version Control
 
 - [Gitsigns](https://nix-community.github.io/nixvim/plugins/gitsigns)
@@ -27,6 +31,7 @@ A fully-configured Neovim setup managed entirely with Nix. Optimized for speed, 
 - [Lazygit](https://nix-community.github.io/nixvim/plugins/lazygit)
 
 ### LSP
+
 - [Crates](https://nix-community.github.io/nixvim/plugins/crates)
 - [Rustaceanvim](https://nix-community.github.io/nixvim/plugins/rustaceanvim)
 - [Typescript-tools](https://nix-community.github.io/nixvim/plugins/typescript-tools)

@@ -64,7 +64,7 @@
   plugins.zen-mode.settings = { };
 
   ###############################
-  # which-key for tools
+  # which-key spec
   ###############################
   plugins.which-key.settings.spec = [
     {
