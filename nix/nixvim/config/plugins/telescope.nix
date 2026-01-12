@@ -85,12 +85,12 @@
 
     "<leader>fGr" = {
       action = "gh run";
-      options.desc = "Github Actions (run)";
+      options.desc = "Github actions (run)";
     };
 
     "<leader>fGg" = {
       action = "gh gist";
-      options.desc = "Github Gist";
+      options.desc = "Github gist";
     };
   };
 
@@ -98,7 +98,7 @@
     {
       __unkeyed-1 = "<leader>ft";
       __unkeyed-2 = "<cmd>Telescope<cr>";
-      desc = "Open Telescope";
+      desc = "Open telescope";
       icon = icons.telescope;
     }
   ];

@@ -28,19 +28,25 @@
     {
       __unkeyed-1 = "<leader>tt";
       __unkeyed-2 = "<cmd>ToggleTerm<cr>";
-      desc = "Toggle Terminal";
+      desc = "Toggle terminal";
       icon = icons.terminal_dev;
     }
     {
       __unkeyed-1 = "<leader>tn";
       __unkeyed-2 = "<cmd>TermNew<cr>";
-      desc = "Terminal New";
+      desc = "Terminal new";
+      icon = icons.terminal_dev;
+    }
+    {
+      __unkeyed-1 = "<leader>ts";
+      __unkeyed-2 = "<cmd>TermSelect<cr>";
+      desc = "Terminal select";
       icon = icons.terminal_dev;
     }
     {
       __unkeyed-1 = "<leader>tf";
       __unkeyed-2 = "<cmd>TermNew direction=float<cr>";
-      desc = "Floating Terminal";
+      desc = "Floating terminal";
       icon = icons.terminal_dev;
     }
   ];

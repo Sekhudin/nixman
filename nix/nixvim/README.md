@@ -32,7 +32,13 @@ A fully-configured Neovim setup managed entirely with Nix. Optimized for speed, 
 
 ### LSP
 
+- [Cmp](https://nix-community.github.io/nixvim/plugins/cmp)
 - [Crates](https://nix-community.github.io/nixvim/plugins/crates)
+- [Lsp](https://nix-community.github.io/nixvim/plugins/lsp)
+- [Lsp-format](https://nix-community.github.io/nixvim/plugins/lsp-format)
+- [Lspkind](https://nix-community.github.io/nixvim/plugins/lspkind)
+- [Lspsaga](https://nix-community.github.io/nixvim/plugins/lspsaga)
+- [Luasnip](https://nix-community.github.io/nixvim/plugins/luasnip)
 - [Rustaceanvim](https://nix-community.github.io/nixvim/plugins/rustaceanvim)
 - [Typescript-tools](https://nix-community.github.io/nixvim/plugins/typescript-tools)
 

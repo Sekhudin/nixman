@@ -5,10 +5,12 @@ let
 in
 {
   imports = [
+    ./auto-cmd.nix
     ./plugins
     ./auto-save.nix
     ./color-schemes.nix
     ./keymaps.nix
+    ./user-commands.nix
   ];
 
   clipboard.register = "unnamedplus";

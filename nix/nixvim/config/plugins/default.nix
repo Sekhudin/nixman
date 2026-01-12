@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./cmp.nix
     ./dashboard.nix
     ./git.nix
     ./lsp.nix
@@ -20,5 +21,7 @@
   extraPackages = with pkgs; [ gh ];
   extraPlugins = [
     pkgs.vimPlugins.telescope-github-nvim
+    pkgs.vimPlugins.codi-vim
+    pkgs.vimPlugins.neorepl-nvim
   ];
 }

@@ -79,6 +79,11 @@
       desc = "Diagnostics";
     }
     {
+      __unkeyed-1 = "<leader>xt";
+      __unkeyed-2 = "<cmd>Trouble diagnostics toggle<cr>";
+      desc = "Diagnostics toggle";
+    }
+    {
       __unkeyed-1 = "<leader>zm";
       __unkeyed-2 = "<cmd>ZenMode<cr>";
       icon = icons.philosopher;
