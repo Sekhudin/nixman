@@ -11,35 +11,35 @@
   plugins.telescope.lazyLoad.settings.keys = lib.attrNames config.plugins.telescope.keymaps;
   plugins.telescope.enabledExtensions = [ "gh" ];
   plugins.telescope.keymaps = {
-    "<leader>ff"= {
+    "<leader>ff" = {
       action = "find_files";
       options.desc = "Find files";
     };
-    "<leader>fw"= {
+    "<leader>fw" = {
       action = "live_grep";
       options.desc = "Find word";
     };
-    "<leader>fW"= {
+    "<leader>fW" = {
       action = "grep_string";
       options.desc = "Find word under cursor";
     };
-    "<leader>fb"= {
+    "<leader>fb" = {
       action = "buffers";
       options.desc = "Find buffers";
     };
-    "<leader>fB"= {
+    "<leader>fB" = {
       action = "current_buffer_fuzzy_find";
       options.desc = "Fuzzy find in buffer";
     };
-    "<leader>fh"= {
+    "<leader>fh" = {
       action = "help_tags";
       options.desc = "Find help";
     };
-    "<leader>fH"= {
+    "<leader>fH" = {
       action = "highlights";
       options.desc = "Find highlights";
     };
-    "<leader>fc"= {
+    "<leader>fc" = {
       action = "colorscheme";
       options.desc = "Find colorscheme";
     };
@@ -100,6 +100,41 @@
       __unkeyed-2 = "<cmd>Telescope<cr>";
       desc = "Open telescope";
       icon = icons.telescope;
+    }
+    {
+      __unkeyed-1 = "<leader>flr";
+      __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_references()<cr>";
+      desc = "[Find][LSP] References";
+    }
+    {
+      __unkeyed-1 = "<leader>fld";
+      __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>";
+      desc = "[Find][LSP] Definitions";
+    }
+    {
+      __unkeyed-1 = "<leader>fli";
+      __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>";
+      desc = "[Find][LSP] Implementations";
+    }
+    {
+      __unkeyed-1 = "<leader>flt";
+      __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>";
+      desc = "[Find][LSP] Type Definitions";
+    }
+    {
+      __unkeyed-1 = "<leader>fls";
+      __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>";
+      desc = "[Find][LSP] Document Symbols";
+    }
+    {
+      __unkeyed-1 = "<leader>flw";
+      __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>";
+      desc = "[Find][LSP] Workspace Symbols";
+    }
+    {
+      __unkeyed-1 = "<leader>flD";
+      __unkeyed-2 = "<cmd>lua require('telescope.builtin').diagnostics()<cr>";
+      desc = "[Find][LSP] Diagnostics";
     }
   ];
 }

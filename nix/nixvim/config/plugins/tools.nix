@@ -68,12 +68,6 @@
   ###############################
   plugins.which-key.settings.spec = [
     {
-      __unkeyed-1 = "<leader>mp";
-      __unkeyed-2 = "<cmd>MarkdownPreviewToggle<cr>";
-      icon = icons.markdown;
-      desc = "Markdown preview";
-    }
-    {
       __unkeyed-1 = "<leader>xx";
       __unkeyed-2 = "<cmd>Trouble<cr>";
       desc = "Diagnostics";
@@ -84,10 +78,36 @@
       desc = "Diagnostics toggle";
     }
     {
+      __unkeyed-1 = "<leader>xw";
+      __unkeyed-2 = "<cmd>Trouble workspace_diagnostics toggle<cr>";
+      desc = "Workspace Diagnostics";
+    }
+    {
+      __unkeyed-1 = "<leader>xs";
+      __unkeyed-2 = ''<cmd>lua require("wtf").search()<cr>'';
+      desc = "Search Diagnostic (web)";
+    }
+    {
+      __unkeyed-1 = "[e";
+      __unkeyed-2 = "<cmd>Lspsaga diagnostic_jump_prev<cr>";
+      desc = "Previous Diagnostic";
+    }
+    {
+      __unkeyed-1 = "]e";
+      __unkeyed-2 = "<cmd>Lspsaga diagnostic_jump_next<cr>";
+      desc = "Next Diagnostic";
+    }
+    {
+      __unkeyed-1 = "<leader>mp";
+      __unkeyed-2 = "<cmd>MarkdownPreviewToggle<cr>";
+      icon = icons.markdown;
+      desc = "Markdown preview";
+    }
+    {
       __unkeyed-1 = "<leader>zm";
       __unkeyed-2 = "<cmd>ZenMode<cr>";
       icon = icons.philosopher;
-      desc = "Focus mode";
+      desc = "Cultivation mode";
     }
   ];
 }

@@ -43,12 +43,20 @@
       group = "github";
     }
     {
+      __unkeyed-1 = "<leader>fl";
+      group = "LSP";
+    }
+    {
       __unkeyed-1 = "<leader>g";
       group = "git";
     }
     {
       __unkeyed-1 = "<leader>gt";
       group = "gitsign";
+    }
+    {
+      __unkeyed-1 = "<leader>l";
+      group = "lsp";
     }
     {
       __unkeyed-1 = "<leader>n";
