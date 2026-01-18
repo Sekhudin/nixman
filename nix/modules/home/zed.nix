@@ -24,6 +24,7 @@ in
     "biome"
     "nginx"
     "prisma"
+    "unicode"
     "graphql"
     "dockerfile"
     # "postgres-language-server"
@@ -41,6 +42,9 @@ in
   ];
 
   programs.zed-editor.extraPackages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
+    nerd-fonts.symbols-only
     nixd
   ];
 
@@ -55,18 +59,24 @@ in
     cursor_shape = "bar";
     load_direnv = "shell_hook";
     autosave.after_delay.milliseconds = 300;
+    buffer_font_family = "JetBrainsMono Nerd Font Mono";
+    buffer_font_fallbacks = [ "Symbols Nerd Font" ];
+    terminal.font_family = "JetBrainsMono Nerd Font Mono";
+    terminal.font_fallbacks = [ "Symbols Nerd Font" ];
   };
 
   programs.zed-editor.userSettings.languages = {
-    Nix.formatter.external.command = "nixfmt";
-    Nix.formatter.external.arguments = [
-      "--quiet"
-      "--"
-    ];
-    Nix.language_servers = [
-      "nixd"
-      "!nil"
-    ];
+    Nix = {
+      formatter.external.command = "nixfmt";
+      formatter.external.arguments = [
+        "--quiet"
+        "--"
+      ];
+      language_servers = [
+        "nixd"
+        "!nil"
+      ];
+    };
   };
 
   home.shellAliases = lib.mkMerge [
@@ -85,7 +95,7 @@ in
       comment = "A high-performance, multiplayer code editor";
       actions.NewWorkspace.name = "Open a new workspace";
       actions.NewWorkspace.exec = "${opengl} zeditor --new %U";
-      settings.Keywords = "zed";
+      settings.Keywords = "Text;editor;zed;code";
       settings.StartupNotify = "true";
       mimeType = [
         "text/plain"

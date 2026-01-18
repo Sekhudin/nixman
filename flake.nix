@@ -20,7 +20,6 @@
     ez-configs.inputs.flake-parts.follows = "flake-parts";
 
     # nixpkgs - channels
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs-stable.url = "github:nixos/nixpkgs/release-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs.follows = "nixpkgs-stable";

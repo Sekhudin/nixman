@@ -6,15 +6,10 @@
 
 let
   icons = import ./icons.nix;
+  vars = import ./vars.nix;
   colors = import ./colors.nix { inherit lib; };
   color = colors.mkColor colors.lists.edge;
-
-  config = {
-    allowUnfree = true;
-    allowBroken = false;
-  };
-
-  overlays = (lib.attrValues (import ./overlays { inherit inputs config; })) ++ [
+  overlays = (lib.attrValues inputs.self.overlays) ++ [
     inputs.nixgl.overlay
   ];
 in
@@ -22,19 +17,21 @@ in
   imports = [
     inputs.ez-configs.flakeModule
 
-    ./nvim.nix
-    ./dev-shells
     ./composes
+    ./dev-shells
+    ./nixvim
+    ./overlays
   ];
-
-  flake.overlays = {
-    default = overlays;
-  };
 
   ezConfigs.root = ./.;
   ezConfigs.globalArgs = {
     inherit inputs;
-    inherit icons colors color;
+    inherit
+      icons
+      vars
+      colors
+      color
+      ;
   };
 
   ezConfigs.home = {
@@ -43,8 +40,9 @@ in
     users.syaikhu = {
       standalone.enable = true;
       standalone.pkgs = import inputs.nixpkgs {
-        system = "x86_64-linux"; # <<--- 'system' ini bisa tanpa harcode ga, bang?
-        inherit config overlays;
+        system = "x86_64-linux"; # <<--- must hardcode
+        inherit (vars.nixpkgs) config;
+        inherit overlays;
       };
     };
   };
@@ -56,17 +54,28 @@ in
 
       _module.args = {
         inherit inputs;
-        inherit icons colors color;
+        inherit
+          icons
+          vars
+          colors
+          color
+          ;
       };
 
       _module.args.extraModuleArgs = {
         inherit inputs;
-        inherit icons colors color;
+        inherit
+          icons
+          vars
+          colors
+          color
+          ;
       };
 
       _module.args.pkgs = import inputs.nixpkgs {
         inherit system;
-        inherit config overlays;
+        inherit (vars.nixpkgs) config;
+        inherit overlays;
       };
 
     };

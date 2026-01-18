@@ -37,8 +37,9 @@ in
       ##################################
       {
         home.packages = [
-          pkgs.nerd-fonts.fira-code
           pkgs.nerd-fonts.jetbrains-mono
+          pkgs.nerd-fonts.fira-code
+          pkgs.nerd-fonts.symbols-only
         ]
         ++ lib.optionals isGhostty [ pkgs.ghostty ]
         ++ lib.optionals isAlacritty [ pkgs.alacritty ];
@@ -60,9 +61,10 @@ in
             shell-integration = "fish";
             custom-shader-animation = true;
             window-decoration = false;
-            window-padding-x = 8;
-            window-padding-y = 5;
-            window-padding-color = "background";
+            window-padding-x = 5;
+            window-padding-y = 0;
+            window-padding-balance = true;
+            window-padding-color = "extend";
             bold-is-bright = true;
             background-opacity = 0.9;
             background = color.scheme.base00;
@@ -77,8 +79,8 @@ in
             cursor-click-to-move = false;
             macos-window-shadow = false;
             macos-titlebar-style = "transparent";
-            font-feature = "JetBrainsMono Nerd Font Mono";
-            font-family = "FiraCode Nerd Font Mono";
+            font-family = "JetBrainsMono Nerd Font Mono";
+            font-feature = "liga,calt,dlig";
             font-thicken = true;
           };
 
