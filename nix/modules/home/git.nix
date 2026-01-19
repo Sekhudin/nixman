@@ -80,7 +80,7 @@ in
       condition = "gitdir:~/projects/";
       contents.user = me;
     }
-    
+
     {
       condition = "gitdir:~/";
       contents.user = me;

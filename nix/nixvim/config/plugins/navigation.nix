@@ -35,8 +35,7 @@
   plugins.mini-bufremove.enable = true;
   plugins.mini-bufremove.lazyLoad.settings.event = [ "BufReadPost" ];
   plugins.mini-bufremove.settings.silent = false;
-  
-  
+
   ###############################
   # which-key spec
   ###############################
@@ -110,6 +109,30 @@
         "o"
       ];
       desc = "Seek word";
+    }
+    {
+      __unkeyed-1 = "<A-j>";
+      __unkeyed-2 = "<cmd>m .+1<cr>==";
+      desc = "Move line down";
+      mode = "n";
+    }
+    {
+      __unkeyed-1 = "<A-k>";
+      __unkeyed-2 = "<cmd>m .-2<cr>==";
+      desc = "Move line up";
+      mode = "n";
+    }
+    {
+      __unkeyed-1 = "<A-j>";
+      __unkeyed-2 = ":m '>+1<cr>gv=gv";
+      desc = "Move selection down";
+      mode = "v";
+    }
+    {
+      __unkeyed-1 = "<A-k>";
+      __unkeyed-2 = ":m '<-2<cr>gv=gv";
+      desc = "Move selection up";
+      mode = "v";
     }
   ];
 }

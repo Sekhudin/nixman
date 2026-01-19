@@ -2,7 +2,7 @@
 
 {
   plugins.git-conflict.enable = true;
-  plugins.git-conflict.settings = {};
+  plugins.git-conflict.settings = { };
 
   plugins.lazygit.enable = true;
   plugins.lazygit.settings = { };

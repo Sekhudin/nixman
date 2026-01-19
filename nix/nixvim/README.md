@@ -22,7 +22,9 @@ A fully-configured Neovim setup managed entirely with Nix. Optimized for speed, 
 
 ### Navigation
 
+- [Bufferline](https://nix-community.github.io/nixvim/plugins/bufferline))
 - [Hop](https://nix-community.github.io/nixvim/plugins/hop)
+- [Mini-bufremove](https://nix-community.github.io/nixvim/plugins/mini-bufremove))
 
 ### Git & Version Control
 

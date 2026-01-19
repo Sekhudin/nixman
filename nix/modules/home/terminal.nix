@@ -56,32 +56,32 @@ in
             };
           in
           formatter.generate "config" {
-            desktop-notifications = true;
+            background-opacity = 0.9;
+            bakground = color.scheme.base00;
+            bold-is-bright = true;
             confirm-close-surface = false;
-            shell-integration = "fish";
+            cursor-click-to-move = false;
+            cursor-color = color.scheme.base06;
+            cursor-style = "underline";
+            cursor-style-blink = true;
+            cursor-text = color.scheme.base07;
             custom-shader-animation = true;
+            desktop-notifications = true;
+            font-family = "JetBrainsMono Nerd Font Mono";
+            font-feature = "liga,calt,dlig";
+            font-thicken = true;
+            foreground = color.scheme.base07;
+            macos-window-shadow = false;
+            macos-titlebar-style = "transparent";
+            palette = color.listKV;
+            selection-background = color.scheme.base08;
+            selection-foreground = color.scheme.base0F;
+            shell-integration = "fish";
             window-decoration = false;
             window-padding-x = 5;
             window-padding-y = 0;
             window-padding-balance = true;
             window-padding-color = "extend";
-            bold-is-bright = true;
-            background-opacity = 0.9;
-            background = color.scheme.base00;
-            foreground = color.scheme.base07;
-            selection-background = color.scheme.base08;
-            selection-foreground = color.scheme.base0F;
-            cursor-color = color.scheme.base06;
-            cursor-text = color.scheme.base07;
-            cursor-style = "underline";
-            cursor-style-blink = true;
-            palette = color.listKV;
-            cursor-click-to-move = false;
-            macos-window-shadow = false;
-            macos-titlebar-style = "transparent";
-            font-family = "JetBrainsMono Nerd Font Mono";
-            font-feature = "liga,calt,dlig";
-            font-thicken = true;
           };
 
         xdg.desktopEntries = lib.mkIf useOpengl {
