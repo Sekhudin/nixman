@@ -35,41 +35,61 @@ in
 
   lists = {
     edge = [
-      "#2B2D3A" # base00: Background
-      "#EC7279" # base08: Red
-      "#A0C980" # base0B: Green
-      "#EF9F76" # base0A: Yellow
-      "#6CB6EB" # base0D: Blue
-      "#D38AEA" # base0E: Magenta
-      "#5DBBC1" # base0C: Cyan
-      "#E1E5ED" # base05: Foreground
-      "#3D3D40" # base03: Bright Background
-      "#F17E84" # base09: Bright Red
-      "#B1D48B" # base01: Lowlight
-      "#F5B083" # base02: Selection Background
-      "#7EC1F5" # base04: Dark Foreground
-      "#DE95F5" # base06: Light Foreground
-      "#68C7CD" # base0F: Bright Cyan
-      "#F0F4FA" # base07: Light Background
+      "#2B2D3A" # base00
+      "#EC7279" # base01
+      "#A0C980" # base02
+      "#EF9F76" # base03
+      "#6CB6EB" # base04
+      "#D38AEA" # base05
+      "#5DBBC1" # base06
+      "#E1E5ED" # base07
+      "#3D3D40" # base08
+      "#F17E84" # base09
+      "#B1D48B" # base0A
+      "#F5B083" # base0B
+      "#7EC1F5" # base0C
+      "#DE95F5" # base0D
+      "#68C7CD" # base0E
+      "#F0F4FA" # base0F
+    ];
+
+
+    carbon = [
+      "#161616" # base00
+      "#EE5396" # base01
+      "#42BE65" # base02
+      "#EF9F76" # base03
+      "#6CB6EB" # base04
+      "#BE95FF" # base05
+      "#33B1FF" # base06
+      "#f2f4f8" # base07
+      "#3D3D40" # base08
+      "#F17E84" # base09
+      "#B1D48B" # base0A
+      "#F5B083" # base0B
+      "#7EC1F5" # base0C
+      "#DE95F5" # base0D
+      "#68C7CD" # base0E
+      "#F0F4FA" # base0F
     ];
 
     zenwritten_dark = [
-      "#191919"
-      "#de6e7c"
-      "#819b69"
-      "#b77e64"
-      "#6099c0"
-      "#b279a7"
-      "#66a5ad"
-      "#bbbbbb"
-      "#3d3839"
-      "#e8838f"
-      "#8bae68"
-      "#d68c67"
-      "#61abda"
-      "#cf86c1"
-      "#65b8c1"
-      "#8e8e8e"
+      "#191919" # base00
+      "#de6e7c" # base01
+      "#819b69" # base02
+      "#b77e64" # base03
+      "#6099c0" # base04
+      "#b279a7" # base05
+      "#66a5ad" # base06
+      "#bbbbbb" # base07
+      "#3d3839" # base08
+      "#e8838f" # base09
+      "#8bae68" # base0A
+      "#d68c67" # base0B
+      "#61abda" # base0C
+      "#cf86c1" # base0D
+      "#65b8c1" # base0E
+      "#8e8e8e" # base0F
     ];
   };
 }

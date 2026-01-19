@@ -57,7 +57,7 @@ in
           in
           formatter.generate "config" {
             background-opacity = 0.9;
-            bakground = color.scheme.base00;
+            background = color.scheme.base00;
             bold-is-bright = true;
             confirm-close-surface = false;
             cursor-click-to-move = false;
@@ -71,6 +71,7 @@ in
             font-feature = "liga,calt,dlig";
             font-thicken = true;
             foreground = color.scheme.base07;
+            gtk-custom-css = "${config.xdg.configHome}/ghostty/style.css";
             macos-window-shadow = false;
             macos-titlebar-style = "transparent";
             palette = color.listKV;
@@ -78,11 +79,19 @@ in
             selection-foreground = color.scheme.base0F;
             shell-integration = "fish";
             window-decoration = false;
-            window-padding-x = 5;
+            window-padding-x = 6;
             window-padding-y = 0;
             window-padding-balance = true;
             window-padding-color = "extend";
           };
+
+        xdg.configFile."ghostty/style.css".text = ''
+          window {
+              border: 2px solid ${color.scheme.base08};
+              border-radius: 8px;
+              margin: 4px;
+            }
+        '';
 
         xdg.desktopEntries = lib.mkIf useOpengl {
           "com.mitchellh.ghostty" = {
