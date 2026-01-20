@@ -20,7 +20,7 @@ lib.mkMerge [
     };
 
     plugins.dashboard.settings.theme = "${theme}";
-    plugins.dashboard.settings.config.disable_move = false;
+    plugins.dashboard.settings.config.disable_move = true;
     plugins.dashboard.settings.config.week_header.enable = false;
     plugins.dashboard.settings.config.header = [
       "                                            "
