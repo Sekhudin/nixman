@@ -1,7 +1,6 @@
 {
   lib,
   icons,
-  vars,
   ...
 }:
 
@@ -9,6 +8,7 @@ let
   theme = "hyper";
   isDoom = theme == "doom";
   isHyper = theme == "hyper";
+  configDir = "~/.config/nixman";
 in
 lib.mkMerge [
   {
@@ -76,7 +76,7 @@ lib.mkMerge [
         icon = "${icons.language.nix} ";
         desc = "Nix Config ";
         group = "DiagnosticHint";
-        action = "Neotree dir=${vars.dir.nixConfig}";
+        action = "Neotree dir=${configDir}";
       }
     ];
   })
@@ -100,7 +100,7 @@ lib.mkMerge [
         key = "cn";
         icon = "${icons.language.nix} ";
         desc = "Nix Config ";
-        action = "Neotree dir=${vars.dir.nixConfig}";
+        action = "Neotree dir=${configDir}";
       }
     ];
   })

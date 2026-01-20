@@ -6,7 +6,7 @@
 }:
 
 let
-  nixConfigDirectory = "~/.config/nixman";
+  configDir = "${config.xdg.configHome}/nixman";
   commandFoldl' = lib.strings.concatMapStrings (x: "${x} && ");
   shellAliases =
     with pkgs;
@@ -61,10 +61,10 @@ let
       ];
       da = "direnv allow";
       dr = "direnv reload";
-      drb = "darwin-rebuild build --flake ${nixConfigDirectory}";
-      drs = "darwin-rebuild switch --flake ${nixConfigDirectory}";
-      psc0 = "nix build ${nixConfigDirectory}#darwinConfigurations.RG.system --json | jq -r '.[].outputs | to_entries[].value' | cachix push r17";
-      psc1 = "nix build ${nixConfigDirectory}#darwinConfigurations.eR17.system --json | jq -r '.[].outputs | to_entries[].value' | cachix push r17";
+      drb = "darwin-rebuild build --flake ${configDir}";
+      drs = "darwin-rebuild switch --flake ${configDir}";
+      psc0 = "nix build ${configDir}#darwinConfigurations.RG.system --json | jq -r '.[].outputs | to_entries[].value' | cachix push r17";
+      psc1 = "nix build ${configDir}#darwinConfigurations.eR17.system --json | jq -r '.[].outputs | to_entries[].value' | cachix push r17";
 
       # secret gpg export
       gpbs = "gpg --export-options backup --export-secret-keys";
@@ -83,10 +83,10 @@ let
       doenv = "denv old";
       renv = "nix-env --rollback";
       # is equivalent to: nix build --recreate-lock-file
-      flakeup-all = "nix flake update ${nixConfigDirectory}";
+      flakeup-all = "nix flake update ${configDir}";
       # example:
       # $ flakeup home-manager
-      flakeup = "nix flake lock ${nixConfigDirectory} --update-input";
+      flakeup = "nix flake lock ${configDir} --update-input";
       nb = "nix build";
       ndp = "nix develop";
       nf = "nix flake";
@@ -136,9 +136,9 @@ let
       gri = "git rebase --interactive";
 
       # Documentation
-      todo = "nvim ${nixConfigDirectory}/notes/todo.norg";
-      todox = "nvim ${nixConfigDirectory}/secrets/todo.norg";
-      diary = "nvim ${nixConfigDirectory}/notes/diary.norg";
+      todo = "nvim ${configDir}/notes/todo.norg";
+      todox = "nvim ${configDir}/secrets/todo.norg";
+      diary = "nvim ${configDir}/notes/diary.norg";
     };
 in
 {
@@ -196,7 +196,7 @@ in
       end
     '';
     gitignore = "curl -sL https://www.gitignore.io/api/$argv";
-    nd = "nix develop ${nixConfigDirectory}#$argv[1] -c $SHELL";
+    nd = "nix develop ${configDir}#$argv[1] -c $SHELL";
     rpkgjson = ''
       ${pkgs.nodejs}/bin/node -e "console.log(Object.entries(require('./package.json').$argv[1]).map(([k,v]) => k.concat(\"@\").concat(v)).join(\"\n\") )"
     '';
