@@ -10,6 +10,36 @@
   plugins.telescope.lazyLoad.settings.cmd = [ "Telescope" ];
   plugins.telescope.lazyLoad.settings.keys = lib.attrNames config.plugins.telescope.keymaps;
   plugins.telescope.enabledExtensions = [ "gh" ];
+  plugins.telescope.settings.default = {
+    file_ignore_patterns = [
+      "%.ipynb"
+      "%.lock"
+      "%.log"
+      "^.cache/"
+      "^.devenv/"
+      "^.direnv/"
+      "^.git/"
+      "^.mypy_cache/"
+      "^.next/"
+      "^.nuxt/"
+      "^.pytest_cache/"
+      "^.ruff_cache/"
+      "^.svelte-kit/"
+      "^.venv/"
+      "^__pycache__/"
+      "^build/"
+      "^data/"
+      "^dist/"
+      "^node_modules/"
+      "^out/"
+      "^output/"
+      "^result/"
+      "^target/"
+      "^vendor/"
+      "^venv/"
+    ];
+
+  };
   plugins.telescope.keymaps = {
     "<leader>ff" = {
       action = "find_files";
