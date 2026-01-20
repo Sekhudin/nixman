@@ -53,7 +53,6 @@ in
       "#F0F4FA" # base0F
     ];
 
-
     carbon = [
       "#161616" # base00
       "#EE5396" # base01
