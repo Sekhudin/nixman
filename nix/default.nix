@@ -8,7 +8,7 @@ let
   icons = import ./icons.nix;
   vars = import ./vars.nix;
   colors = import ./colors.nix { inherit lib; };
-  color = colors.mkColor colors.lists.edge;
+  color = colors.mkColor colors.lists.carbon;
   overlays = (lib.attrValues inputs.self.overlays) ++ [
     inputs.nixgl.overlay
   ];

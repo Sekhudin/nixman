@@ -35,12 +35,93 @@
   plugins.mini-bufremove.enable = true;
   plugins.mini-bufremove.lazyLoad.settings.event = [ "BufReadPost" ];
   plugins.mini-bufremove.settings.silent = false;
-  
-  
+
   ###############################
   # which-key spec
   ###############################
   plugins.which-key.settings.spec = [
+    {
+      __unkeyed-1 = "<Esc>";
+      __unkeyed-2 = "<C-\\><C-n>";
+      desc = "Normal mode";
+      mode = [
+        "i"
+        "t"
+      ];
+    }
+
+    ###############################
+    # window moving
+    ###############################
+    {
+      __unkeyed-1 = "<C-h>";
+      __unkeyed-2 = "<cmd>wincmd h<cr>";
+      desc = "Move to left window";
+      mode = [
+        "n"
+        "t"
+      ];
+    }
+    {
+      __unkeyed-1 = "<C-l>";
+      __unkeyed-2 = "<cmd>wincmd l<cr>";
+      desc = "Move to right window";
+      mode = [
+        "n"
+        "t"
+      ];
+    }
+    {
+      __unkeyed-1 = "<C-j>";
+      __unkeyed-2 = "<cmd>wincmd j<cr>";
+      desc = "Move to bellow window";
+      mode = [
+        "n"
+        "t"
+      ];
+    }
+    {
+      __unkeyed-1 = "<C-k>";
+      __unkeyed-2 = "<cmd>wincmd k<cr>";
+      desc = "Move to upper window";
+      mode = [
+        "n"
+        "t"
+      ];
+    }
+
+    ###############################
+    # line moving
+    ###############################
+    {
+      __unkeyed-1 = "<A-j>";
+      __unkeyed-2 = "<cmd>m .+1<cr>==";
+      desc = "Move line down";
+      mode = "n";
+    }
+    {
+      __unkeyed-1 = "<A-k>";
+      __unkeyed-2 = "<cmd>m .-2<cr>==";
+      desc = "Move line up";
+      mode = "n";
+    }
+    {
+      __unkeyed-1 = "<A-j>";
+      __unkeyed-2 = ":m '>+1<cr>gv=gv";
+      desc = "Move selection down";
+      mode = "v";
+    }
+    {
+      __unkeyed-1 = "<A-k>";
+      __unkeyed-2 = ":m '<-2<cr>gv=gv";
+      desc = "Move selection up";
+      mode = "v";
+    }
+
+    ###############################
+    # buffer tab
+    ###############################
+
     {
       __unkeyed-1 = "<leader>bf";
       __unkeyed-2 = "<cmd>BufferLineGoToBuffer 1<cr>";
@@ -71,6 +152,10 @@
       __unkeyed-2 = "<cmd>BufferLineCloseOthers<cr>";
       desc = "Close other buffers";
     }
+
+    ###############################
+    # seek
+    ###############################
     {
       __unkeyed-1 = "sc";
       __unkeyed-2 = "<cmd>HopChar1<cr>";
@@ -111,5 +196,6 @@
       ];
       desc = "Seek word";
     }
+
   ];
 }

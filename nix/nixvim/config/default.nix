@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, lib, ... }:
 
 let
   indent = 2;
@@ -13,7 +13,11 @@ in
     ./user-commands.nix
   ];
 
-  clipboard.register = "unnamedplus";
+  clipboard = lib.mkIf pkgs.stdenv.isLinux {
+    register = "unnamedplus";
+    providers.xsel.enable = true;
+  };
+
   globals = {
     mapleader = " ";
     laststatus = 3;

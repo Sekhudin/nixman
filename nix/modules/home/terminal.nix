@@ -56,33 +56,42 @@ in
             };
           in
           formatter.generate "config" {
-            desktop-notifications = true;
-            confirm-close-surface = false;
-            shell-integration = "fish";
-            custom-shader-animation = true;
-            window-decoration = false;
-            window-padding-x = 5;
-            window-padding-y = 0;
-            window-padding-balance = true;
-            window-padding-color = "extend";
-            bold-is-bright = true;
             background-opacity = 0.9;
             background = color.scheme.base00;
-            foreground = color.scheme.base07;
-            selection-background = color.scheme.base08;
-            selection-foreground = color.scheme.base0F;
+            bold-is-bright = true;
+            confirm-close-surface = false;
+            cursor-click-to-move = false;
             cursor-color = color.scheme.base06;
-            cursor-text = color.scheme.base07;
             cursor-style = "underline";
             cursor-style-blink = true;
-            palette = color.listKV;
-            cursor-click-to-move = false;
-            macos-window-shadow = false;
-            macos-titlebar-style = "transparent";
+            cursor-text = color.scheme.base07;
+            custom-shader-animation = true;
+            desktop-notifications = true;
             font-family = "JetBrainsMono Nerd Font Mono";
             font-feature = "liga,calt,dlig";
             font-thicken = true;
+            foreground = color.scheme.base07;
+            gtk-custom-css = "${config.xdg.configHome}/ghostty/style.css";
+            macos-window-shadow = false;
+            macos-titlebar-style = "transparent";
+            palette = color.listKV;
+            selection-background = color.scheme.base08;
+            selection-foreground = color.scheme.base0F;
+            shell-integration = "fish";
+            window-decoration = false;
+            window-padding-x = 6;
+            window-padding-y = 0;
+            window-padding-balance = true;
+            window-padding-color = "extend";
           };
+
+        xdg.configFile."ghostty/style.css".text = ''
+          window {
+              border: 2px solid ${color.scheme.base08};
+              border-radius: 8px;
+              margin: 4px;
+            }
+        '';
 
         xdg.desktopEntries = lib.mkIf useOpengl {
           "com.mitchellh.ghostty" = {

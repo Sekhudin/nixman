@@ -1,4 +1,4 @@
-{ icons, ... }:
+{ color, icons, ... }:
 
 {
   plugins.toggleterm.enable = true;
@@ -19,6 +19,15 @@
     close_on_exit = true;
     auto_scroll = true;
     hide_numbers = true;
+    highlights = {
+      Normal = {
+        guibg = color.scheme.base00;
+      };
+      FloatBorder = {
+        guibg = color.scheme.base00;
+        guifg = color.scheme.base08;
+      };
+    };
     float_opts = {
       border = "curved";
     };

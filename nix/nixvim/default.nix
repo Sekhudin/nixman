@@ -5,6 +5,7 @@
     {
       system,
       icons,
+      color,
       vars,
       ...
     }:
@@ -14,7 +15,12 @@
         module = import ./config;
         extraSpecialArgs = {
           inherit self inputs system;
-          inherit icons vars helpers;
+          inherit
+            icons
+            color
+            vars
+            helpers
+            ;
         };
       };
     in
