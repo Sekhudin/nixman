@@ -16,10 +16,6 @@
       mode = "n";
     }
     {
-      __unkeyed-1 = "<C-w>";
-      mode = "n";
-    }
-    {
       __unkeyed-1 = "g";
       mode = "n";
     }

@@ -103,5 +103,8 @@
   plugins.smear-cursor.enable = true;
   plugins.smear-cursor.lazyLoad.settings.event = [ "InsertEnter" ];
   plugins.smear-cursor.lazyLoad.settings.cmd = [ "SmearCursorToggle" ];
-  plugins.smear-cursor.settings = { };
+  plugins.smear-cursor.settings = {
+    hide_target_hack = true;
+    never_draw_over_target = true;
+  };
 }
