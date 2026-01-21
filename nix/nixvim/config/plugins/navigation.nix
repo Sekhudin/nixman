@@ -2,7 +2,7 @@
 
 {
   plugins.bufferline.enable = true;
-  plugins.bufferline.lazyLoad.settings.event = [ "BufReadPre" ];
+  plugins.bufferline.lazyLoad.settings.event = [ "VimEnter" ];
   plugins.bufferline.settings.options = {
     mode = "buffers";
     always_show_bufferline = true;
@@ -41,13 +41,10 @@
   ###############################
   plugins.which-key.settings.spec = [
     {
-      __unkeyed-1 = "<Esc>";
+      __unkeyed-1 = "<Esc><Esc>";
       __unkeyed-2 = "<C-\\><C-n>";
       desc = "Normal mode";
-      mode = [
-        "i"
-        "t"
-      ];
+      mode = [ "t" ];
     }
 
     ###############################

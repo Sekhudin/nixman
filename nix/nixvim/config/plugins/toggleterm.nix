@@ -3,6 +3,7 @@
 {
   plugins.toggleterm.enable = true;
   plugins.toggleterm.lazyLoad.settings.cmd = [
+    "ToggleTermToggleAll"
     "ToggleTerm"
     "TermNew"
     "TermExec"
@@ -41,9 +42,27 @@
       icon = icons.terminal_dev;
     }
     {
+      __unkeyed-1 = "<leader>ta";
+      __unkeyed-2 = "<cmd>ToggleTermToggleAll<cr>";
+      desc = "Toggle terminals";
+      icon = icons.terminal_dev;
+    }
+    {
+      __unkeyed-1 = "<leader>th";
+      __unkeyed-2 = "<cmd>hide<cr>";
+      desc = "Toggle terminals";
+      icon = icons.terminal_dev;
+    }
+    {
       __unkeyed-1 = "<leader>tn";
       __unkeyed-2 = "<cmd>TermNew<cr>";
       desc = "Terminal new";
+      icon = icons.terminal_dev;
+    }
+    {
+      __unkeyed-1 = "<leader>tx";
+      __unkeyed-2 = "<cmd>lua require('mini.bufremove').wipeout()<cr>";
+      desc = "Terminal delete";
       icon = icons.terminal_dev;
     }
     {
