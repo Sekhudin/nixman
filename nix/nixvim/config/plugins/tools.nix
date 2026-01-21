@@ -2,7 +2,10 @@
 
 {
   plugins.comment.enable = true;
-  plugins.comment.lazyLoad.settings.event = [ "BufReadPost" ];
+  plugins.comment.lazyLoad.settings.event = [
+    "BufReadPost"
+    "BufNewFile"
+  ];
   plugins.comment.settings = { };
 
   plugins.image.enable = true;

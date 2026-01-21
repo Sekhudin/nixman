@@ -2,7 +2,10 @@
 
 {
   plugins.colorizer.enable = true;
-  plugins.colorizer.lazyLoad.settings.event = [ "BufReadPre" ];
+  plugins.colorizer.lazyLoad.settings.event = [
+    "BufReadPost"
+    "BufNewFile"
+  ];
   plugins.colorizer.settings = {
     user_default_options = {
       mode = "virtualtext";
@@ -14,7 +17,10 @@
   };
 
   plugins.cursorline.enable = true;
-  plugins.cursorline.lazyLoad.settings.event = [ "BufRead" ];
+  plugins.cursorline.lazyLoad.settings.event = [
+    "BufReadPost"
+    "BufNewFile"
+  ];
   plugins.cursorline.settings = {
     cursorline = {
       enable = true;

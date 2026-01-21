@@ -2,7 +2,7 @@
 
 {
   plugins.luasnip.enable = true;
-  plugins.luasnip.lazyLoad.settings.event = "InsertEnter";
+  plugins.luasnip.lazyLoad.settings.event = [ "InsertEnter" ];
 
   plugins.lspkind.enable = true;
   plugins.lspkind.settings = {

@@ -2,7 +2,10 @@
 
 {
   plugins.bufferline.enable = true;
-  plugins.bufferline.lazyLoad.settings.event = [ "VimEnter" ];
+  plugins.bufferline.lazyLoad.settings.event = [
+    "BufReadPost"
+    "BufEnter"
+  ];
   plugins.bufferline.settings.options = {
     mode = "buffers";
     always_show_bufferline = true;
@@ -29,7 +32,10 @@
   };
 
   plugins.hop.enable = true;
-  plugins.hop.lazyLoad.settings.event = [ "BufReadPost" ];
+  plugins.hop.lazyLoad.settings.event = [
+    "BufReadPost"
+    "BufNewFile"
+  ];
   plugins.hop.settings = { };
 
   plugins.mini-bufremove.enable = true;
