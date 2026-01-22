@@ -1,5 +1,10 @@
-{ ... }:
+{ inputs, ... }:
 
 {
-  imports = [ ./postgres.nix ];
+  imports = [
+    inputs.process-compose-flake.flakeModule
+    ./postgres.nix
+    ./mailpit.nix
+    ./root.nix
+  ];
 }
