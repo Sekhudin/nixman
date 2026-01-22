@@ -52,7 +52,7 @@
     };
     filtered_items = {
       hide_dotfiles = true;
-      hide_gitignored = false;
+      hide_gitignored = true;
       always_show_by_pattern = [
         ".env*"
       ];
