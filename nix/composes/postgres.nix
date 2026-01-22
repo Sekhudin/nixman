@@ -1,8 +1,6 @@
 { inputs, ... }:
 
 {
-  imports = [ inputs.process-compose-flake.flakeModule ];
-
   perSystem =
     { ... }:
     {
@@ -12,7 +10,7 @@
         services.postgres.me = {
           enable = true;
           initialScript.before = ''
-            CREATE USER me WITH password 'postgres';
+            CREATE USER me WITH PASSWORD 'postgres';
           '';
         };
       };
