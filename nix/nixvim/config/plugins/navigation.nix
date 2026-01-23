@@ -43,8 +43,27 @@
   plugins.mini-bufremove.settings.silent = false;
 
   ###############################
-  # which-key spec
+  # which-key
   ###############################
+  plugins.which-key.settings.replace.desc = [
+    [
+      "<C-h>"
+      "Ctrl+h"
+    ]
+    [
+      "<C-l>"
+      "Ctrl+l"
+    ]
+    [
+      "<C-j>"
+      "Ctrl+j"
+    ]
+    [
+      "<C-k>"
+      "Ctrl+k"
+    ]
+  ];
+
   plugins.which-key.settings.spec = [
     {
       __unkeyed-1 = "<Esc><Esc>";
@@ -124,7 +143,18 @@
     ###############################
     # buffer tab
     ###############################
-
+    {
+      __unkeyed-1 = "<Tab>";
+      __unkeyed-2 = "<cmd>BufferLineCycleNext<cr>";
+      group = "buffer";
+      desc = "First buffer";
+    }
+    {
+      __unkeyed-1 = "<S-Tab>";
+      __unkeyed-2 = "<cmd>BufferLineCyclePrev<cr>";
+      group = "buffer";
+      desc = "Prev buffer";
+    }
     {
       __unkeyed-1 = "<leader>bf";
       __unkeyed-2 = "<cmd>BufferLineGoToBuffer 1<cr>";
