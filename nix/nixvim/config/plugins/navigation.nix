@@ -190,12 +190,16 @@
     # seek
     ###############################
     {
+      __unkeyed-1 = "<leader>s";
+      __unkeyed-2 = "<cmd>HopLineStart<cr>";
+      desc = "Seek line";
+    }
+    {
       __unkeyed-1 = "sc";
-      __unkeyed-2 = "<cmd>HopChar1<cr>";
+      __unkeyed-2 = "<cmd>HopChar2<cr>";
       mode = [
         "n"
         "v"
-        "o"
       ];
       desc = "Seek char";
     }
@@ -205,7 +209,6 @@
       mode = [
         "n"
         "v"
-        "o"
       ];
       desc = "Seek line";
     }
@@ -215,7 +218,6 @@
       mode = [
         "n"
         "v"
-        "o"
       ];
       desc = "Seek pattern";
     }
@@ -225,7 +227,6 @@
       mode = [
         "n"
         "v"
-        "o"
       ];
       desc = "Seek word";
     }
