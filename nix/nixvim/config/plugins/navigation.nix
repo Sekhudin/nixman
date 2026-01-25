@@ -36,6 +36,13 @@
     "BufReadPost"
     "BufNewFile"
   ];
+  plugins.hop.lazyLoad.settings.keys = [
+    {
+      __unkeyed-1 = "<leader>s";
+      __unkeyed-2 = "<cmd>HopLineStart<cr>";
+      desc = "Seek line";
+    }
+  ];
   plugins.hop.settings = { };
 
   plugins.mini-bufremove.enable = true;
@@ -43,8 +50,27 @@
   plugins.mini-bufremove.settings.silent = false;
 
   ###############################
-  # which-key spec
+  # which-key
   ###############################
+  plugins.which-key.settings.replace.desc = [
+    [
+      "<C-h>"
+      "Ctrl+h"
+    ]
+    [
+      "<C-l>"
+      "Ctrl+l"
+    ]
+    [
+      "<C-j>"
+      "Ctrl+j"
+    ]
+    [
+      "<C-k>"
+      "Ctrl+k"
+    ]
+  ];
+
   plugins.which-key.settings.spec = [
     {
       __unkeyed-1 = "<Esc><Esc>";
@@ -124,7 +150,18 @@
     ###############################
     # buffer tab
     ###############################
-
+    {
+      __unkeyed-1 = "<Tab>";
+      __unkeyed-2 = "<cmd>BufferLineCycleNext<cr>";
+      group = "buffer";
+      desc = "First buffer";
+    }
+    {
+      __unkeyed-1 = "<S-Tab>";
+      __unkeyed-2 = "<cmd>BufferLineCyclePrev<cr>";
+      group = "buffer";
+      desc = "Prev buffer";
+    }
     {
       __unkeyed-1 = "<leader>bf";
       __unkeyed-2 = "<cmd>BufferLineGoToBuffer 1<cr>";
@@ -161,11 +198,10 @@
     ###############################
     {
       __unkeyed-1 = "sc";
-      __unkeyed-2 = "<cmd>HopChar1<cr>";
+      __unkeyed-2 = "<cmd>HopChar2<cr>";
       mode = [
         "n"
         "v"
-        "o"
       ];
       desc = "Seek char";
     }
@@ -175,7 +211,6 @@
       mode = [
         "n"
         "v"
-        "o"
       ];
       desc = "Seek line";
     }
@@ -185,7 +220,6 @@
       mode = [
         "n"
         "v"
-        "o"
       ];
       desc = "Seek pattern";
     }
@@ -195,7 +229,6 @@
       mode = [
         "n"
         "v"
-        "o"
       ];
       desc = "Seek word";
     }

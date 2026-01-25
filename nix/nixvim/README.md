@@ -44,6 +44,11 @@ A fully-configured Neovim setup managed entirely with Nix. Optimized for speed, 
 - [Rustaceanvim](https://nix-community.github.io/nixvim/plugins/rustaceanvim)
 - [Typescript-tools](https://nix-community.github.io/nixvim/plugins/typescript-tools)
 
+### Database
+- [vim-dadbod](https://nix-community.github.io/nixvim/plugins/vim-dadbod)
+- [vim-dadbod-ui](https://nix-community.github.io/nixvim/plugins/vim-dadbod-ui)
+- [vim-dadbod-completion](https://nix-community.github.io/nixvim/plugins/vim-dadbod-completion)
+
 ### Tools
 
 - [Comment](https://nix-community.github.io/nixvim/plugins/comment)

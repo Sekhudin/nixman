@@ -111,7 +111,10 @@
         name = "luasnip";
         group_index = 1;
       }
-
+      {
+        name = "vim-dadbod-completion";
+        group_index = 1;
+      }
       {
         name = "nvim_lsp_document_symbol";
         group_index = 2;

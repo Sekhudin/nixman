@@ -4,6 +4,7 @@
   imports = [
     ./cmp.nix
     ./dashboard.nix
+    ./database.nix
     ./git.nix
     ./lsp.nix
     ./navigation.nix
@@ -18,7 +19,10 @@
   ];
 
   plugins.lz-n.enable = true;
-  extraPackages = with pkgs; [ gh ];
+  extraPackages = with pkgs; [
+    gh
+    postgresql
+  ];
   extraPlugins = [
     pkgs.vimPlugins.telescope-github-nvim
     pkgs.vimPlugins.codi-vim

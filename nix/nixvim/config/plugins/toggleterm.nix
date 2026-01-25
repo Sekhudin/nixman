@@ -36,13 +36,13 @@
 
   plugins.which-key.settings.spec = [
     {
-      __unkeyed-1 = "<leader>tt";
+      __unkeyed-1 = "<c-\\>";
       __unkeyed-2 = "<cmd>ToggleTerm<cr>";
       desc = "Toggle terminal";
       icon = icons.terminal_dev;
     }
     {
-      __unkeyed-1 = "<leader>ta";
+      __unkeyed-1 = "<leader>tt";
       __unkeyed-2 = "<cmd>ToggleTermToggleAll<cr>";
       desc = "Toggle terminals";
       icon = icons.terminal_dev;
@@ -60,7 +60,7 @@
       icon = icons.terminal_dev;
     }
     {
-      __unkeyed-1 = "<leader>tx";
+      __unkeyed-1 = "<leader>td";
       __unkeyed-2 = "<cmd>lua require('mini.bufremove').wipeout()<cr>";
       desc = "Terminal delete";
       icon = icons.terminal_dev;

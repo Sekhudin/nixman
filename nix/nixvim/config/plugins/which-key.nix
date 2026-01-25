@@ -27,6 +27,11 @@
       group = "buffer";
     }
     {
+      __unkeyed-1 = "<leader>d";
+      icon = icons.database;
+      group = "database";
+    }
+    {
       __unkeyed-1 = "<leader>f";
       group = "find";
     }
@@ -78,11 +83,6 @@
     {
       __unkeyed-1 = "<leader>t";
       group = "terminal";
-    }
-    {
-      __unkeyed-1 = "<leader>w";
-      group = "window";
-      proxy = "<c-w>";
     }
     {
       __unkeyed-1 = "<leader>x";
