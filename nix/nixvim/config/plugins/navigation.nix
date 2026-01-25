@@ -36,6 +36,13 @@
     "BufReadPost"
     "BufNewFile"
   ];
+  plugins.hop.lazyLoad.settings.keys = [
+    {
+      __unkeyed-1 = "<leader>s";
+      __unkeyed-2 = "<cmd>HopLineStart<cr>";
+      desc = "Seek line";
+    }
+  ];
   plugins.hop.settings = { };
 
   plugins.mini-bufremove.enable = true;
@@ -189,11 +196,6 @@
     ###############################
     # seek
     ###############################
-    {
-      __unkeyed-1 = "<leader>s";
-      __unkeyed-2 = "<cmd>HopLineStart<cr>";
-      desc = "Seek line";
-    }
     {
       __unkeyed-1 = "sc";
       __unkeyed-2 = "<cmd>HopChar2<cr>";

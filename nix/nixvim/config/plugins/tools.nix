@@ -33,6 +33,7 @@
       local exclude = {
         "alpha",
         "dashboard",
+        "dbui",
         "help",
         "lazy",
         "mason",

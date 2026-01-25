@@ -29,10 +29,13 @@ let
     eol = "↩";
     face = "󰏚";
     file = "";
+    file_code = "";
     file_text = "";
+    file_tree = "󰙅";
     files = "";
     folder = "";
-    folder_open = "";
+    folder_close = "";
+    folder_open = "";
     folder_empty = "";
     folder_root = "";
     folder_root_open = "";
@@ -53,6 +56,7 @@ let
     lightbulb = "";
     lightning = "";
     linux = "";
+    list_group = "󱡠";
     markdown = "";
     minus = "";
     minus_1 = "";
@@ -82,6 +86,8 @@ let
     star = "";
     still = "";
     tab = "⦙";
+    table = "󰓫";
+    table_multiple = "󱏈";
     telescope = "";
     terminal = "";
     terminal_dev = "";
@@ -111,4 +117,6 @@ icons
     right = name: "${icons.${name}} ";
     left = name: " ${icons.${name}}";
   };
+  withCollapsedIcon = name: "${icons.chevron_right} ${icons.${name}} ";
+  withExpandedIcon = name: "${icons.chevron_down} ${icons.${name}} ";
 }
