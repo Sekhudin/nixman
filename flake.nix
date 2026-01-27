@@ -39,6 +39,8 @@
     # --- tools
     process-compose-flake.url = "github:Platonic-Systems/process-compose-flake";
     services-flake.url = "github:juspay/services-flake";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     # utilities
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";

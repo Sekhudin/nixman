@@ -2,16 +2,14 @@
 
 let
   inherit (inputs.services-flake.lib) multiService;
-  user = "root";
-  pass = "root";
+  superuser = (builtins.getEnv "USER");
+  username = "root";
+  password = "root";
 in
 {
   perSystem =
     { pkgs, ... }:
 
-    let
-      sudo = (builtins.getEnv "USER");
-    in
     {
       process-compose.root = {
         imports = [
@@ -23,18 +21,18 @@ in
         services.postgres.pg-root = {
           port = 5432;
           listen_addresses = "127.0.0.1";
-          superuser = "${sudo}";
+          superuser = "${superuser}";
           createDatabase = false;
           initialScript = {
             before = ''
               SET password_encryption = 'scram-sha-256';
 
-              CREATE USER ${user} WITH
+              CREATE USER ${username} WITH
                   LOGIN 
                   CREATEDB 
                   CREATEROLE 
                   REPLICATION
-                  PASSWORD '${pass}';
+                  PASSWORD '${password}';
             '';
           };
           settings.hba_file = (
@@ -42,28 +40,28 @@ in
               # TYPE  DATABASE         USER            ADDRESS                 METHOD
 
               # active
-              local   all              ${sudo}                                 trust
-              host    all              ${sudo}         127.0.0.1/32            trust
-              host    all              ${sudo}         ::1/128                 trust
-              local   replication      ${sudo}                                 trust
-              host    replication      ${sudo}         127.0.0.1/32            trust
-              host    replication      ${sudo}         ::1/128                 trust
+              local   all              ${superuser}                                 trust
+              host    all              ${superuser}         127.0.0.1/32            trust
+              host    all              ${superuser}         ::1/128                 trust
+              local   replication      ${superuser}                                 trust
+              host    replication      ${superuser}         127.0.0.1/32            trust
+              host    replication      ${superuser}         ::1/128                 trust
 
               # current-user
-              local   all              ${user}                                 scram-sha-256
-              host    all              ${user}         127.0.0.1/32            scram-sha-256
-              host    all              ${user}         ::1/128                 scram-sha-256
-              local   replication      ${user}                                 scram-sha-256 
-              host    replication      ${user}         127.0.0.1/32            scram-sha-256 
-              host    replication      ${user}         ::1/128                 scram-sha-256 
+              local   all              ${username}                                 scram-sha-256
+              host    all              ${username}         127.0.0.1/32            scram-sha-256
+              host    all              ${username}         ::1/128                 scram-sha-256
+              local   replication      ${username}                                 scram-sha-256 
+              host    replication      ${username}         127.0.0.1/32            scram-sha-256 
+              host    replication      ${username}         ::1/128                 scram-sha-256 
             ''}"
           );
         };
 
         services.mailpit.mp-root.enable = true;
         services.mailpit.mp-root.settings.env = {
-          MP_UI_AUTH = "${user}:${pass}";
-          MP_SMTP_AUTH = "${user}:${pass}";
+          MP_UI_AUTH = "${username}:${password}";
+          MP_SMTP_AUTH = "${username}:${password}";
           MP_SMTP_AUTH_ALLOW_INSECURE = "true";
         };
       };

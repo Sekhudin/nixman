@@ -5,15 +5,20 @@ let
 in
 lib.mkIf autosave.enable {
   opts.updatetime = 800;
+
   autoCmd = [
     {
       event = [
         "InsertLeave"
         "CursorHoldI"
-        "TextChanged"
       ];
-      pattern = "*";
-      command = "silent! update";
+      command = "silent update";
+      pattern = [
+        "*.go"
+        "*.js"
+        "*.nix"
+        "*.ts"
+      ];
     }
   ];
 }
