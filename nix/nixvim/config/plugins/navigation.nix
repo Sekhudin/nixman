@@ -32,16 +32,10 @@
   };
 
   plugins.hop.enable = true;
+  plugins.hop.lazyLoad.settings.cmd = [ "HopLineStart" ];
   plugins.hop.lazyLoad.settings.event = [
     "BufReadPost"
     "BufNewFile"
-  ];
-  plugins.hop.lazyLoad.settings.keys = [
-    {
-      __unkeyed-1 = "<leader>s";
-      __unkeyed-2 = "<cmd>HopLineStart<cr>";
-      desc = "Seek line";
-    }
   ];
   plugins.hop.settings = { };
 
@@ -197,41 +191,36 @@
     # seek
     ###############################
     {
+      __unkeyed-1 = "<leader>sl";
+      __unkeyed-2 = "<cmd>HopLineStart<cr>";
+      desc = "Seek line";
+    }
+    {
       __unkeyed-1 = "sc";
       __unkeyed-2 = "<cmd>HopChar2<cr>";
+      desc = "Seek char";
       mode = [
         "n"
         "v"
       ];
-      desc = "Seek char";
     }
     {
       __unkeyed-1 = "sl";
       __unkeyed-2 = "<cmd>HopLineStart<cr>";
-      mode = [
-        "n"
-        "v"
-      ];
       desc = "Seek line";
-    }
-    {
-      __unkeyed-1 = "sp";
-      __unkeyed-2 = "<cmd>HopPattern<cr>";
       mode = [
         "n"
         "v"
       ];
-      desc = "Seek pattern";
     }
     {
       __unkeyed-1 = "sw";
       __unkeyed-2 = "<cmd>HopWord<cr>";
+      desc = "Seek word";
       mode = [
         "n"
         "v"
       ];
-      desc = "Seek word";
     }
-
   ];
 }

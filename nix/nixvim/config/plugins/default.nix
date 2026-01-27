@@ -10,6 +10,7 @@
     ./navigation.nix
     ./neo-tree.nix
     ./noice.nix
+    ./secrets.nix
     ./telescope.nix
     ./toggleterm.nix
     ./tools.nix
@@ -19,13 +20,16 @@
   ];
 
   plugins.lz-n.enable = true;
+
   extraPackages = with pkgs; [
     gh
     postgresql
   ];
-  extraPlugins = [
-    pkgs.vimPlugins.telescope-github-nvim
-    pkgs.vimPlugins.codi-vim
-    pkgs.vimPlugins.neorepl-nvim
+
+  extraPlugins = with pkgs.vimPlugins; [
+    codi-vim
+    neorepl-nvim
+    telescope-github-nvim
+    nvim-sops
   ];
 }

@@ -40,7 +40,7 @@ in
     users.syaikhu = {
       standalone.enable = true;
       standalone.pkgs = import inputs.nixpkgs {
-        system = "x86_64-linux"; # <<--- must hardcode
+        system = "x86_64-linux";
         inherit (vars.nixpkgs) config;
         inherit overlays;
       };
