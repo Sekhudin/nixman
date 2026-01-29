@@ -1,25 +1,19 @@
 {
   inputs,
+  lib,
   ...
 }:
 
 let
-  vars = import ../vars.nix;
+  vars = import ../vars.nix { inherit lib; };
 in
 {
   flake.overlays.default = final: prev: {
     inherit (inputs.nixpkgs-stable.legacyPackages.${prev.stdenv.hostPlatform.system}) nixd nixf nixt;
-    nixfmt = prev.nixfmt-rfc-style;
-    branches = final.lib.mkChannels;
-    vimPlugins = prev.vimPlugins;
-    tree-sitter-grammars = prev.tree-sitter-grammars;
-    fishPlugins = prev.fishPlugins // {
-      nix-env = {
-        name = "nix-env";
-        src = inputs.nix-env;
-      };
-    };
 
+    ##############################
+    # Lib
+    ##############################
     lib = prev.lib.extend (
       _final: _prev: {
         mkChannels = _prev.pipe inputs [
@@ -36,5 +30,42 @@ in
         ];
       }
     );
+
+    ##############################
+    # Fish plugins
+    ##############################
+    fishPlugins = prev.fishPlugins // {
+      nix-env = {
+        name = "nix-env";
+        src = inputs.nix-env;
+      };
+    };
+
+    ##############################
+    # Vim plugins
+    ##############################
+    vimPlugins = final.branches.unstable.vimPlugins.extend (
+      _: __: {
+
+      }
+    );
+
+    ##############################
+    # Tree-sitter grammars
+    ##############################
+    tree-sitter-grammars = prev.tree-sitter-grammars // {
+
+    };
+
+    ##############################
+    # Branches
+    ##############################
+    branches = final.lib.mkChannels;
+
+    ##############################
+    # Packages
+    ##############################
+    nixfmt = prev.nixfmt-rfc-style;
+    claude-code = final.branches.unstable.claude-code;
   };
 }

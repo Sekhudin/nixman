@@ -135,11 +135,6 @@
 
   plugins.which-key.settings.spec = [
     {
-      __unkeyed-1 = "<leader>r";
-      __unkeyed-2 = "<cmd>Repl<cr>";
-      desc = "Open REPL";
-    }
-    {
       __unkeyed-1 = "<leader>h";
       __unkeyed-2 = "<cmd>nohlsearch<cr>";
       desc = "Clear Search Highlight";

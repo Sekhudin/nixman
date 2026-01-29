@@ -6,7 +6,7 @@
 
 let
   icons = import ./icons.nix;
-  vars = import ./vars.nix;
+  vars = import ./vars.nix { inherit lib; };
   colors = import ./colors.nix { inherit lib; };
   color = colors.mkColor colors.lists.carbon;
   overlays = (lib.attrValues inputs.self.overlays) ++ [

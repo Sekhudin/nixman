@@ -1,4 +1,4 @@
-{ icons, ... }:
+{ pkgs, icons, ... }:
 
 {
   plugins.comment.enable = true;
@@ -102,13 +102,18 @@
       desc = "Next Diagnostic";
     }
     {
-      __unkeyed-1 = "<leader>mp";
+      __unkeyed-1 = "<leader>mr";
+      __unkeyed-2 = "<cmd>Repl<cr>";
+      desc = "Open REPL";
+    }
+    {
+      __unkeyed-1 = "<leader>mm";
       __unkeyed-2 = "<cmd>MarkdownPreviewToggle<cr>";
       icon = icons.markdown;
       desc = "Markdown preview";
     }
     {
-      __unkeyed-1 = "<leader>zm";
+      __unkeyed-1 = "<leader>mz";
       __unkeyed-2 = "<cmd>ZenMode<cr>";
       icon = icons.philosopher;
       desc = "Cultivation mode";
