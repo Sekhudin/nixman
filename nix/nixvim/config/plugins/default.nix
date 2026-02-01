@@ -26,6 +26,7 @@
   ];
 
   extraPlugins = with pkgs.vimPlugins; [
+    claudecode-nvim
     neorepl-nvim
     nvim-sops
     telescope-github-nvim

@@ -13,6 +13,15 @@
     show_close_icon = false;
     color_icons = true;
     separator_style = "slope";
+    custom_filter = ''
+      function(buf)
+        return not vim.tbl_contains({
+          "",
+          "help",
+          "terminal",
+        }, vim.bo[buf].filetype)
+      end
+    '';
     offsets = [
       {
         filetype = "neo-tree";

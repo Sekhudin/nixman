@@ -32,6 +32,11 @@
       group = "buffer";
     }
     {
+      __unkeyed-1 = "<leader>c";
+      group = "claude";
+      icon = icons.robot_face;
+    }
+    {
       __unkeyed-1 = "<leader>d";
       icon = icons.database;
       group = "database";

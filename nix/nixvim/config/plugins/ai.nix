@@ -1,6 +1,40 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  icons,
+  helpers,
+  ...
+}:
 
 {
+  ##########################
+  # Claude Code
+  ##########################
+  plugins.lz-n.plugins = [
+    {
+      __unkeyed-1 = pkgs.vimPlugins.claudecode-nvim.name;
+      cmd = [
+        "ClaudeCode"
+        "ClaudeCodeFocus"
+        "ClaudeCodeDiffDeny"
+        "ClaudeCodeDiffAccept"
+      ];
+      after.__raw = helpers.mkLuaFun ''
+        require("claudecode").setup({
+          terminal = {
+            split_side = "right",
+            split_width_percentage = 0.30,
+            provider = "native",
+            auto_close = true,
+            snacks_win_opts = { },
+          },
+        })
+      '';
+    }
+  ];
+
+  ##########################
+  # Avante
+  ##########################
   plugins.avante.enable = true;
   plugins.avante.lazyLoad.settings.cmd = [
     "AvanteAsk"
@@ -13,43 +47,54 @@
     "AvanteShowRepoMap"
     "AvanteToggle"
   ];
-  plugins.avante.settings = { };
-
-  plugins.claude-code.enable = true;
-  plugins.claude-code.lazyLoad.settings.cmd = [
-    "ClaudeCode"
-    "ClaudeCodeContinue"
-    "ClaudeCodeResume"
-    "ClaudeCodeVerbose"
-  ];
-  plugins.claude-code.settings = {
-    command = "claude";
-    window = {
-      split_ratio = 0.3;
-      position = "botright";
-      enter_insert = true;
-      hide_numbers = true;
-      hide_signcolumn = true;
-      float = {
-        width = "80%";
-        height = "80%";
-        row = "center";
-        col = "center";
-        relative = "editor";
-        border = "rounded";
+  plugins.avante.settings = {
+    provider = "copilot";
+    diff = {
+      autojump = true;
+      debug = false;
+      list_opener = "copen";
+    };
+    highlights = {
+      diff = {
+        current = "GitConflictAncestor";
+        incoming = "GitConflictIncoming";
       };
     };
-    keymaps = {
-      toggle = {
-        normal = "<C-?>";
-        terminal = "<C-?>";
-        variants = {
-          continue = "<leader>cC";
-          verbose = "<leader>cV";
-        };
+    hints = {
+      enabled = true;
+    };
+    windows = {
+      position = "right";
+      wrap = false;
+      input = {
+        prefix = icons.withSpace.right "chevron_right";
       };
-      window_navigation = true;
-      scrolling = true;
+    };
+  };
+  plugins.avante.settings.providers = rec {
+    claude = {
+      api_key_name = "cmd:pass show syaikhu/claude.api.key";
+      endpoint = "https://api.anthropic.com";
+      model = "claude-3-7-sonnet-20250219";
+      timeout = 30000;
+      extra_request_body = {
+        temperature = 0.7;
+        max_tokens = 20000;
+      };
+    };
+    qwen_local = {
+      __inherited_from = "openai";
+      api_key_name = "";
+      endpoint = "http://localhost:11434/v1";
+      model = "qwen2.5-coder";
+      timeout = 30000;
+      extra_request_body = {
+        temperature = 0;
+        max_tokens = 4096;
+      };
+    };
+    deepseek_local = qwen_local // {
+      model = "deepseek-r1:1.5b";
     };
   };
 
@@ -57,6 +102,29 @@
   # which-key spec
   ###########################
   plugins.which-key.settings.spec = [
+    {
+      __unkeyed-1 = "<leader>cc";
+      __unkeyed-2 = "<cmd>ClaudeCode<cr>";
+      desc = "Claude toggle";
+    }
+    {
+      __unkeyed-1 = "<leader>cf";
+      __unkeyed-2 = "<cmd>ClaudeCodeFocus<cr>";
+      desc = "Claude focus";
+    }
+    {
+      __unkeyed-1 = "<leader>ca";
+      __unkeyed-2 = "<cmd>ClaudeCodeDiffAccept<cr>";
+      desc = "Claude diff accept";
+    }
+    {
+      __unkeyed-1 = "<leader>cd";
+      __unkeyed-2 = "<cmd>ClaudeCodeDiffDeny<cr>";
+      desc = "Claude diff deny";
+    }
+    ###########################
+    # Avante
+    ###########################
     {
       __unkeyed-1 = "<leader>at";
       __unkeyed-2 = "<cmd>AvanteToggle<cr>";
@@ -69,7 +137,7 @@
     }
 
     {
-      __unkeyed-1 = "<leader>cc";
+      __unkeyed-1 = "<leader>ac";
       __unkeyed-2 = "<cmd>AvanteChat<cr>";
       desc = "Open AI chat";
     }

@@ -1,4 +1,4 @@
-{ pkgs, icons, ... }:
+{ icons, ... }:
 
 {
   plugins.comment.enable = true;
