@@ -48,7 +48,7 @@
     "AvanteToggle"
   ];
   plugins.avante.settings = {
-    provider = "copilot";
+    provider = "deepseek_local";
     diff = {
       autojump = true;
       debug = false;
@@ -67,7 +67,7 @@
       position = "right";
       wrap = false;
       input = {
-        prefix = icons.withSpace.right "chevron_right";
+        prefix = "${icons.chevron_right}";
       };
     };
   };
@@ -85,7 +85,7 @@
     qwen_local = {
       __inherited_from = "openai";
       api_key_name = "";
-      endpoint = "http://localhost:11434/v1";
+      endpoint = "http://127.0.0.1:11434/v1";
       model = "qwen2.5-coder";
       timeout = 30000;
       extra_request_body = {
@@ -94,7 +94,7 @@
       };
     };
     deepseek_local = qwen_local // {
-      model = "deepseek-r1:1.5b";
+      model = "deepseek-coder:1.3b";
     };
   };
 

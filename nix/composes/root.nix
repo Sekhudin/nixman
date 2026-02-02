@@ -35,27 +35,25 @@ in
                   PASSWORD '${password}';
             '';
           };
-          settings.hba_file = (
-            "${pkgs.writeText "pg_hba.conf" ''
-              # TYPE  DATABASE         USER            ADDRESS                 METHOD
+          settings.hba_file = "${pkgs.writeText "pg_hba.conf" ''
+            # TYPE  DATABASE         USER            ADDRESS                 METHOD
 
-              # active
-              local   all              ${superuser}                                 trust
-              host    all              ${superuser}         127.0.0.1/32            trust
-              host    all              ${superuser}         ::1/128                 trust
-              local   replication      ${superuser}                                 trust
-              host    replication      ${superuser}         127.0.0.1/32            trust
-              host    replication      ${superuser}         ::1/128                 trust
+            # active
+            local   all              ${superuser}                                 trust
+            host    all              ${superuser}         127.0.0.1/32            trust
+            host    all              ${superuser}         ::1/128                 trust
+            local   replication      ${superuser}                                 trust
+            host    replication      ${superuser}         127.0.0.1/32            trust
+            host    replication      ${superuser}         ::1/128                 trust
 
-              # current-user
-              local   all              ${username}                                 scram-sha-256
-              host    all              ${username}         127.0.0.1/32            scram-sha-256
-              host    all              ${username}         ::1/128                 scram-sha-256
-              local   replication      ${username}                                 scram-sha-256 
-              host    replication      ${username}         127.0.0.1/32            scram-sha-256 
-              host    replication      ${username}         ::1/128                 scram-sha-256 
-            ''}"
-          );
+            # current-user
+            local   all              ${username}                                 scram-sha-256
+            host    all              ${username}         127.0.0.1/32            scram-sha-256
+            host    all              ${username}         ::1/128                 scram-sha-256
+            local   replication      ${username}                                 scram-sha-256 
+            host    replication      ${username}         127.0.0.1/32            scram-sha-256 
+            host    replication      ${username}         ::1/128                 scram-sha-256 
+          ''}";
         };
 
         services.mailpit.mp-root.enable = true;
