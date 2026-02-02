@@ -8,7 +8,7 @@
 with lib;
 
 let
-  cfg = config.within.gpg;
+  cfg = config.within.pass;
 in
 {
   options.within.pass.enable = mkEnableOption "Enables Within's pass config";

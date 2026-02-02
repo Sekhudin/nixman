@@ -23,8 +23,18 @@
 
   plugins.which-key.settings.spec = [
     {
+      __unkeyed-1 = "<leader>a";
+      group = "ai";
+      icon = icons.robot_face;
+    }
+    {
       __unkeyed-1 = "<leader>b";
       group = "buffer";
+    }
+    {
+      __unkeyed-1 = "<leader>c";
+      group = "claude";
+      icon = icons.robot_face;
     }
     {
       __unkeyed-1 = "<leader>d";
@@ -45,7 +55,7 @@
     }
     {
       __unkeyed-1 = "<leader>fl";
-      group = "LSP";
+      group = "lsp";
     }
     {
       __unkeyed-1 = "<leader>g";
@@ -58,6 +68,12 @@
     {
       __unkeyed-1 = "<leader>l";
       group = "lsp";
+      icon = icons.code;
+    }
+    {
+      __unkeyed-1 = "<leader>m";
+      group = "mode";
+      icon = icons.linux;
     }
     {
       __unkeyed-1 = "<leader>n";
@@ -81,12 +97,18 @@
       icon = icons.cross;
     }
     {
+      __unkeyed-1 = "<leader>s";
+      group = "seek";
+      icon = icons.telescope;
+    }
+    {
       __unkeyed-1 = "<leader>t";
       group = "terminal";
     }
     {
       __unkeyed-1 = "<leader>x";
       group = "diagnotics";
+      icon = icons.warning;
     }
     {
       __unkeyed-1 = "[";

@@ -1,9 +1,14 @@
-{ self, inputs, ... }:
+{
+  self,
+  inputs,
+  ...
+}:
 
 {
   perSystem =
     {
       system,
+      pkgs,
       icons,
       color,
       vars,
@@ -13,6 +18,7 @@
       helpers = import ./helpers.nix { inherit inputs; };
       nixvimModule = {
         module = import ./config;
+        pkgs = pkgs.branches.unstable;
         extraSpecialArgs = {
           inherit self inputs system;
           inherit

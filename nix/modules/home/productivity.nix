@@ -11,11 +11,12 @@ let
 in
 {
   home.packages = with pkgs; [
+    claude-code
     dbeaver-bin
     slack
     telegram-desktop
     wpsoffice
-    (pkgs.branches.stable.discord.override {
+    (discord.override {
       withVencord = true;
       withOpenASAR = true;
     })
