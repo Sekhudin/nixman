@@ -9,9 +9,6 @@
 
         services.postgres.me = {
           enable = true;
-          initialScript.before = ''
-            CREATE USER me WITH PASSWORD 'postgres';
-          '';
         };
       };
     };

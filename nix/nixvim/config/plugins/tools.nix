@@ -34,6 +34,7 @@
         "alpha",
         "dashboard",
         "dbui",
+        "dbout",
         "help",
         "lazy",
         "mason",

@@ -41,6 +41,15 @@
           command = "toggle_node";
           nowait = false;
         };
+        "<C-u>" = {
+          command = "scroll_preview";
+          config.direction = 10;
+        };
+        "<C-d>" = {
+          command = "scroll_preview";
+          config.direction = -10;
+        };
+
       };
     };
   };
