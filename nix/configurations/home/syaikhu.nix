@@ -1,10 +1,14 @@
-{ lib, ezModules, ... }:
+{
+  lib,
+  ezModules,
+  vars,
+  ...
+}:
 
 {
-  home = rec {
-    username = "syaikhu";
+  home = {
+    inherit (vars.users.syaikhu) username homeDirectory;
     stateVersion = "25.05";
-    homeDirectory = "/home/${username}";
   };
 
   within.gpg.enable = true;

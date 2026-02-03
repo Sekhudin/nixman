@@ -2,13 +2,12 @@
 
 let
   inherit (inputs.services-flake.lib) multiService;
-  superuser = (builtins.getEnv "USER");
   username = "root";
   password = "root";
 in
 {
   perSystem =
-    { pkgs, ... }:
+    { pkgs, user, ... }:
 
     {
       process-compose.root = {
@@ -17,11 +16,12 @@ in
           (multiService ./services/mailpit.nix)
         ];
 
-        services.postgres.pg-root.enable = true;
-        services.postgres.pg-root = {
+        services.postgres.root-postgres.enable = true;
+        services.postgres.root-postgres = {
           port = 5432;
           listen_addresses = "127.0.0.1";
-          superuser = "${superuser}";
+          superuser = "${user.username}";
+          dataDir = "${user.processComposeDirectory}/root-postgres";
           createDatabase = false;
           initialScript = {
             before = ''
@@ -39,12 +39,12 @@ in
             # TYPE  DATABASE         USER            ADDRESS                 METHOD
 
             # active
-            local   all              ${superuser}                                 trust
-            host    all              ${superuser}         127.0.0.1/32            trust
-            host    all              ${superuser}         ::1/128                 trust
-            local   replication      ${superuser}                                 trust
-            host    replication      ${superuser}         127.0.0.1/32            trust
-            host    replication      ${superuser}         ::1/128                 trust
+            local   all              ${user.username}                                 trust
+            host    all              ${user.username}         127.0.0.1/32            trust
+            host    all              ${user.username}         ::1/128                 trust
+            local   replication      ${user.username}                                 trust
+            host    replication      ${user.username}         127.0.0.1/32            trust
+            host    replication      ${user.username}         ::1/128                 trust
 
             # current-user
             local   all              ${username}                                 scram-sha-256
@@ -56,8 +56,8 @@ in
           ''}";
         };
 
-        services.mailpit.mp-root.enable = true;
-        services.mailpit.mp-root.settings.env = {
+        services.mailpit.root-mailpit.enable = true;
+        services.mailpit.root-mailpit.settings.env = {
           MP_UI_AUTH = "${username}:${password}";
           MP_SMTP_AUTH = "${username}:${password}";
           MP_SMTP_AUTH_ALLOW_INSECURE = "true";

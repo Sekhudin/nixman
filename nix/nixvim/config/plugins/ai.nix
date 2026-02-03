@@ -83,17 +83,14 @@
       };
     };
     qwen_local = {
-      __inherited_from = "openai";
+      __inherited_from = "ollama";
       api_key_name = "";
-      endpoint = "http://127.0.0.1:11434/v1";
+      endpoint = "http://127.0.0.1:11434";
       model = "qwen2.5-coder";
       timeout = 30000;
-      extra_request_body = {
-        temperature = 0;
-        max_tokens = 4096;
-      };
     };
     deepseek_local = qwen_local // {
+      __inherited_from = "ollama";
       model = "deepseek-coder:1.3b";
     };
   };

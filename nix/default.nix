@@ -5,10 +5,13 @@
 }:
 
 let
+  colors = import ./colors.nix { inherit lib; };
   icons = import ./icons.nix;
   vars = import ./vars.nix { inherit lib; };
-  colors = import ./colors.nix { inherit lib; };
+
   color = colors.mkColor colors.lists.carbon;
+  user = (vars.resolveUser vars.users.syaikhu);
+
   overlays = (lib.attrValues inputs.self.overlays) ++ [
     inputs.nixgl.overlay
   ];
@@ -27,17 +30,18 @@ in
   ezConfigs.globalArgs = {
     inherit inputs;
     inherit
-      icons
-      vars
-      colors
       color
+      colors
+      icons
+      user
+      vars
       ;
   };
 
   ezConfigs.home = {
     modulesDirectory = ./modules/home;
     configurationsDirectory = ./configurations/home;
-    users.syaikhu = {
+    users.${vars.users.syaikhu.username} = {
       standalone.enable = true;
       standalone.pkgs = import inputs.nixpkgs {
         system = "x86_64-linux";
@@ -55,20 +59,22 @@ in
       _module.args = {
         inherit inputs;
         inherit
-          icons
-          vars
-          colors
           color
+          colors
+          icons
+          user
+          vars
           ;
       };
 
       _module.args.extraModuleArgs = {
         inherit inputs;
         inherit
-          icons
-          vars
-          colors
           color
+          colors
+          icons
+          user
+          vars
           ;
       };
 

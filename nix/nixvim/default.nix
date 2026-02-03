@@ -9,8 +9,9 @@
     {
       system,
       pkgs,
-      icons,
       color,
+      icons,
+      user,
       vars,
       ...
     }:
@@ -22,10 +23,11 @@
         extraSpecialArgs = {
           inherit self inputs system;
           inherit
-            icons
             color
-            vars
             helpers
+            icons
+            user
+            vars
             ;
         };
       };
