@@ -16,7 +16,7 @@
       ...
     }:
     let
-      helpers = import ./helpers.nix { inherit inputs; };
+      helper = import ./helper.nix { inherit inputs; };
       nixvimModule = {
         module = import ./config;
         pkgs = pkgs.branches.unstable;
@@ -24,7 +24,7 @@
           inherit self inputs system;
           inherit
             color
-            helpers
+            helper
             icons
             user
             vars

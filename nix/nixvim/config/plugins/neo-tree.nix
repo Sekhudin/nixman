@@ -39,7 +39,11 @@
       mappings = {
         "<space>" = {
           command = "toggle_node";
-          nowait = false;
+          config.nowait = false;
+        };
+        "<C-space>" = {
+          command = "toggle_node";
+          config.nowait = true;
         };
         "<C-u>" = {
           command = "scroll_preview";
@@ -49,24 +53,208 @@
           command = "scroll_preview";
           config.direction = -10;
         };
-
+        "a" = {
+          command = "add";
+          config.show_path = "relative";
+        };
+        "A" = {
+          command = "add_directory";
+          config.show_path = "relative";
+        };
+        "f" = {
+          command = "fuzzy_finder";
+        };
+      };
+    };
+    filesystem = {
+      follow_current_file = {
+        enabled = false;
+        leave_dirs_open = false;
+      };
+      filtered_items = {
+        hide_dotfiles = true;
+        hide_gitignored = true;
+        hide_by_name = [
+          ".DS_Store"
+          ".cache"
+          ".gradle"
+          ".idea"
+          ".next"
+          ".turbo"
+          ".vscode"
+          "build"
+          "dist"
+          "node_modules"
+          "target"
+        ];
+        hide_by_pattern = [
+          "*.lock"
+          "*.log"
+          "*.tmp"
+        ];
+        always_show_by_pattern = [
+          ".env*"
+        ];
+      };
+    };
+    git_status = {
+      window = {
+        mappings = {
+          "A" = {
+            command = "git_add_all";
+          };
+        };
       };
     };
   };
 
-  plugins.neo-tree.settings.filesystem = {
-    follow_current_file = {
-      enabled = false;
-      leave_dirs_open = false;
-    };
-    filtered_items = {
-      hide_dotfiles = true;
-      hide_gitignored = true;
-      always_show_by_pattern = [
-        ".env*"
+  plugins.neo-tree.settings.nesting_rules = {
+    ####################
+    # Basic
+    ####################
+    "docker" = {
+      pattern = "^dockerfile$";
+      ignore_case = true;
+      files = [
+        ".dockerignore"
+        "docker-compose.*"
+        "dockerfile.*"
       ];
     };
-    window.mappings.f.command = "fuzzy_finder";
+    "node" = {
+      pattern = "^package%.json$";
+      files = [
+        "package-lock.json"
+        "yarn.lock"
+        "pnpm-lock.yaml"
+        "bun.lockb"
+        "bun.lock"
+      ];
+    };
+
+    ####################
+    # Javascript
+    ####################
+    "js-declarations" = {
+      priority = 100;
+      pattern = "(.+)%.js$";
+      files = [
+        "%1.d.ts"
+        "%1.js.map"
+      ];
+    };
+    "js-base-test" = {
+      priority = 100;
+      pattern = "(.+)%.js$";
+      files = [
+        "%1.spec.js"
+        "%1.test.js"
+        "%1.e2e-spec.js"
+        "%1.e2e-test.js"
+      ];
+    };
+    "js-react-test" = {
+      priority = 100;
+      pattern = "(.+)%.jsx$";
+      files = [
+        "%1.spec.jsx"
+        "%1.test.jsx"
+        "%1.e2e-spec.jsx"
+        "%1.e2e-test.jsx"
+        "%1.stories.jsx"
+      ];
+    };
+
+    ####################
+    # Typescript
+    ####################
+    "ts-declarations" = {
+      priority = 100;
+      pattern = "(.+)%.ts$";
+      files = [
+        "%1.d.ts"
+        "%1.type.ts"
+        "%1.interface.ts"
+      ];
+    };
+    "ts-base-test" = {
+      priority = 100;
+      pattern = "(.+)%.ts$";
+      files = [
+        "%1.spec.ts"
+        "%1.test.ts"
+        "%1.e2e-spec.ts"
+        "%1.e2e-test.ts"
+      ];
+    };
+    "ts-react-test" = {
+      priority = 100;
+      pattern = "(.+)%.tsx$";
+      files = [
+        "%1.spec.tsx"
+        "%1.test.tsx"
+        "%1.e2e-spec.tsx"
+        "%1.e2e-test.tsx"
+        "%1.stories.tsx"
+      ];
+    };
+
+    ####################
+    # Golang
+    ####################
+    "go-base-test" = {
+      priority = 100;
+      pattern = "(.+)%.go$";
+      files = [ "%1_test.go" ];
+    };
+    "go-extended-test" = {
+      priority = 100;
+      pattern = "(.+)%.go$";
+      files = [
+        "%1_benchmark_test.go"
+        "%1_fuzz_test.go"
+      ];
+    };
+    "go-base-mock" = {
+      priority = 100;
+      pattern = "(.+)%.go$";
+      files = [ "%1_mock.go" ];
+    };
+
+    ####################
+    # Java
+    ####################
+    "java-base-test" = {
+      priority = 100;
+      pattern = "(.+)%.java$";
+      files = [
+        "%1Test.java"
+        "%1IT.java"
+      ];
+    };
+
+    #####################
+    # Python
+    #####################
+    "python-base-test" = {
+      priority = 100;
+      pattern = "(.+)%.py$";
+      files = [
+        "test_%1.py"
+        "%1_test.py"
+      ];
+    };
+
+    #####################
+    # Rust
+    #####################
+    "rust-base-test" = {
+      priority = 100;
+      pattern = "(.+)%.rs$";
+      files = [
+        "%1_test.rs"
+      ];
+    };
   };
 
   plugins.which-key.settings.spec = [

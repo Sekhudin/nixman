@@ -1,4 +1,4 @@
-{ icons, ... }:
+{ icons, helper, ... }:
 
 {
   globals = {
@@ -86,11 +86,7 @@
         "n"
         "v"
       ];
-      cond = ''
-        function()
-          return vim.bo.filetype == "sql"
-        end
-      '';
+      cond = helper.filetypeMatches [ "sql" ];
     }
   ];
 }

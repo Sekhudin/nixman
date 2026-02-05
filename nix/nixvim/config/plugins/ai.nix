@@ -1,7 +1,7 @@
 {
   pkgs,
   icons,
-  helpers,
+  helper,
   ...
 }:
 
@@ -18,7 +18,7 @@
         "ClaudeCodeDiffDeny"
         "ClaudeCodeDiffAccept"
       ];
-      after.__raw = helpers.mkLuaFun ''
+      after.__raw = helper.mkLuaFun ''
         require("claudecode").setup({
           terminal = {
             split_side = "right",

@@ -11,7 +11,7 @@
     { pkgs, config, ... }:
 
     let
-      helper = import ./helpers.nix { inherit pkgs; };
+      helper = import ./helper.nix { inherit pkgs; };
     in
     {
       pre-commit.check.enable = true;
@@ -38,6 +38,5 @@
             '';
           };
         };
-
     };
 }

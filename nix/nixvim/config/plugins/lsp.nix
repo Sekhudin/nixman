@@ -103,6 +103,8 @@
     #########################
     htmx.enable = true;
     htmx.autostart = true;
+    marksman.enable = true;
+    marksman.autostart = true;
     yamlls.enable = true;
     yamlls.autostart = true;
     jsonls.enable = true;

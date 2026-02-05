@@ -1,10 +1,10 @@
-{ helpers, ... }:
+{ helper, ... }:
 
 {
   autoCmd = [
     {
       event = [ "LspAttach" ];
-      callback.__raw = helpers.mkLuaFun ''
+      callback.__raw = helper.mkLuaFun ''
         local bufnr = vim.api.nvim_get_current_buf()
         local clients = vim.lsp.get_clients({ bufnr = bufnr })
 
