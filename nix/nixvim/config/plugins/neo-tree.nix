@@ -61,9 +61,6 @@
           command = "add_directory";
           config.show_path = "relative";
         };
-        "f" = {
-          command = "fuzzy_finder";
-        };
       };
     };
     filesystem = {
