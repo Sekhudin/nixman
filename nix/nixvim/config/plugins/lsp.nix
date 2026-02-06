@@ -37,16 +37,19 @@
     #########################
     ccls.enable = true;
     ccls.autostart = true;
+
     #########################
     # Bash
     #########################
     bashls.enable = true;
     bashls.autostart = true;
+
     #########################
     # Docker
     #########################
     dockerls.enable = true;
     dockerls.autostart = true;
+
     #########################
     # Javascript & Typescript
     #########################
@@ -63,8 +66,9 @@
         ".git"
       )
     '';
+
     #########################
-    # Golang
+    # Go
     #########################
     gopls.enable = true;
     gopls.autostart = true;
@@ -77,6 +81,7 @@
       parameterNames = true;
       rangeVariableTypes = true;
     };
+
     #########################
     # Nix
     #########################
@@ -87,17 +92,33 @@
       formatting.command = [ "${lib.getExe pkgs.nixfmt}" ];
       diagnostic.suppress = [ "sema-escaping-with" ];
     };
+
+    #########################
+    # Python
+    #########################
+    pyright.enable = true;
+    pyright.autostart = true;
+
+    #########################
+    # Java
+    #########################
+    jdtls.enable = false;
+    jdtls.autostart = true;
+
     #########################
     # Rust
     #########################
+    rust_analyzer.enable = true;
     rust_analyzer.autostart = true;
     rust_analyzer.installCargo = false;
     rust_analyzer.installRustc = false;
+
     #########################
     # Lua
     #########################
     lua_ls.enable = true;
     lua_ls.autostart = true;
+
     #########################
     # Other
     #########################
