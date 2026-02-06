@@ -74,6 +74,7 @@
       __unkeyed-2 = "<Plug>(DBUI_ExecuteQuery)";
       desc = "Execute query";
       mode = [ "v" ];
+      cond = helper.filetypeMatches [ "sql" ];
     }
     {
       __unkeyed-1 = "<M-x>";

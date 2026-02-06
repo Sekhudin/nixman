@@ -18,6 +18,7 @@ lib.mkIf autosave.enable {
         "*.js"
         "*.md"
         "*.nix"
+        "*.sql"
         "*.ts"
       ];
     }
