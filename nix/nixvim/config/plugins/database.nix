@@ -73,19 +73,13 @@
       __unkeyed-1 = "<leader>de";
       __unkeyed-2 = "<Plug>(DBUI_ExecuteQuery)";
       desc = "Execute query";
-      mode = [
-        "n"
-        "v"
-      ];
+      mode = [ "v" ];
     }
     {
       __unkeyed-1 = "<M-x>";
       __unkeyed-2 = "<Plug>(DBUI_ExecuteQuery)";
       desc = "Execute query";
-      mode = [
-        "n"
-        "v"
-      ];
+      mode = [ "v" ];
       cond = helper.filetypeMatches [ "sql" ];
     }
   ];
