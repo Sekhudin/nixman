@@ -1,23 +1,6 @@
 { ... }:
 
 {
-  autoCmd = [
-    {
-      event = [
-        "InsertLeave"
-      ];
-      command = "silent update";
-      pattern = [
-        "*.sops.env"
-        "*.sops.json"
-        "*.sops.norg"
-        "*.sops.yaml"
-        ".env"
-        ".env*"
-      ];
-    }
-  ];
-
   plugins.which-key.settings.spec = [
     {
       __unkeyed-1 = "<leader>se";
