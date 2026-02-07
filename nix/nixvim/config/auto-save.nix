@@ -16,10 +16,15 @@ lib.mkIf autosave.enable {
       pattern = [
         "*.go"
         "*.js"
+        "*.jsx"
+        "*.java"
         "*.md"
+        "*.mdx"
         "*.nix"
+        "*.py"
         "*.sql"
         "*.ts"
+        "*.tsx"
       ];
     }
   ];

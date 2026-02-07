@@ -11,6 +11,7 @@
   plugins.crates.lazyLoad.settings.ft = [ "rust" ];
 
   plugins.lsp-format.enable = true;
+  plugins.lsp-format.settings = { };
 
   plugins.lspsaga.enable = true;
   plugins.lspsaga.settings = {
@@ -33,22 +34,43 @@
   plugins.lsp.enable = true;
   plugins.lsp.servers = {
     #########################
-    # Clang
-    #########################
-    ccls.enable = true;
-    ccls.autostart = true;
-
-    #########################
     # Bash
     #########################
     bashls.enable = true;
     bashls.autostart = true;
 
     #########################
+    # Clang
+    #########################
+    ccls.enable = true;
+    ccls.autostart = true;
+
+    #########################
     # Docker
     #########################
     dockerls.enable = true;
     dockerls.autostart = true;
+
+    #########################
+    # Go
+    #########################
+    gopls.enable = true;
+    gopls.autostart = true;
+    gopls.extraOptions.settings.gopls.hints = {
+      assignVariableTypes = true;
+      compositeLiteralFields = true;
+      compositeLiteralTypes = true;
+      constantValues = true;
+      functionTypeParameters = true;
+      parameterNames = true;
+      rangeVariableTypes = true;
+    };
+
+    #########################
+    # Java
+    #########################
+    jdtls.enable = false;
+    jdtls.autostart = true;
 
     #########################
     # Javascript & Typescript
@@ -68,19 +90,10 @@
     '';
 
     #########################
-    # Go
+    # Lua
     #########################
-    gopls.enable = true;
-    gopls.autostart = true;
-    gopls.extraOptions.settings.gopls.hints = {
-      assignVariableTypes = true;
-      compositeLiteralFields = true;
-      compositeLiteralTypes = true;
-      constantValues = true;
-      functionTypeParameters = true;
-      parameterNames = true;
-      rangeVariableTypes = true;
-    };
+    lua_ls.enable = true;
+    lua_ls.autostart = true;
 
     #########################
     # Nix
@@ -98,12 +111,8 @@
     #########################
     pyright.enable = true;
     pyright.autostart = true;
-
-    #########################
-    # Java
-    #########################
-    jdtls.enable = false;
-    jdtls.autostart = true;
+    ruff.enable = true;
+    ruff.autostart = true;
 
     #########################
     # Rust
@@ -114,10 +123,10 @@
     rust_analyzer.installRustc = false;
 
     #########################
-    # Lua
+    # SQL
     #########################
-    lua_ls.enable = true;
-    lua_ls.autostart = true;
+    sqruff.enable = true;
+    sqruff.autostart = true;
 
     #########################
     # Other
