@@ -77,8 +77,6 @@
     #########################
     biome.enable = true;
     biome.autostart = true;
-    eslint.enable = true;
-    eslint.autostart = true;
     ts_ls.enable = true;
     ts_ls.autostart = true;
     ts_ls.extraOptions.root_dir = ''
