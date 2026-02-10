@@ -16,7 +16,6 @@
     custom_filter = ''
       function(buf)
         return not vim.tbl_contains({
-          "",
           "help",
           "terminal",
         }, vim.bo[buf].filetype)

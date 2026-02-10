@@ -129,8 +129,8 @@
     #########################
     # Other
     #########################
-    htmx.enable = true;
-    htmx.autostart = true;
+    # htmx.enable = true;
+    # htmx.autostart = true;
     marksman.enable = true;
     marksman.autostart = true;
     yamlls.enable = true;
