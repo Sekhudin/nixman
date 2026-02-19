@@ -11,7 +11,23 @@
   plugins.crates.lazyLoad.settings.ft = [ "rust" ];
 
   plugins.lsp-format.enable = true;
-  plugins.lsp-format.settings = { };
+  plugins.lsp-format.settings = {
+    typescriptreact = {
+      exclude = [ "tailwindcss" ];
+      order = [
+        "biome"
+        "tsgo"
+      ];
+    };
+
+    typescript = {
+      exclude = [ "tailwindcss" ];
+      order = [
+        "biome"
+        "tsgo"
+      ];
+    };
+  };
 
   plugins.lspsaga.enable = true;
   plugins.lspsaga.settings = {

@@ -1,5 +1,6 @@
 { ... }:
 
 {
-  autoCmd = [ ];
+  autoCmd = [
+  ];
 }
