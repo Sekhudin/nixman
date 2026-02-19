@@ -1,6 +1,17 @@
-{ icons, ... }:
+{ pkgs, icons, ... }:
 
 {
+  extraPlugins = with pkgs.vimPlugins; [
+    neorepl-nvim
+  ];
+
+  plugins.lz-n.plugins = [
+    {
+      __unkeyed-1 = pkgs.vimPlugins.neorepl-nvim.name;
+      cmd = [ "Repl" ];
+    }
+  ];
+
   plugins.comment.enable = true;
   plugins.comment.lazyLoad.settings.event = [
     "BufReadPost"
@@ -20,7 +31,30 @@
 
   plugins.nvim-autopairs.enable = true;
   plugins.nvim-autopairs.lazyLoad.settings.event = [ "InsertEnter" ];
-  plugins.nvim-autopairs.settings = { };
+  plugins.nvim-autopairs.settings = {
+    fast_wrap.map = "<M-e>";
+    disable_filetype = [
+      "alpha"
+      "dashboard"
+      "dbui"
+      "dbout"
+      "help"
+      "lazy"
+      "mason"
+      "neo-tree"
+      "neo-tree-popup"
+      "noice"
+      "notify"
+      "spectre_panel"
+      "sql"
+      "qf"
+      "toggleterm"
+      "Outline"
+      "TelescopePrompt"
+      "TelescopeResults"
+      "Trouble"
+    ];
+  };
 
   plugins.nvim-ufo.enable = true;
   plugins.nvim-ufo.lazyLoad.settings.event = [ "BufEnter" ];
@@ -61,6 +95,35 @@
   plugins.trouble.enable = true;
   plugins.trouble.lazyLoad.settings.cmd = [ "Trouble" ];
   plugins.trouble.settings = { };
+
+  plugins.ts-autotag.enable = true;
+  plugins.ts-autotag.lazyLoad.settings.event = [ "InsertEnter" ];
+  plugins.ts-autotag.settings = {
+    opts = {
+      enable_close = true;
+      enable_close_on_slash = true;
+      enable_rename = true;
+    };
+    aliases = {
+      astro = "html";
+      blade = "html";
+      eruby = "html";
+      handlebars = "glimmer";
+      hbs = "glimmer";
+      htmldjango = "html";
+      javascript = "typescriptreact";
+      "javascript.jsx" = "typescriptreact";
+      javascriptreact = "typescriptreact";
+      markdown = "html";
+      php = "html";
+      rescript = "typescriptreact";
+      rust = "rust";
+      twig = "html";
+      typescript = "typescriptreact";
+      "typescript.tsx" = "typescriptreact";
+      vue = "html";
+    };
+  };
 
   plugins.wtf.enable = true;
   plugins.wtf.settings = { };

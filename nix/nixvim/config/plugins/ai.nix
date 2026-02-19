@@ -9,6 +9,10 @@
   ##########################
   # Claude Code
   ##########################
+  extraPlugins = with pkgs.vimPlugins; [
+    claudecode-nvim
+  ];
+
   plugins.lz-n.plugins = [
     {
       __unkeyed-1 = pkgs.vimPlugins.claudecode-nvim.name;

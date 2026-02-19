@@ -1,6 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
+  extraPackages = with pkgs; [
+    postgresql
+  ];
+
   plugins.git-conflict.enable = true;
   plugins.git-conflict.settings = { };
 

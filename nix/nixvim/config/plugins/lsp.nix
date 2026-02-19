@@ -24,13 +24,6 @@
   plugins.rustaceanvim.enable = false;
   plugins.rustaceanvim.lazyLoad.settings.ft = [ "rust" ];
 
-  plugins.typescript-tools.enable = false;
-  plugins.typescript-tools.settings = {
-    code_lens = "references_only";
-    complete_function_calls = true;
-    expose_as_code_action = "all";
-  };
-
   plugins.lsp.enable = true;
   plugins.lsp.servers = {
     #########################
@@ -38,6 +31,34 @@
     #########################
     bashls.enable = true;
     bashls.autostart = true;
+
+    #########################
+    # CSS
+    #########################
+    tailwindcss.enable = true;
+    tailwindcss.autostart = true;
+    tailwindcss.filetypes = [
+      "html"
+      "css"
+      "javascript"
+      "typescript"
+      "javascriptreact"
+      "typescriptreact"
+      "jsx"
+      "tsx"
+    ];
+    tailwindcss.settings = {
+      tailwindCSS.classFunctions = [
+        "tw"
+        "clsx"
+        "tw\\.[a-z-]+"
+      ];
+      tailwindCSS.experimental.classRegex = [
+        "cn\\(([^)]*)\\)"
+        "clsx\\(([^)]*)\\)"
+        "cva\\(([^)]*)\\)"
+      ];
+    };
 
     #########################
     # Clang
@@ -77,7 +98,9 @@
     #########################
     biome.enable = true;
     biome.autostart = true;
-    ts_ls.enable = true;
+    tsgo.enable = true;
+    tsgo.autostart = true;
+    ts_ls.enable = false;
     ts_ls.autostart = true;
     ts_ls.extraOptions.root_dir = ''
       require("lspconfig.util").root_pattern(
@@ -129,6 +152,8 @@
     #########################
     # Other
     #########################
+    emmet_ls.enable = true;
+    emmet_ls.autostart = true;
     # htmx.enable = true;
     # htmx.autostart = true;
     marksman.enable = true;

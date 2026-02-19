@@ -161,6 +161,32 @@
         "%1.stories.jsx"
       ];
     };
+    "js-orpc" = {
+      priority = 100;
+      pattern = "^orpc.js$";
+      files = [
+        "api.client.js"
+        "api.handler.js"
+        "api.contract.json"
+        "orpc.client.js"
+        "orpc.handler.js"
+      ];
+    };
+    "js-router" = {
+      priority = 100;
+      pattern = "(.+)%.router%.js$";
+      files = [ "%1.contract.js" ];
+    };
+    "js-schema" = {
+      priority = 100;
+      pattern = "^schema.js$";
+      files = [ "*.schema.js" ];
+    };
+    "js-generator" = {
+      priority = 100;
+      pattern = "^generator.js$";
+      files = [ "*.generator.js" ];
+    };
 
     ####################
     # Typescript
@@ -194,6 +220,32 @@
         "%1.e2e-test.tsx"
         "%1.stories.tsx"
       ];
+    };
+    "ts-orpc" = {
+      priority = 100;
+      pattern = "^orpc.ts$";
+      files = [
+        "api.client.ts"
+        "api.handler.ts"
+        "api.contract.json"
+        "orpc.client.ts"
+        "orpc.handler.ts"
+      ];
+    };
+    "ts-router" = {
+      priority = 100;
+      pattern = "(.+)%.router%.ts$";
+      files = [ "%1.contract.ts" ];
+    };
+    "ts-schema" = {
+      priority = 100;
+      pattern = "^schema.ts$";
+      files = [ "*.schema.ts" ];
+    };
+    "ts-generator" = {
+      priority = 100;
+      pattern = "^generator.ts$";
+      files = [ "*.generator.ts" ];
     };
 
     ####################

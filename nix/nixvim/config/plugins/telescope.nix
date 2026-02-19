@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   icons,
@@ -6,6 +7,10 @@
 }:
 
 {
+  extraPlugins = with pkgs.vimPlugins; [
+    telescope-github-nvim
+  ];
+
   plugins.telescope.enable = true;
   plugins.telescope.lazyLoad.settings.cmd = [ "Telescope" ];
   plugins.telescope.lazyLoad.settings.keys = lib.attrNames config.plugins.telescope.keymaps;

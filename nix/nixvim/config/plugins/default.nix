@@ -3,6 +3,7 @@
 {
   imports = [
     ./ai.nix
+    ./cmp-snippets.nix
     ./cmp.nix
     ./dashboard.nix
     ./database.nix
@@ -20,32 +21,8 @@
     ./which-key.nix
   ];
 
-  extraPackages = with pkgs; [
-    gh
-    postgresql
-  ];
-
-  extraPlugins = with pkgs.vimPlugins; [
-    claudecode-nvim
-    neorepl-nvim
-    nvim-sops
-    telescope-github-nvim
-  ];
-
-  extraConfigLuaPost = "require('nvim_sops').setup()";
+  extraPlugins = [ ];
 
   plugins.lz-n.enable = true;
-  plugins.lz-n.plugins = [
-    {
-      __unkeyed-1 = pkgs.vimPlugins.neorepl-nvim.name;
-      cmd = [ "Repl" ];
-    }
-    {
-      __unkeyed-1 = "nvim-sops";
-      cmd = [
-        "SopsDecrypt"
-        "SopsEncrypt"
-      ];
-    }
-  ];
+  plugins.lz-n.plugins = [ ];
 }
