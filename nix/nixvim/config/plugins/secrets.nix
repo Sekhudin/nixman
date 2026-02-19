@@ -18,14 +18,14 @@
 
   plugins.which-key.settings.spec = [
     {
-      __unkeyed-1 = "<leader>se";
+      __unkeyed-1 = "<leader>ee";
       __unkeyed-2 = "<cmd>SopsEncrypt<cr>";
-      desc = "[S]ops [E]ncrypt";
+      desc = "Sops Encrypt";
     }
     {
-      __unkeyed-1 = "<leader>sd";
+      __unkeyed-1 = "<leader>ed";
       __unkeyed-2 = "<cmd>SopsDecrypt<cr>";
-      desc = "[S]ops [D]ecrypt";
+      desc = "Sops Decrypt";
     }
   ];
 }

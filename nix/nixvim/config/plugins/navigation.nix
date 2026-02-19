@@ -199,7 +199,7 @@
     # seek
     ###############################
     {
-      __unkeyed-1 = "<leader>sl";
+      __unkeyed-1 = "jl";
       __unkeyed-2 = "<cmd>HopLineStart<cr>";
       desc = "Seek line";
     }

@@ -42,6 +42,11 @@
       group = "database";
     }
     {
+      __unkeyed-1 = "<leader>e";
+      icon = icons.secret;
+      group = "secret";
+    }
+    {
       __unkeyed-1 = "<leader>f";
       group = "find";
     }
@@ -98,8 +103,8 @@
     }
     {
       __unkeyed-1 = "<leader>s";
-      group = "seek";
-      icon = icons.telescope;
+      group = "replace";
+      icon = icons.find_replace;
     }
     {
       __unkeyed-1 = "<leader>t";

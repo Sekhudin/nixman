@@ -33,6 +33,7 @@ let
     file_text = "";
     file_tree = "󰙅";
     files = "";
+    find_replace = "󰛔";
     folder = "";
     folder_close = "";
     folder_open = "";
@@ -81,6 +82,7 @@ let
     robot_face = " ";
     rocket = "";
     save = "";
+    secret = "";
     server = "";
     settings = "";
     star = "";

@@ -92,6 +92,84 @@
     end
   '';
 
+  plugins.spectre.enable = true;
+  plugins.spectre.lazyLoad.settings.cmd = [ "Spectre" ];
+  plugins.spectre.settings = {
+    live_update = true;
+    mapping = {
+      "tab" = {
+        map = "<Tab>";
+        cmd = "<cmd>lua require('spectre').tab()<cr>";
+        desc = "next query";
+      };
+      "shift-tab" = {
+        map = "<S-Tab>";
+        cmd = "<cmd>lua require('spectre').tab_shift()<cr>";
+        desc = "previous query";
+      };
+      enter_file = {
+        map = "<cr>";
+        cmd = "<cmd>lua require('spectre.actions').select_entry()<CR>";
+        desc = "open file";
+      };
+      show_option_menu = {
+        map = "<leader>so";
+        cmd = "<cmd>lua require('spectre').show_options()<CR>";
+        desc = "show options";
+      };
+      resume_last_search = {
+        map = "<leader>sl";
+        cmd = "<cmd>lua require('spectre').resume_last_search()<CR>";
+        desc = "repeat last search";
+      };
+      run_current_replace = {
+        map = "<leader>sr";
+        cmd = "<cmd>lua require('spectre.actions').run_current_replace()<CR>";
+        desc = "replace current line";
+      };
+      run_replace = {
+        map = "<leader>sR";
+        cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>";
+        desc = "replace all";
+      };
+      replace_cmd = {
+        map = "<leader>sc";
+        cmd = "<cmd>lua require('spectre.actions').replace_cmd()<CR>";
+        desc = "input replace command";
+      };
+      send_to_qf = {
+        map = "<leader>sq";
+        cmd = "<cmd>lua require('spectre.actions').send_to_qf()<CR>";
+        desc = "send all items to quickfix";
+      };
+      change_view_mode = {
+        map = "<leader>sv";
+        cmd = "<cmd>lua require('spectre').change_view()<CR>";
+        desc = "change result view mode";
+      };
+      toggle_line = {
+        map = "<leader>sp";
+        cmd = "<cmd>lua require('spectre').toggle_line()<CR>";
+        desc = "toggle item";
+      };
+      toggle_live_update = {
+        map = "<leader>su";
+        cmd = "<cmd>lua require('spectre').toggle_live_update()<CR>";
+        desc = "update when vim writes to file";
+      };
+      toggle_ignore_case = {
+        map = "<leader>si";
+        cmd = "<cmd>lua require('spectre').change_options('ignore-case')<CR>";
+        desc = "toggle ignore case";
+      };
+      toggle_ignore_hidden = {
+        map = "<leader>sh";
+        cmd = "<cmd>lua require('spectre').change_options('hidden')<CR>";
+        desc = "toggle search hidden";
+      };
+    };
+  };
+
   plugins.trouble.enable = true;
   plugins.trouble.lazyLoad.settings.cmd = [ "Trouble" ];
   plugins.trouble.settings = { };
@@ -182,6 +260,11 @@
       __unkeyed-2 = "<cmd>ZenMode<cr>";
       icon = icons.philosopher;
       desc = "Cultivation mode";
+    }
+    {
+      __unkeyed-1 = "<leader>st";
+      __unkeyed-2 = "<cmd>Spectre<cr>";
+      desc = "Spectre";
     }
   ];
 }
