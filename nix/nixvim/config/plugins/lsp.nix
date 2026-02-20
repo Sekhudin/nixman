@@ -13,6 +13,7 @@
   plugins.lsp-format.enable = true;
   plugins.lsp-format.settings = {
     typescriptreact = {
+      sync = true;
       exclude = [ "tailwindcss" ];
       order = [
         "biome"
@@ -21,6 +22,7 @@
     };
 
     typescript = {
+      sync = true;
       exclude = [ "tailwindcss" ];
       order = [
         "biome"
@@ -205,11 +207,6 @@
   };
 
   plugins.which-key.settings.spec = [
-    {
-      __unkeyed-1 = "<leader>h";
-      __unkeyed-2 = "<cmd>nohlsearch<cr>";
-      desc = "Clear Search Highlight";
-    }
     #########################################
     # LSP navigation
     #########################################

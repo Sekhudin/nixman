@@ -80,6 +80,12 @@
       desc = "Normal mode";
       mode = [ "t" ];
     }
+    {
+      __unkeyed-1 = "<Esc><Esc>";
+      __unkeyed-2 = "<cmd>nohlsearch<cr>";
+      desc = "Clear Search Highlight";
+      mode = [ "n" ];
+    }
 
     ###############################
     # window moving
@@ -199,7 +205,7 @@
     # seek
     ###############################
     {
-      __unkeyed-1 = "jl";
+      __unkeyed-1 = "<leader>h";
       __unkeyed-2 = "<cmd>HopLineStart<cr>";
       desc = "Seek line";
     }
