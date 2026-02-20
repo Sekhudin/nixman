@@ -7,26 +7,56 @@
 }:
 
 {
+  extraPackages = with pkgs; [
+    biome
+    prettierd
+    nodePackages.prettier
+
+    shfmt
+    stylua
+    nixfmt
+    ruff
+    rustfmt
+    sqruff
+  ];
+
   plugins.crates.enable = false;
   plugins.crates.lazyLoad.settings.ft = [ "rust" ];
 
-  plugins.lsp-format.enable = true;
-  plugins.lsp-format.settings = {
-    typescriptreact = {
-      sync = true;
-      exclude = [ "tailwindcss" ];
-      order = [
-        "biome"
-        "tsgo"
-      ];
+  plugins.conform-nvim.enable = true;
+  plugins.conform-nvim.settings = {
+    default_format_opts = {
+      stop_after_first = true;
+      lsp_format = "fallback";
     };
-
-    typescript = {
-      sync = true;
-      exclude = [ "tailwindcss" ];
-      order = [
+    formatters_by_ft = {
+      sh = [ "shfmt" ];
+      lua = [ "stylua" ];
+      css = [ "prettierd" ];
+      html = [ "prettierd" ];
+      python = [ "ruff_format" ];
+      rust = [ "rustfmt" ];
+      sql = [ "sqruff" ];
+      yaml = [ "prettierd" ];
+      markdown = [ "prettierd" ];
+      javascript = [
         "biome"
-        "tsgo"
+        "prettierd"
+      ];
+      typescript = [
+        "biome"
+        "prettierd"
+      ];
+      javascriptreact = [
+        "biome"
+        "prettierd"
+      ];
+      typescriptreact = [
+        "biome"
+        "prettierd"
+      ];
+      json = [
+        "biome"
       ];
     };
   };
@@ -62,8 +92,6 @@
       "typescript"
       "javascriptreact"
       "typescriptreact"
-      "jsx"
-      "tsx"
     ];
     tailwindcss.settings = {
       tailwindCSS.classFunctions = [
@@ -116,9 +144,9 @@
     #########################
     biome.enable = true;
     biome.autostart = true;
-    tsgo.enable = true;
+    tsgo.enable = false;
     tsgo.autostart = true;
-    ts_ls.enable = false;
+    ts_ls.enable = true;
     ts_ls.autostart = true;
     ts_ls.extraOptions.root_dir = ''
       require("lspconfig.util").root_pattern(
@@ -150,8 +178,6 @@
     #########################
     pyright.enable = true;
     pyright.autostart = true;
-    ruff.enable = true;
-    ruff.autostart = true;
 
     #########################
     # Rust
@@ -160,12 +186,6 @@
     rust_analyzer.autostart = true;
     rust_analyzer.installCargo = false;
     rust_analyzer.installRustc = false;
-
-    #########################
-    # SQL
-    #########################
-    sqruff.enable = true;
-    sqruff.autostart = true;
 
     #########################
     # Other
@@ -245,7 +265,7 @@
     #########################################
     {
       __unkeyed-1 = "<leader>lf";
-      __unkeyed-2 = "<cmd>Format<cr>";
+      __unkeyed-2 = "<cmd>lua require('conform').format({ async = false }); vim.cmd('update')<cr>";
       desc = "[LSP] Format Buffer";
     }
     {
