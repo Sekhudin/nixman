@@ -24,27 +24,30 @@ in
   };
 
   opts = {
-    cmdheight = 0;
-    laststatus = 3;
-    number = true;
-    relativenumber = true;
-    mouse = "";
-    encoding = "utf8";
-    termguicolors = true;
+    background = "dark";
     backspace = [
       "indent"
       "eol"
       "start"
     ];
-    cursorline = false;
-    wrap = false;
-    background = "dark";
-    tabstop = indent;
-    shiftwidth = indent;
-    smarttab = true;
-    expandtab = true;
+    cmdheight = 0;
     compatible = false;
     conceallevel = 3;
     concealcursor = "n";
+    cursorline = false;
+    encoding = "utf8";
+    expandtab = true;
+    foldenable = false;
+    foldlevel = 99;
+    foldlevelstart = 99;
+    laststatus = 3;
+    mouse = "";
+    number = true;
+    relativenumber = true;
+    shiftwidth = indent;
+    smarttab = true;
+    tabstop = indent;
+    termguicolors = true;
+    wrap = false;
   };
 }
