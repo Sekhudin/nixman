@@ -88,8 +88,7 @@
     tailwindcss.filetypes = [
       "html"
       "css"
-      "javascript"
-      "typescript"
+      "vue"
       "javascriptreact"
       "typescriptreact"
     ];
