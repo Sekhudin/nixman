@@ -207,6 +207,13 @@
         fileMatch = [ "turbo.json" ];
       }
       {
+        url = "https://json.schemastore.org/package.json";
+        description = "npm package.json";
+        fileMatch = [
+          "package.json"
+        ];
+      }
+      {
         url = "https://json.schemastore.org/tsconfig.json";
         description = "Typescript compiler configuration file";
         fileMatch = [
