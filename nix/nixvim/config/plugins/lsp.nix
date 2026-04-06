@@ -9,15 +9,16 @@
 {
   extraPackages = with pkgs; [
     biome
-    prettierd
+    gofumpt
+    gotools
     nodePackages.prettier
-
-    shfmt
-    stylua
     nixfmt
+    prettierd
     ruff
     rustfmt
+    shfmt
     sqruff
+    stylua
   ];
 
   plugins.crates.enable = false;
@@ -30,19 +31,26 @@
       lsp_format = "fallback";
     };
     formatters_by_ft = {
-      sh = [ "shfmt" ];
-      lua = [ "stylua" ];
       css = [ "prettierd" ];
+      go = {
+        __unkeyed-1 = "gofumpt";
+        __unkeyed-2 = "goimports";
+        stop_after_first = false;
+      };
       html = [ "prettierd" ];
-      python = [ "ruff_format" ];
-      rust = [ "rustfmt" ];
-      sql = [ "sqruff" ];
-      yaml = [ "prettierd" ];
-      markdown = [ "prettierd" ];
       javascript = [
         "biome"
         "prettierd"
       ];
+      json = [
+        "biome"
+      ];
+      lua = [ "stylua" ];
+      markdown = [ "prettierd" ];
+      python = [ "ruff_format" ];
+      rust = [ "rustfmt" ];
+      sh = [ "shfmt" ];
+      sql = [ "sqruff" ];
       typescript = [
         "biome"
         "prettierd"
@@ -55,9 +63,7 @@
         "biome"
         "prettierd"
       ];
-      json = [
-        "biome"
-      ];
+      yaml = [ "prettierd" ];
     };
   };
 
@@ -122,6 +128,12 @@
     #########################
     gopls.enable = true;
     gopls.autostart = true;
+    gopls.extraOptions.settings.gopls = {
+      gofumpt = false;
+    };
+    gopls.extraOptions.onAttach = ''
+      client.server_capabilities.documentFormattingProvider = false
+    '';
     gopls.extraOptions.settings.gopls.hints = {
       assignVariableTypes = true;
       compositeLiteralFields = true;
