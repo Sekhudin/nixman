@@ -52,7 +52,7 @@ in
 
   programs.zed-editor.userSettings = {
     theme = "Carbonfox - blurred";
-    vim_mode = true;
+    vim_mode = false;
     confirm_quit = true;
     auto_update = false;
     base_keymap = "VSCode";

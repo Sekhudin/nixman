@@ -30,7 +30,7 @@
     };
     window = {
       position = "left";
-      width = 35;
+      width = 30;
       auto_expand_width = false;
       mapping_options = {
         noremap = true;
