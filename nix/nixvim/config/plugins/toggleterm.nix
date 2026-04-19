@@ -12,7 +12,7 @@
     open_mapping = "[[<c-\\>]]";
     direction = "horizontal";
     size = 15;
-    start_in_insert = true;
+    start_in_insert = false;
     insert_mappings = true;
     terminal_mappings = true;
     shade_terminals = true;
@@ -38,43 +38,61 @@
     {
       __unkeyed-1 = "<c-\\>";
       __unkeyed-2 = "<cmd>ToggleTerm<cr>";
-      desc = "Toggle terminal";
+      desc = "toggle terminal";
       icon = icons.terminal_dev;
     }
     {
       __unkeyed-1 = "<leader>tt";
       __unkeyed-2 = "<cmd>ToggleTermToggleAll<cr>";
-      desc = "Toggle terminals";
-      icon = icons.terminal_dev;
-    }
-    {
-      __unkeyed-1 = "<leader>th";
-      __unkeyed-2 = "<cmd>hide<cr>";
-      desc = "Toggle terminals";
+      desc = "toggle terminals";
       icon = icons.terminal_dev;
     }
     {
       __unkeyed-1 = "<leader>tn";
       __unkeyed-2 = "<cmd>TermNew<cr>";
-      desc = "Terminal new";
+      desc = "new horizontal-term";
       icon = icons.terminal_dev;
     }
     {
       __unkeyed-1 = "<leader>td";
       __unkeyed-2 = "<cmd>lua require('mini.bufremove').wipeout()<cr>";
-      desc = "Terminal delete";
+      desc = "terminal delete";
       icon = icons.terminal_dev;
     }
     {
-      __unkeyed-1 = "<leader>ts";
+      __unkeyed-1 = "<leader>tp";
       __unkeyed-2 = "<cmd>TermSelect<cr>";
-      desc = "Terminal select";
+      desc = "terminal pick";
+      icon = icons.terminal_dev;
+    }
+    {
+      __unkeyed-1 = "<leader>tsl";
+      __unkeyed-2 = "<cmd>ToggleTermSendCurrentLine<cr>";
+      desc = "terminal send line";
+      icon = icons.terminal_dev;
+    }
+    {
+      __unkeyed-1 = "<leader>tsv";
+      __unkeyed-2 = "<cmd>ToggleTermSendVisualSelection<cr>";
+      desc = "terminal send selection";
       icon = icons.terminal_dev;
     }
     {
       __unkeyed-1 = "<leader>tf";
       __unkeyed-2 = "<cmd>TermNew direction=float<cr>";
-      desc = "Floating terminal";
+      desc = "new float-term";
+      icon = icons.terminal_dev;
+    }
+    {
+      __unkeyed-1 = "<leader>tv";
+      __unkeyed-2 = "<cmd>TermNew direction=vertical size=45<cr>";
+      desc = "new vertical-term";
+      icon = icons.terminal_dev;
+    }
+    {
+      __unkeyed-1 = "<leader>tb";
+      __unkeyed-2 = "<cmd>TermNew direction=tab<cr>";
+      desc = "new tab-term";
       icon = icons.terminal_dev;
     }
   ];

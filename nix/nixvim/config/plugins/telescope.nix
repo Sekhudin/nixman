@@ -133,43 +133,43 @@
     {
       __unkeyed-1 = "<leader>ft";
       __unkeyed-2 = "<cmd>Telescope<cr>";
-      desc = "Open telescope";
+      desc = "open telescope";
       icon = icons.telescope;
     }
     {
       __unkeyed-1 = "<leader>flr";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_references()<cr>";
-      desc = "[Find][LSP] References";
+      desc = "[Find][LSP] references";
     }
     {
       __unkeyed-1 = "<leader>fld";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>";
-      desc = "[Find][LSP] Definitions";
+      desc = "[Find][LSP] definitions";
     }
     {
       __unkeyed-1 = "<leader>fli";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>";
-      desc = "[Find][LSP] Implementations";
+      desc = "[Find][LSP] implementations";
     }
     {
       __unkeyed-1 = "<leader>flt";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>";
-      desc = "[Find][LSP] Type Definitions";
+      desc = "[Find][LSP] type Definitions";
     }
     {
       __unkeyed-1 = "<leader>fls";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>";
-      desc = "[Find][LSP] Document Symbols";
+      desc = "[Find][LSP] document Symbols";
     }
     {
       __unkeyed-1 = "<leader>flw";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>";
-      desc = "[Find][LSP] Workspace Symbols";
+      desc = "[Find][LSP] workspace Symbols";
     }
     {
       __unkeyed-1 = "<leader>flD";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').diagnostics()<cr>";
-      desc = "[Find][LSP] Diagnostics";
+      desc = "[Find][LSP] diagnostics";
     }
   ];
 }

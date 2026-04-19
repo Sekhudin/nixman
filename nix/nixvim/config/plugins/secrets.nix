@@ -20,12 +20,12 @@
     {
       __unkeyed-1 = "<leader>ee";
       __unkeyed-2 = "<cmd>SopsEncrypt<cr>";
-      desc = "Sops Encrypt";
+      desc = "sops encrypt";
     }
     {
       __unkeyed-1 = "<leader>ed";
       __unkeyed-2 = "<cmd>SopsDecrypt<cr>";
-      desc = "Sops Decrypt";
+      desc = "sops decrypt";
     }
   ];
 }

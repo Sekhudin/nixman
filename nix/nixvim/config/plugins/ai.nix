@@ -106,22 +106,22 @@
     {
       __unkeyed-1 = "<leader>cc";
       __unkeyed-2 = "<cmd>ClaudeCode<cr>";
-      desc = "Claude toggle";
+      desc = "claude toggle";
     }
     {
       __unkeyed-1 = "<leader>cf";
       __unkeyed-2 = "<cmd>ClaudeCodeFocus<cr>";
-      desc = "Claude focus";
+      desc = "claude focus";
     }
     {
       __unkeyed-1 = "<leader>ca";
       __unkeyed-2 = "<cmd>ClaudeCodeDiffAccept<cr>";
-      desc = "Claude diff accept";
+      desc = "claude diff accept";
     }
     {
       __unkeyed-1 = "<leader>cd";
       __unkeyed-2 = "<cmd>ClaudeCodeDiffDeny<cr>";
-      desc = "Claude diff deny";
+      desc = "claude diff deny";
     }
     ###########################
     # Avante
@@ -129,24 +129,24 @@
     {
       __unkeyed-1 = "<leader>at";
       __unkeyed-2 = "<cmd>AvanteToggle<cr>";
-      desc = "Avante Toggle";
+      desc = "avante toggle";
     }
     {
       __unkeyed-1 = "<leader>aa";
       __unkeyed-2 = "<cmd>AvanteAsk<cr>";
-      desc = "Open AI ask";
+      desc = "open AI ask";
     }
 
     {
       __unkeyed-1 = "<leader>ac";
       __unkeyed-2 = "<cmd>AvanteChat<cr>";
-      desc = "Open AI chat";
+      desc = "open AI chat";
     }
 
     {
       __unkeyed-1 = "<leader>ae";
       __unkeyed-2 = "<cmd>AvanteEdit<cr>";
-      desc = "Edit with instruction";
+      desc = "edit with instruction";
     }
   ];
 }

@@ -310,7 +310,7 @@
     {
       __unkeyed-1 = "<leader>v";
       __unkeyed-2 = "<cmd>Neotree toggle<cr>";
-      desc = "Neotree toggle";
+      desc = "neotree toggle";
       icon = icons.toggle;
     }
   ];

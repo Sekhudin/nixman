@@ -217,54 +217,54 @@
     {
       __unkeyed-1 = "<leader>xx";
       __unkeyed-2 = "<cmd>Trouble<cr>";
-      desc = "Diagnostics";
+      desc = "diagnostics";
     }
     {
       __unkeyed-1 = "<leader>xt";
       __unkeyed-2 = "<cmd>Trouble diagnostics toggle<cr>";
-      desc = "Diagnostics toggle";
+      desc = "diagnostics toggle";
     }
     {
       __unkeyed-1 = "<leader>xw";
       __unkeyed-2 = "<cmd>Trouble workspace_diagnostics toggle<cr>";
-      desc = "Workspace Diagnostics";
+      desc = "workspace diagnostics";
     }
     {
       __unkeyed-1 = "<leader>xs";
       __unkeyed-2 = ''<cmd>lua require("wtf").search()<cr>'';
-      desc = "Search Diagnostic (web)";
+      desc = "search diagnostic (web)";
     }
     {
       __unkeyed-1 = "[e";
       __unkeyed-2 = "<cmd>Lspsaga diagnostic_jump_prev<cr>";
-      desc = "Previous Diagnostic";
+      desc = "previous diagnostic";
     }
     {
       __unkeyed-1 = "]e";
       __unkeyed-2 = "<cmd>Lspsaga diagnostic_jump_next<cr>";
-      desc = "Next Diagnostic";
+      desc = "next diagnostic";
     }
     {
       __unkeyed-1 = "<leader>mr";
       __unkeyed-2 = "<cmd>Repl<cr>";
-      desc = "Open REPL";
+      desc = "open REPL";
     }
     {
       __unkeyed-1 = "<leader>mm";
       __unkeyed-2 = "<cmd>MarkdownPreviewToggle<cr>";
       icon = icons.markdown;
-      desc = "Markdown preview";
+      desc = "markdown preview";
     }
     {
       __unkeyed-1 = "<leader>mz";
       __unkeyed-2 = "<cmd>ZenMode<cr>";
       icon = icons.philosopher;
-      desc = "Cultivation mode";
+      desc = "cultivation mode";
     }
     {
       __unkeyed-1 = "<leader>st";
       __unkeyed-2 = "<cmd>Spectre<cr>";
-      desc = "Spectre";
+      desc = "spectre";
     }
   ];
 }

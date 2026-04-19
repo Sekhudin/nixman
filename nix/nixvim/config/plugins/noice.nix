@@ -11,27 +11,27 @@
     {
       __unkeyed-1 = "<leader>nt";
       __unkeyed-2 = "<cmd>Noice<cr>";
-      desc = "Noice toggle";
+      desc = "noice toggle";
     }
     {
       __unkeyed-1 = "<leader>nh";
       __unkeyed-2 = "<cmd>NoiceHistory<cr>";
-      desc = "Noice history";
+      desc = "noice history";
     }
     {
       __unkeyed-1 = "<leader>nf";
       __unkeyed-2 = "<cmd>NoicePick<cr>";
-      desc = "Noice find";
+      desc = "noice find";
     }
     {
       __unkeyed-1 = "<leader>nd";
       __unkeyed-2 = "<cmd>NoiceDismiss<cr>";
-      desc = "Noice dismiss";
+      desc = "noice dismiss";
     }
     {
       __unkeyed-1 = "<leader>ne";
       __unkeyed-2 = "<cmd>NoiceErrors<cr>";
-      desc = "Noice errors";
+      desc = "noice errors";
     }
   ];
 }

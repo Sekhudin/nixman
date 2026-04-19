@@ -14,11 +14,10 @@
     color_icons = true;
     separator_style = "slope";
     custom_filter = ''
-      function(buf)
+      function(buf_number, buf_numbers)
         return not vim.tbl_contains({
           "help",
-          "terminal",
-        }, vim.bo[buf].filetype)
+        }, vim.bo[buf_number].filetype)
       end
     '';
     offsets = [
@@ -77,13 +76,13 @@
     {
       __unkeyed-1 = "<Esc><Esc>";
       __unkeyed-2 = "<C-\\><C-n>";
-      desc = "Normal mode";
+      desc = "normal mode";
       mode = [ "t" ];
     }
     {
       __unkeyed-1 = "<leader><Esc>";
       __unkeyed-2 = "<cmd>nohlsearch<cr>";
-      desc = "Clear Search Highlight";
+      desc = "clear Search Highlight";
       mode = [ "n" ];
     }
 
@@ -93,7 +92,7 @@
     {
       __unkeyed-1 = "<C-h>";
       __unkeyed-2 = "<cmd>wincmd h<cr>";
-      desc = "Move to left window";
+      desc = "move to left window";
       mode = [
         "n"
         "t"
@@ -102,7 +101,7 @@
     {
       __unkeyed-1 = "<C-l>";
       __unkeyed-2 = "<cmd>wincmd l<cr>";
-      desc = "Move to right window";
+      desc = "move to right window";
       mode = [
         "n"
         "t"
@@ -111,7 +110,7 @@
     {
       __unkeyed-1 = "<C-j>";
       __unkeyed-2 = "<cmd>wincmd j<cr>";
-      desc = "Move to bellow window";
+      desc = "move to bellow window";
       mode = [
         "n"
         "t"
@@ -120,7 +119,7 @@
     {
       __unkeyed-1 = "<C-k>";
       __unkeyed-2 = "<cmd>wincmd k<cr>";
-      desc = "Move to upper window";
+      desc = "move to upper window";
       mode = [
         "n"
         "t"
@@ -133,25 +132,25 @@
     {
       __unkeyed-1 = "<A-j>";
       __unkeyed-2 = "<cmd>m .+1<cr>==";
-      desc = "Move line down";
+      desc = "move line down";
       mode = "n";
     }
     {
       __unkeyed-1 = "<A-k>";
       __unkeyed-2 = "<cmd>m .-2<cr>==";
-      desc = "Move line up";
+      desc = "move line up";
       mode = "n";
     }
     {
       __unkeyed-1 = "<A-j>";
       __unkeyed-2 = ":m '>+1<cr>gv=gv";
-      desc = "Move selection down";
+      desc = "move selection down";
       mode = "v";
     }
     {
       __unkeyed-1 = "<A-k>";
       __unkeyed-2 = ":m '<-2<cr>gv=gv";
-      desc = "Move selection up";
+      desc = "move selection up";
       mode = "v";
     }
 
@@ -162,43 +161,43 @@
       __unkeyed-1 = "<Tab>";
       __unkeyed-2 = "<cmd>BufferLineCycleNext<cr>";
       group = "buffer";
-      desc = "First buffer";
+      desc = "first buffer";
     }
     {
       __unkeyed-1 = "<S-Tab>";
       __unkeyed-2 = "<cmd>BufferLineCyclePrev<cr>";
       group = "buffer";
-      desc = "Prev buffer";
+      desc = "prev buffer";
     }
     {
       __unkeyed-1 = "<leader>bf";
       __unkeyed-2 = "<cmd>BufferLineGoToBuffer 1<cr>";
-      desc = "First buffer";
+      desc = "first buffer";
     }
     {
       __unkeyed-1 = "<leader>bl";
       __unkeyed-2 = "<cmd>BufferLineGoToBuffer -1<cr>";
-      desc = "Last buffer";
+      desc = "last buffer";
     }
     {
-      __unkeyed-1 = "<leader>bp";
-      __unkeyed-2 = "<cmd>BufferLineCyclePrev<cr>";
-      desc = "Next buffer";
+      __unkeyed-1 = "<leader>w";
+      __unkeyed-2 = "gt";
+      desc = "next workspace";
     }
     {
-      __unkeyed-1 = "<leader>bn";
-      __unkeyed-2 = "<cmd>BufferLineCycleNext<cr>";
-      desc = "Prev buffer";
+      __unkeyed-1 = "<leader>W";
+      __unkeyed-2 = "gT";
+      desc = "prev workspace";
     }
     {
       __unkeyed-1 = "<leader>bd";
       __unkeyed-2 = "<cmd>lua require('mini.bufremove').wipeout()<cr>";
-      desc = "Close buffer";
+      desc = "close buffer";
     }
     {
       __unkeyed-1 = "<leader>bo";
       __unkeyed-2 = "<cmd>BufferLineCloseOthers<cr>";
-      desc = "Close other buffers";
+      desc = "close other buffers";
     }
 
     ###############################
@@ -207,12 +206,12 @@
     {
       __unkeyed-1 = "<leader>h";
       __unkeyed-2 = "<cmd>HopLineStart<cr>";
-      desc = "Seek line";
+      desc = "seek line";
     }
     {
       __unkeyed-1 = "sc";
       __unkeyed-2 = "<cmd>HopChar2<cr>";
-      desc = "Seek char";
+      desc = "seek char";
       mode = [
         "n"
         "v"
@@ -221,7 +220,7 @@
     {
       __unkeyed-1 = "sl";
       __unkeyed-2 = "<cmd>HopLineStart<cr>";
-      desc = "Seek line";
+      desc = "seek line";
       mode = [
         "n"
         "v"
@@ -230,7 +229,7 @@
     {
       __unkeyed-1 = "sw";
       __unkeyed-2 = "<cmd>HopWord<cr>";
-      desc = "Seek word";
+      desc = "seek word";
       mode = [
         "n"
         "v"

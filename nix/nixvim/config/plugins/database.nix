@@ -61,34 +61,34 @@
     {
       __unkeyed-1 = "<leader>da";
       __unkeyed-2 = "<cmd>DBUIAddConnection<cr>";
-      desc = "Add connection";
+      desc = "add connection";
     }
     {
       __unkeyed-1 = "<leader>di";
       __unkeyed-2 = "<cmd>DBUILastQueryInfo<cr>";
-      desc = "Lat query info";
+      desc = "last query info";
     }
     {
       __unkeyed-1 = "<leader>ds";
       __unkeyed-2 = "<Plug>(DBUI_SaveQuery)";
-      desc = "Save query";
+      desc = "save query";
     }
     {
       __unkeyed-1 = "<leader>dr";
       __unkeyed-2 = "<Plug>(DBUI_ToggleResultLayout)";
-      desc = "Toggle result";
+      desc = "toggle result";
     }
     {
       __unkeyed-1 = "<leader>de";
       __unkeyed-2 = "<Plug>(DBUI_ExecuteQuery)";
-      desc = "Execute query";
+      desc = "execute query";
       mode = [ "v" ];
       cond = helper.filetypeMatches [ "sql" ];
     }
     {
       __unkeyed-1 = "<M-x>";
       __unkeyed-2 = "<Plug>(DBUI_ExecuteQuery)";
-      desc = "Execute query";
+      desc = "execute query";
       mode = [ "v" ];
       cond = helper.filetypeMatches [ "sql" ];
     }

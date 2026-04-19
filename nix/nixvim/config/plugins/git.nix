@@ -29,37 +29,37 @@
     {
       __unkeyed-1 = "<leader>gg";
       __unkeyed-2 = "<cmd>LazyGit<cr>";
-      desc = "Lazygit";
+      desc = "lazygit";
     }
     {
       __unkeyed-1 = "<leader>gtg";
       __unkeyed-2 = "<cmd>Gitsigns toggle_signs<cr>";
-      desc = "Toggle signs";
+      desc = "toggle signs";
     }
     {
       __unkeyed-1 = "<leader>gtn";
       __unkeyed-2 = "<cmd>Gitsigns toggle_numhl<cr>";
-      desc = "Toggle num highlights";
+      desc = "toggle num highlights";
     }
     {
       __unkeyed-1 = "<leader>gtl";
       __unkeyed-2 = "<cmd>Gitsigns toggle_linehl<cr>";
-      desc = "Toggle line highlights";
+      desc = "toggle line highlights";
     }
     {
       __unkeyed-1 = "<leader>gtw";
       __unkeyed-2 = "<cmd>Gitsigns toggle_word_diff<cr>";
-      desc = "Toggle word diff";
+      desc = "toggle word diff";
     }
     {
       __unkeyed-1 = "<leader>gtd";
       __unkeyed-2 = "<cmd>Gitsigns toggle_deleted<cr>";
-      desc = "Toggle deleted";
+      desc = "toggle deleted";
     }
     {
       __unkeyed-1 = "<leader>gtb";
       __unkeyed-2 = "<cmd>Gitsigns toggle_current_line_blame<cr>";
-      desc = "Toggle current line blame";
+      desc = "toggle current line blame";
     }
   ];
 }
