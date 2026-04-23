@@ -36,7 +36,10 @@ let
     name:
     pkgs.mkShell {
       description = "pkgs.${name} Development Environment";
-      buildInputs = [ pkgs.${name} ];
+      buildInputs = [
+        pkgs.${name}
+        pkgs.gopls
+      ];
       shellHook = ''
         export GOPATH="$(${pkgs.${name}}/bin/go env GOPATH)"
         export PATH="$PATH:$GOPATH/bin"

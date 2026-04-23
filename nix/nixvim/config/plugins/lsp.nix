@@ -126,22 +126,26 @@
     #########################
     # Go
     #########################
-    gopls.enable = true;
-    gopls.autostart = true;
-    gopls.extraOptions.settings.gopls = {
-      gofumpt = false;
-    };
-    gopls.extraOptions.onAttach = ''
-      client.server_capabilities.documentFormattingProvider = false
-    '';
-    gopls.extraOptions.settings.gopls.hints = {
-      assignVariableTypes = true;
-      compositeLiteralFields = true;
-      compositeLiteralTypes = true;
-      constantValues = true;
-      functionTypeParameters = true;
-      parameterNames = true;
-      rangeVariableTypes = true;
+    gopls = {
+      enable = true;
+      autostart = true;
+      package = null;
+
+      extraOptions.settings.gopls = {
+        gofumpt = false;
+        hints = {
+          assignVariableTypes = true;
+          compositeLiteralFields = true;
+          compositeLiteralTypes = true;
+          constantValues = true;
+          functionTypeParameters = true;
+          parameterNames = true;
+          rangeVariableTypes = true;
+        };
+      };
+      extraOptions.onAttach = ''
+        client.server_capabilities.documentFormattingProvider = false
+      '';
     };
 
     #########################
