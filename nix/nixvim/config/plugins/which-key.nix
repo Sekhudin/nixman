@@ -92,13 +92,13 @@
     {
       __unkeyed-1 = "<leader>qq";
       __unkeyed-2 = "<cmd>qa!<cr>";
-      desc = "Quit all";
+      desc = "quit all";
       icon = icons.cross;
     }
     {
       __unkeyed-1 = "<leader>qw";
       __unkeyed-2 = "<cmd>wqa<cr>";
-      desc = "Save & quit all";
+      desc = "save & quit all";
       icon = icons.cross;
     }
     {

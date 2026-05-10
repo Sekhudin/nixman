@@ -67,5 +67,7 @@ in
     ##############################
     nixfmt = prev.nixfmt-rfc-style;
     claude-code = final.branches.unstable.claude-code;
+    gemini-cli = final.branches.unstable.gemini-cli;
+    opencode = final.branches.unstable.opencode;
   };
 }

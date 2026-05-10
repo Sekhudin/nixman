@@ -38,7 +38,6 @@ let
       description = "pkgs.${name} Development Environment";
       buildInputs = [
         pkgs.${name}
-        pkgs.gopls
       ];
       shellHook = ''
         export GOPATH="$(${pkgs.${name}}/bin/go env GOPATH)"

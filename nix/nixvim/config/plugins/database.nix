@@ -56,7 +56,7 @@
     {
       __unkeyed-1 = "<leader>du";
       __unkeyed-2 = "<cmd>DBUIToggle<cr>";
-      desc = "DB toggle";
+      desc = "dbui toggle";
     }
     {
       __unkeyed-1 = "<leader>da";

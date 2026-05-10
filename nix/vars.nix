@@ -27,6 +27,8 @@ in
         builtins.elem (lib.getName pkg) [
           "claude-code"
           "discord"
+          "gemini-cli"
+          "opencode"
           "slack"
           "wpsoffice"
         ];

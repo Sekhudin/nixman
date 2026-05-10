@@ -72,8 +72,9 @@
         hide_dotfiles = true;
         hide_gitignored = true;
         hide_by_name = [
-          ".DS_Store"
           ".cache"
+          ".DS_Store"
+          ".envrc"
           ".gradle"
           ".idea"
           ".next"
@@ -82,15 +83,21 @@
           "build"
           "dist"
           "node_modules"
+          "README.md"
           "target"
         ];
         hide_by_pattern = [
           "*.lock"
           "*.log"
           "*.tmp"
+          ".env.*"
+          "biome.*"
+          "components.*"
+          "postcss.*"
+          "tsconfig.*"
         ];
         always_show_by_pattern = [
-          ".env*"
+          "trax.*"
         ];
       };
     };

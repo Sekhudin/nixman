@@ -13,6 +13,8 @@ in
   home.packages = with pkgs; [
     claude-code
     dbeaver-bin
+    gemini-cli
+    opencode
     slack
     telegram-desktop
     wpsoffice

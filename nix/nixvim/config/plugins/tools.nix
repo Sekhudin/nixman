@@ -235,16 +235,6 @@
       desc = "search diagnostic (web)";
     }
     {
-      __unkeyed-1 = "[e";
-      __unkeyed-2 = "<cmd>Lspsaga diagnostic_jump_prev<cr>";
-      desc = "previous diagnostic";
-    }
-    {
-      __unkeyed-1 = "]e";
-      __unkeyed-2 = "<cmd>Lspsaga diagnostic_jump_next<cr>";
-      desc = "next diagnostic";
-    }
-    {
       __unkeyed-1 = "<leader>mr";
       __unkeyed-2 = "<cmd>Repl<cr>";
       desc = "open REPL";

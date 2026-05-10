@@ -48,84 +48,84 @@
   plugins.telescope.keymaps = {
     "<leader>ff" = {
       action = "find_files";
-      options.desc = "Find files";
+      options.desc = "find files";
     };
     "<leader>fw" = {
       action = "live_grep";
-      options.desc = "Find word";
+      options.desc = "find word";
     };
     "<leader>fW" = {
       action = "grep_string";
-      options.desc = "Find word under cursor";
+      options.desc = "find word under cursor";
     };
     "<leader>fb" = {
       action = "buffers";
-      options.desc = "Find buffers";
+      options.desc = "find buffers";
     };
     "<leader>fB" = {
       action = "current_buffer_fuzzy_find";
-      options.desc = "Fuzzy find in buffer";
+      options.desc = "fuzzy find in buffer";
     };
     "<leader>fh" = {
       action = "help_tags";
-      options.desc = "Find help";
+      options.desc = "find help";
     };
     "<leader>fH" = {
       action = "highlights";
-      options.desc = "Find highlights";
+      options.desc = "find highlights";
     };
     "<leader>fc" = {
       action = "colorscheme";
-      options.desc = "Find colorscheme";
+      options.desc = "find colorscheme";
     };
     "<leader>fgc" = {
       action = "git_commits";
-      options.desc = "Git commits";
+      options.desc = "git commits";
     };
 
     "<leader>fgC" = {
       action = "git_bcommits";
-      options.desc = "Buffer git commits";
+      options.desc = "buffer git commits";
     };
 
     "<leader>fgr" = {
       action = "git_bcommits_range";
-      options.desc = "Buffer git commits (range)";
+      options.desc = "buffer git commits (range)";
     };
 
     "<leader>fgb" = {
       action = "git_branches";
-      options.desc = "Git branches";
+      options.desc = "git branches";
     };
 
     "<leader>fgs" = {
       action = "git_status";
-      options.desc = "Git status";
+      options.desc = "git status";
     };
 
     "<leader>fgS" = {
       action = "git_stash";
-      options.desc = "Git stash";
+      options.desc = "git stash";
     };
 
     "<leader>fGi" = {
       action = "gh issues";
-      options.desc = "Github issues";
+      options.desc = "github issues";
     };
 
     "<leader>fGp" = {
       action = "gh pull_requests";
-      options.desc = "Github PRs";
+      options.desc = "github PRs";
     };
 
     "<leader>fGr" = {
       action = "gh run";
-      options.desc = "Github actions (run)";
+      options.desc = "github actions (run)";
     };
 
     "<leader>fGg" = {
       action = "gh gist";
-      options.desc = "Github gist";
+      options.desc = "github gist";
     };
   };
 
@@ -139,37 +139,37 @@
     {
       __unkeyed-1 = "<leader>flr";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_references()<cr>";
-      desc = "[Find][LSP] references";
+      desc = "[LSP] find references";
     }
     {
       __unkeyed-1 = "<leader>fld";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>";
-      desc = "[Find][LSP] definitions";
+      desc = "[LSP] find definitions";
     }
     {
       __unkeyed-1 = "<leader>fli";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>";
-      desc = "[Find][LSP] implementations";
+      desc = "[LSP] find implementations";
     }
     {
       __unkeyed-1 = "<leader>flt";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>";
-      desc = "[Find][LSP] type Definitions";
+      desc = "[LSP] find type Definitions";
     }
     {
       __unkeyed-1 = "<leader>fls";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>";
-      desc = "[Find][LSP] document Symbols";
+      desc = "[LSP] find document Symbols";
     }
     {
       __unkeyed-1 = "<leader>flw";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>";
-      desc = "[Find][LSP] workspace Symbols";
+      desc = "[LSP] find workspace Symbols";
     }
     {
       __unkeyed-1 = "<leader>flD";
       __unkeyed-2 = "<cmd>lua require('telescope.builtin').diagnostics()<cr>";
-      desc = "[Find][LSP] diagnostics";
+      desc = "[LSP] find diagnostics";
     }
   ];
 }
