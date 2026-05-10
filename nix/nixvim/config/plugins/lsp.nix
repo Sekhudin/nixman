@@ -95,20 +95,39 @@
       "html"
       "css"
       "vue"
+      "javascript"
+      "typescript"
       "javascriptreact"
       "typescriptreact"
     ];
     tailwindcss.settings = {
-      tailwindCSS.classFunctions = [
-        "tw"
-        "clsx"
-        "tw\\.[a-z-]+"
-      ];
-      tailwindCSS.experimental.classRegex = [
-        "cn\\(([^)]*)\\)"
-        "clsx\\(([^)]*)\\)"
-        "cva\\(([^)]*)\\)"
-      ];
+      tailwindCSS = {
+        classFunctions = [
+          "clsx"
+          "cn"
+          "cva"
+          "tw"
+          "tw\\.[a-z-]+"
+        ];
+        experimental.classRegex = [
+          [
+            "(?:cn|clsx|tw)\\(([^)]*)\\)"
+            "(?:'|\"|`)([^'\"`]*)(?:'|\"|`)"
+          ]
+          [
+            "class:\\s*['\"`]([^'\"`]*)"
+            "([^'\"`]*)"
+          ]
+          [
+            "cva\\(([^)]*)\\)"
+            "[\"'`]([^\"'`]*)\"|'|`"
+          ]
+          [
+            "(?:class|className)\\s*=\\s*['\"`]([^'\"`]*)"
+            "([^'\"`]*)"
+          ]
+        ];
+      };
     };
 
     #########################
