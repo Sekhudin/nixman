@@ -14,7 +14,7 @@
     ./noice.nix
     ./secrets.nix
     ./telescope.nix
-    ./toggleterm.nix
+    #    ./toggleterm.nix
     ./tools.nix
     ./treesitter.nix
     ./ui.nix

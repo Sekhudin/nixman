@@ -14,6 +14,7 @@ lib.mkIf autosave.enable {
       ];
       command = "silent update";
       pattern = [
+        "*.css"
         "*.go"
         "*.js"
         "*.jsx"

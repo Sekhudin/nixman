@@ -11,9 +11,9 @@ let
 in
 {
   home.packages = with pkgs; [
-    easyeffects
+    # easyeffects
     obs-studio
-    qpwgraph
+    # qpwgraph
   ];
 
   ####################################################################

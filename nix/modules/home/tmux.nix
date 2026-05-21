@@ -14,8 +14,7 @@ let
         layout = "tiled";
         shell_command_before = [ "cd ~/projects" ];
         panes = [
-          "nvim"
-          "echo happy working"
+          ""
         ];
       }
     ];
@@ -29,8 +28,7 @@ let
         layout = "tiled";
         shell_command_before = [ "cd ~/w1" ];
         panes = [
-          "nvim"
-          "echo happy working"
+          ""
         ];
       }
     ];
@@ -45,7 +43,7 @@ in
 
   programs.tmux.enable = true;
   programs.tmux.mouse = false;
-  programs.tmux.newSession = true;
+  programs.tmux.newSession = false;
   programs.tmux.reverseSplit = true;
   programs.tmux.customPaneNavigationAndResize = true;
   programs.tmux.prefix = "C-Space";
