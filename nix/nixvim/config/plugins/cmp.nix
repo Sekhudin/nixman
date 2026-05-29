@@ -100,7 +100,7 @@
       ];
     };
     mapping = {
-      "<C-Space>" = "cmp.mapping.complete()";
+      "<C-l>" = "cmp.mapping.complete()";
       "<C-e>" = "cmp.mapping.abort()";
       "<CR>" = "cmp.mapping.confirm({ select = false })";
       "<C-f>" = "cmp.mapping.scroll_docs(4)";

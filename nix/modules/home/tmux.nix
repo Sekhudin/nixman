@@ -6,7 +6,7 @@
 }:
 
 let
-  tmuxWorkspaces.me = {
+  workspaces.me = {
     session_name = "Me";
     windows = [
       {
@@ -20,7 +20,7 @@ let
     ];
   };
 
-  tmuxWorkspaces.work = {
+  workspaces.work = {
     session_name = "Work";
     windows = [
       {
@@ -33,12 +33,37 @@ let
       }
     ];
   };
+
+  workspaces.portfolio = {
+    session_name = "Portfolio";
+    windows = [
+      {
+        window_name = "Neovim";
+        layout = "tiled";
+        shell_command_before = [ "cd ~/projects/portfolio" ];
+        panes = [
+          "nvim ."
+        ];
+      }
+      {
+        window_name = "Terminal";
+        layout = "main-vertical";
+        shell_command_before = [ "cd ~/projects/portfolio" ];
+        panes = [
+          ""
+          "nix run self#root"
+          "npm run dev"
+        ];
+      }
+    ];
+  };
 in
 
 {
   home.shellAliases = {
-    tmw = "tmuxp load ${builtins.toFile "tmuxp-work.json" (builtins.toJSON tmuxWorkspaces.work)}";
-    tme = "tmuxp load ${builtins.toFile "tmuxp-me.json" (builtins.toJSON tmuxWorkspaces.me)}";
+    tmw = "tmuxp load ${builtins.toFile "tmuxp-work.json" (builtins.toJSON workspaces.work)}";
+    tme = "tmuxp load ${builtins.toFile "tmuxp-me.json" (builtins.toJSON workspaces.me)}";
+    tmp = "tmuxp load ${builtins.toFile "tmuxp-portfolio.json" (builtins.toJSON workspaces.portfolio)}";
   };
 
   programs.tmux.enable = true;
